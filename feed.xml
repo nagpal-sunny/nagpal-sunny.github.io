@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-21T15:45:33+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-06-21T10:43:10+05:30</published><updated>2023-06-21T10:43:10+05:30</updated><id>http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-22T11:05:49+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Saurav Nagpal Writings</title><subtitle>Hi, I am Saurav Nagpal. I have more than a decade of experience in mobile application development. Here you will find </subtitle><entry><title type="html">Flutter on Apple Silicon Mac: Cocoa-pods Issue</title><link href="http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter-on-Apple-Silicon-Mac.html" rel="alternate" type="text/html" title="Flutter on Apple Silicon Mac: Cocoa-pods Issue" /><published>2023-06-22T09:15:10+05:30</published><updated>2023-06-22T09:15:10+05:30</updated><id>http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter%20on%20Apple%20Silicon%20Mac</id><content type="html" xml:base="http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter-on-Apple-Silicon-Mac.html"><![CDATA[<h2 id="step-1">Step 1:</h2>
+<p>Flutter requires the rosette must be installed on your machine. 
+Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>softwareupdate <span class="nt">--install-rosetta</span> <span class="nt">--agree-to-license</span></code></pre></figure>
+
+<h2 id="step-2">Step 2:</h2>
+
+<p>Cocoa-pods require a terminal using UTF-8 encoding.  Sometimes only setting “LANG=en_US.UTF-8” not works. you need to perform the following steps:</p>
+
+<ol>
+  <li>Open Terminal</li>
+  <li></li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">nano ~/.zshrc <span class="o">(</span><span class="s2">"or nano ~/.profile if you don't use zsh"</span><span class="o">)</span></code></pre></figure>
+
+<ol>
+  <li>Apeen the following in the editor:</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">export </span><span class="nv">LANGUAGE</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">export </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8</code></pre></figure>
+
+<ol>
+  <li>Save the file and quit the terminal.</li>
+  <li>Open the file again and verify.</li>
+</ol>
+
+<p>Step 3 (Optional)</p>
+
+<p>if you still see an error related to “ffi” then reinstall the gem “ffi” in the system with the following command.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>gem uninstall ffi <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>gem <span class="nb">install </span>ffi <span class="nt">--</span> <span class="nt">--enable-libffi-alloc</span></code></pre></figure>]]></content><author><name></name></author><category term="CrossPlatform" /><summary type="html"><![CDATA[Step 1: Flutter requires the rosette must be installed on your machine. Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-06-21T10:43:10+05:30</published><updated>2023-06-21T10:43:10+05:30</updated><id>http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 
