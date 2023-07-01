@@ -1,4 +1,230 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-22T11:05:49+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Saurav Nagpal Writings</title><subtitle>Hi, I am Saurav Nagpal. I have more than a decade of experience in mobile application development. Here you will find </subtitle><entry><title type="html">Flutter on Apple Silicon Mac: Cocoa-pods Issue</title><link href="http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter-on-Apple-Silicon-Mac.html" rel="alternate" type="text/html" title="Flutter on Apple Silicon Mac: Cocoa-pods Issue" /><published>2023-06-22T09:15:10+05:30</published><updated>2023-06-22T09:15:10+05:30</updated><id>http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter%20on%20Apple%20Silicon%20Mac</id><content type="html" xml:base="http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter-on-Apple-Silicon-Mac.html"><![CDATA[<h2 id="step-1">Step 1:</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-01T22:53:47+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Saurav Nagpal Writings</title><subtitle>Hi, I am Saurav Nagpal. I have more than a decade of experience in mobile application development. Here you will find </subtitle><entry><title type="html">Design Pattern Series: Decorator Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" /><published>2023-06-24T20:00:10+05:30</published><updated>2023-06-24T20:00:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/24/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html"><![CDATA[<style type="text/css">
+  body{
+  font-family:Roboto;
+  font-size: 14pt;
+}
+</style>
+
+<h2 id="-overview"><img src="/Assest/common/overview.png" width="30" height="30" /> Overview</h2>
+
+<hr />
+<p><br /></p>
+<p style="text-align: center;"> Decorator Pattern - Decorate an object (wrapper of an object).
+<br />
+The decorator pattern is used to add new functionality to an existing object without changing its structure. A wrapper on the existing object is created to add new functionality.
+</p>
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<h2 id="-problem-statement"><img src="/Assest/common/problem.png" width="30" height="30" /> Problem Statement</h2>
+
+<p>One day I woke up and as per my daily routine attended the daily scrum parallelly checking the customer email.  As usual a new requirement (part of Agile :)) was asked by the customer to add one more analytic tool to the application. We already integrated Firebase analytic tool into the application. The reason mentioned by the customer to add a new analytic tool is that it provides good support with their BI Tool.</p>
+
+<p>Now I sit with the team and check the current implementation. The current structure has an analytics event controller class which accepts an event object and sends the same to the google analytics framework.</p>
+
+<p><br /></p>
+
+<p><img src="/Assest/designpattern/decorator/decoratorProblem.png" /></p>
+
+<p><br />
+One quick common approach all the team members have is to add support for Adobe Analytics in the Analytic controller, so when the developer sends analytics from any screen it will by default capture both frameworks (Firebase, Adobe Analytics).</p>
+
+<p><br /></p>
+
+<p><img src="/Assest/designpattern/decorator/decoratorProblemBruteForce.png" /></p>
+
+<p><br /></p>
+
+<p>With this approach, the Analytic Controller code will become bloated. If there is a new requirement to add a new type of analytics, then it will not be easy to accommodate in the controller.</p>
+
+<p>We brainstormed more on this to save ourselves and future team members and then the decorator came into the picture.</p>
+
+<h2 id="-implementation"><img src="/Assest/common/implementation.png" width="30" height="30" /> Implementation</h2>
+
+<p>The decorator pattern uses an interface/protocol(Swift) with the composition.</p>
+
+<p><br /></p>
+
+<p><img src="/Assest/designpattern/decorator/decoratorSolution.png" /></p>
+
+<p><br /></p>
+
+<h4 id="code-snippet">Code Snippet</h4>
+
+<p>An analytic event is a struct which will hold an analytic event and Analytic Delegate is protocol.</p>
+
+<pre><code class="language-Swift">struct AnalyticEvent {
+    let eventName: String
+    var eventDetail: [String: String]
+}
+
+
+protocol AnalyticDelegate {
+    func sendEvent(_ event: AnalyticEvent)
+}
+
+</code></pre>
+
+<pre><code class="language-Swift">
+//Firebase Analytics
+
+import Firebase
+
+class AnalyticController: AnalyticDelegate {
+    init() {
+        FirebaseApp.configure()
+    }
+    
+    func sendEvent(_ event: AnalyticEvent) {
+        Analytics.logEvent(event.eventName, parameters:event.eventDetail)
+    }
+}
+
+</code></pre>
+
+<pre><code class="language-Swift">
+//Class Implementation before Decorator
+class AddToCartController {
+    let analyticDelegate: AnalyticDelegate
+    
+    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
+        self.analyticDelegate = analyticDelegate
+    }
+    
+    func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {
+        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)
+        facade.doPayment(paymentInfo)
+    }
+}
+</code></pre>
+
+<pre><code class="language-Swift">
+//Decorator class implement the Adobe Analytics and delegate firebase event to existing controller.
+
+class AnalyticControllerDecorator: AnalyticDelegate {
+    let analyticDelegate: AnalyticDelegate
+    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
+        self.analyticDelegate = analyticDelegate
+    }
+    
+    func sendEvent(_ event: AnalyticEvent) {
+        MobileCore.track(action: event.eventName, data: event.eventDetail)
+        self.analyticDelegate.logEvent(event.eventName, parameters:event.eventDetail)
+    }
+}
+
+</code></pre>
+
+<pre><code class="language-Swift">
+//Class Implementation before Decorator
+
+class AddToCartController {
+    let analyticDelegate: AnalyticDelegate
+    
+    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
+        self.analyticDelegate = analyticDelegate
+    }
+    
+    func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {
+        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)
+        facade.doPayment(paymentInfo)
+    }
+}
+
+</code></pre>
+
+<pre><code class="language-Swift">
+//Uses with or without Decorator
+var controllerWithFirebaseAnalytic =  AddToCartController(AnalyticController())
+var controllerWithFirebaseAnalytic =  AddToCartController(AnalyticControllerDecorator())
+
+</code></pre>
+
+<p><br /></p>
+
+<h2 id="-applicability"><img src="/Assest/common/applicablity.png" width="30" height="30" /> Applicability</h2>
+<hr />
+<p><br /></p>
+
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">Use the decorator when you need to add additional behaviour to an existing object without impacting the current uses of the object.
+<br />
+<font size="3">
+The decorator object and main objects share a common interface so both can be used interchangeably. In this way, existing applications can use additional business requirements with minimal changes.
+</font>
+</div>
+</div>
+<p><br /></p>
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;"> Additional behaviour requires on the final class without changing anything on an existing object.
+<br />
+<font size="3">
+The decorator object and main objects share a common interface so both can be used interchangeably. In this way, existing applications can use additional business requirements with minimal changes.
+</font>
+</div>
+</div>
+<p><br /></p>
+
+<h2 id="-facts"><img src="/Assest/common/factIcon.png" width="30" height="30" /> Facts</h2>
+<hr />
+<p><br /></p>
+
+<h4 id="inheritance-vs-decorator"><strong>Inheritance vs Decorator</strong></h4>
+
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">The decorator can be used on different objects which share a common interface. However, inheritance only works for similar kinds of objects.
+</div>
+</div>
+
+<p><br /></p>
+
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">Classes with final behaviour. In those cases, inheritance is not possible. so we can use a decorator pattern to add additional behaviour.
+</div>
+</div>
+
+<p><br /></p>
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">Decorator is applicable to only a single object of a class. However, inheritance is applicable to the entire class.
+</div>
+</div>
+<p><br /></p>
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">Use inheritance when you need additional behaviour on non-public members of the class.
+</div>
+</div>
+
+<p><br /></p>
+<h4 id="adapter-vs-decorator"><strong>Adapter vs Decorator</strong></h4>
+<p><br /></p>
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">An adapter pattern also holds an object and provides a simplified interface (familiar Interface) to the outer world for that object.
+</div>
+</div>
+
+<p><br /></p>
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">Adapter Object does not provide an additional behaviour on the object.
+</div>
+</div>
+
+<p><br /></p>
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">In the case of the adapter, the client (who calls the method) does not aware of the object interface. It only knows the Adapter interface.
+</div>
+</div>]]></content><author><name></name></author><category term="Design" /><category term="Pattern" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Flutter on Apple Silicon Mac: Cocoa-pods Issue</title><link href="http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter-on-Apple-Silicon-Mac.html" rel="alternate" type="text/html" title="Flutter on Apple Silicon Mac: Cocoa-pods Issue" /><published>2023-06-22T09:15:10+05:30</published><updated>2023-06-22T09:15:10+05:30</updated><id>http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter%20on%20Apple%20Silicon%20Mac</id><content type="html" xml:base="http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter-on-Apple-Silicon-Mac.html"><![CDATA[<h2 id="step-1">Step 1:</h2>
 <p>Flutter requires the rosette must be installed on your machine. 
 Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.</p>
 
@@ -32,11 +258,18 @@ Rosetta is a translation library which allows users to run apps that contain X86
 
 <p>if you still see an error related to “ffi” then reinstall the gem “ffi” in the system with the following command.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>gem uninstall ffi <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>gem <span class="nb">install </span>ffi <span class="nt">--</span> <span class="nt">--enable-libffi-alloc</span></code></pre></figure>]]></content><author><name></name></author><category term="CrossPlatform" /><summary type="html"><![CDATA[Step 1: Flutter requires the rosette must be installed on your machine. Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-06-21T10:43:10+05:30</published><updated>2023-06-21T10:43:10+05:30</updated><id>http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/06/21/decoratorpattern.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>gem uninstall ffi <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>gem <span class="nb">install </span>ffi <span class="nt">--</span> <span class="nt">--enable-libffi-alloc</span></code></pre></figure>]]></content><author><name></name></author><category term="CrossPlatform" /><summary type="html"><![CDATA[Step 1: Flutter requires the rosette must be installed on your machine. Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.]]></summary></entry><entry><title type="html">Design Pattern Series: Facade Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/21/Facadepattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Facade Pattern (Structure Pattern)" /><published>2023-06-21T17:53:10+05:30</published><updated>2023-06-21T17:53:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/21/Facadepattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/21/Facadepattern.html"><![CDATA[<h2 id="overview">Overview</h2>
 
-<p>Jekyll requires blog post files to be named according to the following format:</p>
+<blockquote>
+  <p>Facade - Face of a building.
+A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the framework.</p>
+</blockquote>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+<h2 id="problem-statement">Problem Statement</h2>
+
+<p>Suppose you are working on an e-commerce application. You have to support multiple payment options like UPI, Credit card, Debit Card, Wallet etc. You have chosen a third-party payment gateway which provides support for all types of payments. The payment gateway has an initiation setup (API key, session) and multiple objects for payment methods.</p>
+
+<p>If you write all the logic in your application class then your class object require to manage all the payment objects and track the life cycle of those objects. In this way, your code will be tightly dependent upon third-party payment SDK.</p>
 
 <p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
 
@@ -48,7 +281,7 @@ Rosetta is a translation library which allows users to run apps that contain X86
 <span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
 <span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">Swift ?? (Nil Coalescing) Do’s and Don’t</title><link href="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html" rel="alternate" type="text/html" title="Swift ?? (Nil Coalescing) Do’s and Don’t" /><published>2023-06-21T02:24:10+05:30</published><updated>2023-06-21T02:24:10+05:30</updated><id>http://localhost:4000/swift/2023/06/21/Swift??%20(Nil%20Coalescing)%20Do's%20and%20Don't</id><content type="html" xml:base="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html"><![CDATA[<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not.</p>
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="Design" /><category term="Pattern" /><summary type="html"><![CDATA[Overview]]></summary></entry><entry><title type="html">Swift ?? (Nil Coalescing) Do’s and Don’t</title><link href="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html" rel="alternate" type="text/html" title="Swift ?? (Nil Coalescing) Do’s and Don’t" /><published>2023-06-21T02:24:10+05:30</published><updated>2023-06-21T02:24:10+05:30</updated><id>http://localhost:4000/swift/2023/06/21/Swift??%20(Nil%20Coalescing)%20Do's%20and%20Don't</id><content type="html" xml:base="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html"><![CDATA[<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 
