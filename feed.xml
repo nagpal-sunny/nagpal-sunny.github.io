@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-01T22:53:47+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Saurav Nagpal Writings</title><subtitle>Hi, I am Saurav Nagpal. I have more than a decade of experience in mobile application development. Here you will find </subtitle><entry><title type="html">Design Pattern Series: Decorator Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" /><published>2023-06-24T20:00:10+05:30</published><updated>2023-06-24T20:00:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/24/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html"><![CDATA[<style type="text/css">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-02T14:31:05+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Saurav Nagpal Writings</title><subtitle>Hi, I am Saurav Nagpal. I have more than a decade of experience in mobile application development. Here you will find </subtitle><entry><title type="html">Design Pattern Series: Decorator Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" /><published>2023-06-24T20:00:10+05:30</published><updated>2023-06-24T20:00:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/24/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html"><![CDATA[<style type="text/css">
   body{
   font-family:Roboto;
   font-size: 14pt;
@@ -52,96 +52,80 @@ One quick common approach all the team members have is to add support for Adobe 
 
 <p><br /></p>
 
-<h4 id="code-snippet">Code Snippet</h4>
+<h4 id="code-snippet"><strong><em>Code Snippet</em></strong></h4>
 
 <p>An analytic event is a struct which will hold an analytic event and Analytic Delegate is protocol.</p>
 
-<pre><code class="language-Swift">struct AnalyticEvent {
-    let eventName: String
-    var eventDetail: [String: String]
-}
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="kt">AnalyticEvent</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">eventName</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">var</span> <span class="nv">eventDetail</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span>
+<span class="p">}</span>
 
 
-protocol AnalyticDelegate {
-    func sendEvent(_ event: AnalyticEvent)
-}
+<span class="kd">protocol</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Firebase Analytics</span>
 
-<pre><code class="language-Swift">
-//Firebase Analytics
+<span class="kd">import</span> <span class="kt">Firebase</span>
 
-import Firebase
-
-class AnalyticController: AnalyticDelegate {
-    init() {
-        FirebaseApp.configure()
-    }
+<span class="kd">class</span> <span class="kt">AnalyticController</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
+    <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">FirebaseApp</span><span class="o">.</span><span class="nf">configure</span><span class="p">()</span>
+    <span class="p">}</span>
     
-    func sendEvent(_ event: AnalyticEvent) {
-        Analytics.logEvent(event.eventName, parameters:event.eventDetail)
-    }
-}
+    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">Analytics</span><span class="o">.</span><span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span><span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre>
-
-<pre><code class="language-Swift">
-//Class Implementation before Decorator
-class AddToCartController {
-    let analyticDelegate: AnalyticDelegate
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Class Implementation before Decorator</span>
+<span class="kd">class</span> <span class="kt">AddToCartController</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
     
-    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
-        self.analyticDelegate = analyticDelegate
-    }
+    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
+    <span class="p">}</span>
     
-    func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {
-        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)
-        facade.doPayment(paymentInfo)
-    }
-}
-</code></pre>
+    <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="k">for</span> <span class="nv">product</span><span class="p">:</span> <span class="kt">Product</span><span class="p">,</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">paymentInfo</span> <span class="o">=</span> <span class="kt">PaymentInfo</span><span class="p">(</span><span class="nv">skuID</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">skuID</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span>
+        <span class="n">facade</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<pre><code class="language-Swift">
-//Decorator class implement the Adobe Analytics and delegate firebase event to existing controller.
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Decorator class implement the Adobe Analytics and delegate firebase event to the existing controller.</span>
 
-class AnalyticControllerDecorator: AnalyticDelegate {
-    let analyticDelegate: AnalyticDelegate
-    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
-        self.analyticDelegate = analyticDelegate
-    }
+<span class="kd">class</span> <span class="kt">AnalyticControllerDecorator</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
+    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
+    <span class="p">}</span>
     
-    func sendEvent(_ event: AnalyticEvent) {
-        MobileCore.track(action: event.eventName, data: event.eventDetail)
-        self.analyticDelegate.logEvent(event.eventName, parameters:event.eventDetail)
-    }
-}
+    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">MobileCore</span><span class="o">.</span><span class="nf">track</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span><span class="o">.</span><span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span><span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Class Implementation before Decorator</span>
 
-<pre><code class="language-Swift">
-//Class Implementation before Decorator
-
-class AddToCartController {
-    let analyticDelegate: AnalyticDelegate
+<span class="kd">class</span> <span class="kt">AddToCartController</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
     
-    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
-        self.analyticDelegate = analyticDelegate
-    }
+    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
+    <span class="p">}</span>
     
-    func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {
-        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)
-        facade.doPayment(paymentInfo)
-    }
-}
+    <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="k">for</span> <span class="nv">product</span><span class="p">:</span> <span class="kt">Product</span><span class="p">,</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">paymentInfo</span> <span class="o">=</span> <span class="kt">PaymentInfo</span><span class="p">(</span><span class="nv">skuID</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">skuID</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span>
+        <span class="n">facade</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre>
-
-<pre><code class="language-Swift">
-//Uses with or without Decorator
-var controllerWithFirebaseAnalytic =  AddToCartController(AnalyticController())
-var controllerWithFirebaseAnalytic =  AddToCartController(AnalyticControllerDecorator())
-
-</code></pre>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Uses with or without Decorator</span>
+<span class="k">var</span> <span class="nv">controllerWithFirebaseAnalytic</span> <span class="o">=</span>  <span class="kt">AddToCartController</span><span class="p">(</span><span class="kt">AnalyticController</span><span class="p">())</span>
+<span class="k">var</span> <span class="nv">controllerWithFirebaseAnalytic</span> <span class="o">=</span>  <span class="kt">AddToCartController</span><span class="p">(</span><span class="kt">AnalyticControllerDecorator</span><span class="p">())</span></code></pre></figure>
 
 <p><br /></p>
 
@@ -159,6 +143,7 @@ The decorator object and main objects share a common interface so both can be us
 </div>
 </div>
 <p><br /></p>
+
 <div class="row" style="height:auto;">
   <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
   <div class="column" style="margin-left:50px;"> Additional behaviour requires on the final class without changing anything on an existing object.
@@ -258,30 +243,161 @@ Rosetta is a translation library which allows users to run apps that contain X86
 
 <p>if you still see an error related to “ffi” then reinstall the gem “ffi” in the system with the following command.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>gem uninstall ffi <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>gem <span class="nb">install </span>ffi <span class="nt">--</span> <span class="nt">--enable-libffi-alloc</span></code></pre></figure>]]></content><author><name></name></author><category term="CrossPlatform" /><summary type="html"><![CDATA[Step 1: Flutter requires the rosette must be installed on your machine. Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.]]></summary></entry><entry><title type="html">Design Pattern Series: Facade Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/21/Facadepattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Facade Pattern (Structure Pattern)" /><published>2023-06-21T17:53:10+05:30</published><updated>2023-06-21T17:53:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/21/Facadepattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/21/Facadepattern.html"><![CDATA[<h2 id="overview">Overview</h2>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>gem uninstall ffi <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>gem <span class="nb">install </span>ffi <span class="nt">--</span> <span class="nt">--enable-libffi-alloc</span></code></pre></figure>]]></content><author><name></name></author><category term="CrossPlatform" /><summary type="html"><![CDATA[Step 1: Flutter requires the rosette must be installed on your machine. Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.]]></summary></entry><entry><title type="html">Design Pattern Series: Facade Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/21/Facadepattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Facade Pattern (Structure Pattern)" /><published>2023-06-21T17:53:10+05:30</published><updated>2023-06-21T17:53:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/21/Facadepattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/21/Facadepattern.html"><![CDATA[<style type="text/css">
+  body{
+  font-family:Roboto;
+  font-size: 14pt;
+}
+</style>
 
-<blockquote>
-  <p>Facade - Face of a building.
-A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the framework.</p>
-</blockquote>
+<h2 id="-overview"><img src="/Assest/common/overview.png" width="30" height="30" /> Overview</h2>
 
-<h2 id="problem-statement">Problem Statement</h2>
+<hr />
+<p><br /></p>
+<p style="text-align: center;"> Facade - Face of a building.
+<br />
+A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the framework.
+</p>
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<h2 id="-problem-statement"><img src="/Assest/common/problem.png" width="30" height="30" /> Problem Statement</h2>
 
 <p>Suppose you are working on an e-commerce application. You have to support multiple payment options like UPI, Credit card, Debit Card, Wallet etc. You have chosen a third-party payment gateway which provides support for all types of payments. The payment gateway has an initiation setup (API key, session) and multiple objects for payment methods.</p>
 
-<p>If you write all the logic in your application class then your class object require to manage all the payment objects and track the life cycle of those objects. In this way, your code will be tightly dependent upon third-party payment SDK.</p>
+<p>If you write all the logic in your application class then your class object require to manage all the payment objects and track the life cycle of those objects. In this way, your code will be tightly depend upon third-party payment SDK.</p>
 
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<center>
+<img src="/Assest/designpattern/facade/facadeProblem.png" width="70%" height="70%" />
+</center>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p>To make things simple we can use here Facade Design Pattern.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<h2 id="-implementation"><img src="/Assest/common/implementation.png" width="30" height="30" /> Implementation</h2>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="Design" /><category term="Pattern" /><summary type="html"><![CDATA[Overview]]></summary></entry><entry><title type="html">Swift ?? (Nil Coalescing) Do’s and Don’t</title><link href="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html" rel="alternate" type="text/html" title="Swift ?? (Nil Coalescing) Do’s and Don’t" /><published>2023-06-21T02:24:10+05:30</published><updated>2023-06-21T02:24:10+05:30</updated><id>http://localhost:4000/swift/2023/06/21/Swift??%20(Nil%20Coalescing)%20Do's%20and%20Don't</id><content type="html" xml:base="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html"><![CDATA[<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not.</p>
+<p>In the Facade pattern, a class is created to provide a simple interface for a complex system.</p>
+
+<p><br /></p>
+<center>
+<img src="/Assest/designpattern/facade/facadeSolution.png" width="70%" height="70%" />
+</center>
+<p><br /></p>
+
+<h4 id="code-snippet"><strong><em>Code Snippet</em></strong></h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Enum to identify payment type.</span>
+<span class="kd">enum</span> <span class="kt">SupportedPaymentFacade</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">wallet</span>
+    <span class="k">case</span> <span class="n">upi</span>
+    <span class="k">case</span> <span class="n">card</span>
+<span class="p">}</span>
+
+<span class="c1">//Payment Information.</span>
+<span class="kd">struct</span> <span class="kt">PaymentInfo</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">skuID</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">let</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span>
+    <span class="k">let</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// sample class which represent the complex third party framework</span>
+<span class="kd">class</span> <span class="kt">PaymentSDKUmbrella</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">walletSDK</span><span class="p">:</span> <span class="kt">PSWallet</span>
+    <span class="k">let</span> <span class="nv">upiSDK</span><span class="p">:</span> <span class="kt">PSUPI</span>
+    <span class="k">let</span> <span class="nv">cardSDK</span><span class="p">:</span> <span class="kt">PSCard</span>
+<span class="p">}</span>
+
+<span class="c1">// Facade class application interact with this object. Application will not aware about PaymentSDKUmbrella.</span>
+<span class="kd">class</span> <span class="kt">PaymentFacade</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">paymentSDKUmbrella</span><span class="p">:</span> <span class="kt">PaymentSDKUmbrella</span><span class="p">?</span>
+    <span class="kd">func</span> <span class="nf">doPayment</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentInfo</span><span class="p">:</span> <span class="kt">PaymentInfo</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">paymentInfo</span><span class="o">.</span><span class="n">method</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">card</span><span class="p">:</span>
+            <span class="n">cardSDK</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">upi</span><span class="p">:</span>
+            <span class="n">upi</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">wallet</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">walletSDK</span><span class="o">.</span><span class="nf">hasSufficientAmount</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">walletSDK</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nf">print</span><span class="p">(</span><span class="s">"Insufficient balance"</span><span class="p">)</span>
+                <span class="n">walletSDK</span><span class="o">.</span><span class="nf">addPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Application uses of facade class</span>
+<span class="kd">class</span> <span class="kt">AppPaymentController</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">facade</span> <span class="o">=</span> <span class="kt">PaymentFacade</span><span class="p">()</span>
+    
+    <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="k">for</span> <span class="nv">product</span><span class="p">:</span> <span class="kt">Product</span><span class="p">,</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">paymentInfo</span> <span class="o">=</span> <span class="kt">PaymentInfo</span><span class="p">(</span><span class="nv">skuID</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">skuID</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span>
+        <span class="n">facade</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="-applicability"><img src="/Assest/common/applicablity.png" width="30" height="30" /> Applicability</h2>
+<hr />
+<p><br /></p>
+<h4 id="complex-library"><strong>Complex Library</strong></h4>
+
+<p>Integrating a library which has multiple subsystems can be done through the facade pattern. Also, if the library is used at multiple places then to avoid the redundant code of init and setup the library facade can be used.  In the above example, payment SDK has multiple sub-systems like wallet, net banking and Card payment. So you can create a facade class in a way that your application has minimal knowledge of all the dependencies of the payment SDK.</p>
+
+<p><br /></p>
+<h4 id="small-interfaces"><strong>Small Interfaces</strong></h4>
+
+<p>Use a facade pattern when you want to use limited functionality from a complex library.  In the case of payment SDK, if you want to use only wallet and card payment in your application then you can create a facade class to support only those features.</p>
+
+<h2 id="-facts"><img src="/Assest/common/factIcon.png" width="30" height="30" /> Facts</h2>
+<hr />
+<p><br /></p>
+<h4 id="adapter-vs-facade-pattern"><strong>Adapter vs Facade Pattern</strong></h4>
+
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">The facade provides a new interface to interact with a complex framework. However, the adapter fits the new object in the existing interface.
+</div>
+</div>
+
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">An adapter or wrapper pattern is usually for a single object. However, Facade also interacts with multiple objects.
+</div>
+</div>
+
+<p><br /></p>
+<h4 id="mediator-vs-facade-pattern"><strong>Mediator vs Facade Pattern</strong></h4>
+
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">The mediator class is used for providing the interaction between sub-components. However, the facade class is used for providing access (simple interface) to sub-components of a large component.
+</div>
+</div>
+
+<div class="row" style="height:auto;">
+  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
+  <div class="column" style="margin-left:50px;">In the case of the mediator, sub-components are aware of the mediator class but the facade class is only visible to the application using sub-components.
+</div>
+</div>
+<p><br /></p>
+
+<h2 id="-advantages"><img src="/Assest/common/advantage.png" width="30" height="30" /> Advantages</h2>
+<hr />
+<p><br />
+You must have been feeling now that the use of the facade pattern is just that the responsibility of interaction to complex system is shifted to facade class. 
+<br /></p>
+
+<h4 id="decoupling"><strong>Decoupling</strong></h4>
+<p>It is always considered good practice that your application code should not directly depend upon the third-party library interface. Facade patterns provide a simple interface to a complex framework, in a way you also achieve decoupling here.  Like in the above case your application code depends upon the Facade class, so if in the future library code changes then only the Facade class will be impacted.</p>
+
+<h4 id="reusability"><strong>Reusability</strong></h4>
+<p>In some use cases, the same library needs to be used from multiple places. Like in the above case payment can be done from multiple screens, so instead of the user accessing the library code at each screen the facade class can be used which also reduces the library setup/init burden at every place.</p>
+
+<h4 id="readability"><strong>Readability</strong></h4>
+<p>Most of the time library/framework code is legacy code. Coding convention changes from time to time and the library interface might not fit your current coding convention, So the facade can be used to make code consistent in your application.</p>]]></content><author><name></name></author><category term="Design" /><category term="Pattern" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Swift ?? (Nil Coalescing) Do’s and Don’t</title><link href="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html" rel="alternate" type="text/html" title="Swift ?? (Nil Coalescing) Do’s and Don’t" /><published>2023-06-21T02:24:10+05:30</published><updated>2023-06-21T02:24:10+05:30</updated><id>http://localhost:4000/swift/2023/06/21/Swift??%20(Nil%20Coalescing)%20Do's%20and%20Don't</id><content type="html" xml:base="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html"><![CDATA[<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 

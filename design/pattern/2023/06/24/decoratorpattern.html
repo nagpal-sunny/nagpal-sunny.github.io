@@ -101,96 +101,80 @@ One quick common approach all the team members have is to add support for Adobe 
 
 <p><br /></p>
 
-<h4 id="code-snippet">Code Snippet</h4>
+<h4 id="code-snippet"><strong><em>Code Snippet</em></strong></h4>
 
 <p>An analytic event is a struct which will hold an analytic event and Analytic Delegate is protocol.</p>
 
-<pre><code class="language-Swift">struct AnalyticEvent {
-    let eventName: String
-    var eventDetail: [String: String]
-}
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="kt">AnalyticEvent</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">eventName</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">var</span> <span class="nv">eventDetail</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span>
+<span class="p">}</span>
 
 
-protocol AnalyticDelegate {
-    func sendEvent(_ event: AnalyticEvent)
-}
+<span class="kd">protocol</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Firebase Analytics</span>
 
-<pre><code class="language-Swift">
-//Firebase Analytics
+<span class="kd">import</span> <span class="kt">Firebase</span>
 
-import Firebase
-
-class AnalyticController: AnalyticDelegate {
-    init() {
-        FirebaseApp.configure()
-    }
+<span class="kd">class</span> <span class="kt">AnalyticController</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
+    <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">FirebaseApp</span><span class="o">.</span><span class="nf">configure</span><span class="p">()</span>
+    <span class="p">}</span>
     
-    func sendEvent(_ event: AnalyticEvent) {
-        Analytics.logEvent(event.eventName, parameters:event.eventDetail)
-    }
-}
+    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">Analytics</span><span class="o">.</span><span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span><span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre>
-
-<pre><code class="language-Swift">
-//Class Implementation before Decorator
-class AddToCartController {
-    let analyticDelegate: AnalyticDelegate
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Class Implementation before Decorator</span>
+<span class="kd">class</span> <span class="kt">AddToCartController</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
     
-    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
-        self.analyticDelegate = analyticDelegate
-    }
+    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
+    <span class="p">}</span>
     
-    func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {
-        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)
-        facade.doPayment(paymentInfo)
-    }
-}
-</code></pre>
+    <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="k">for</span> <span class="nv">product</span><span class="p">:</span> <span class="kt">Product</span><span class="p">,</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">paymentInfo</span> <span class="o">=</span> <span class="kt">PaymentInfo</span><span class="p">(</span><span class="nv">skuID</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">skuID</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span>
+        <span class="n">facade</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<pre><code class="language-Swift">
-//Decorator class implement the Adobe Analytics and delegate firebase event to existing controller.
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Decorator class implement the Adobe Analytics and delegate firebase event to the existing controller.</span>
 
-class AnalyticControllerDecorator: AnalyticDelegate {
-    let analyticDelegate: AnalyticDelegate
-    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
-        self.analyticDelegate = analyticDelegate
-    }
+<span class="kd">class</span> <span class="kt">AnalyticControllerDecorator</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
+    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
+    <span class="p">}</span>
     
-    func sendEvent(_ event: AnalyticEvent) {
-        MobileCore.track(action: event.eventName, data: event.eventDetail)
-        self.analyticDelegate.logEvent(event.eventName, parameters:event.eventDetail)
-    }
-}
+    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">MobileCore</span><span class="o">.</span><span class="nf">track</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span><span class="o">.</span><span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span><span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Class Implementation before Decorator</span>
 
-<pre><code class="language-Swift">
-//Class Implementation before Decorator
-
-class AddToCartController {
-    let analyticDelegate: AnalyticDelegate
+<span class="kd">class</span> <span class="kt">AddToCartController</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
     
-    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {
-        self.analyticDelegate = analyticDelegate
-    }
+    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
+    <span class="p">}</span>
     
-    func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {
-        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)
-        facade.doPayment(paymentInfo)
-    }
-}
+    <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="k">for</span> <span class="nv">product</span><span class="p">:</span> <span class="kt">Product</span><span class="p">,</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">paymentInfo</span> <span class="o">=</span> <span class="kt">PaymentInfo</span><span class="p">(</span><span class="nv">skuID</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">skuID</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span>
+        <span class="n">facade</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre>
-
-<pre><code class="language-Swift">
-//Uses with or without Decorator
-var controllerWithFirebaseAnalytic =  AddToCartController(AnalyticController())
-var controllerWithFirebaseAnalytic =  AddToCartController(AnalyticControllerDecorator())
-
-</code></pre>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Uses with or without Decorator</span>
+<span class="k">var</span> <span class="nv">controllerWithFirebaseAnalytic</span> <span class="o">=</span>  <span class="kt">AddToCartController</span><span class="p">(</span><span class="kt">AnalyticController</span><span class="p">())</span>
+<span class="k">var</span> <span class="nv">controllerWithFirebaseAnalytic</span> <span class="o">=</span>  <span class="kt">AddToCartController</span><span class="p">(</span><span class="kt">AnalyticControllerDecorator</span><span class="p">())</span></code></pre></figure>
 
 <p><br /></p>
 
@@ -208,6 +192,7 @@ The decorator object and main objects share a common interface so both can be us
 </div>
 </div>
 <p><br /></p>
+
 <div class="row" style="height:auto;">
   <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
   <div class="column" style="margin-left:50px;"> Additional behaviour requires on the final class without changing anything on an existing object.
