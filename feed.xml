@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-02T14:31:05+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Saurav Nagpal Writings</title><subtitle>Hi, I am Saurav Nagpal. I have more than a decade of experience in mobile application development. Here you will find </subtitle><entry><title type="html">Design Pattern Series: Decorator Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" /><published>2023-06-24T20:00:10+05:30</published><updated>2023-06-24T20:00:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/24/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html"><![CDATA[<style type="text/css">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-03T13:45:25+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Saurav Nagpal Writings</title><subtitle>Hi, I am Saurav Nagpal. I have more than a decade of experience in mobile application development. Here you will find </subtitle><entry><title type="html">Distribute iOS Beta Build (Scheme &amp;amp; Configurations)</title><link href="http://localhost:4000/ios,/ios/beta/build/2023/07/02/iOS-Custom-Build-Scheme.html" rel="alternate" type="text/html" title="Distribute iOS Beta Build (Scheme &amp;amp; Configurations)" /><published>2023-07-02T17:01:10+05:30</published><updated>2023-07-02T17:01:10+05:30</updated><id>http://localhost:4000/ios,/ios/beta/build/2023/07/02/iOS%20Custom%20Build%20Scheme</id><content type="html" xml:base="http://localhost:4000/ios,/ios/beta/build/2023/07/02/iOS-Custom-Build-Scheme.html"><![CDATA[<style type="text/css">
+  body{
+  font-family:Roboto;
+  font-size: 14pt;
+}
+</style>
+
+<h2 id="-overview"><img src="/Assest/common/overview.png" width="30" height="30" /> Overview</h2>
+
+<p>It is a good practice to have multiple build configurations during the development phase of the application. Customers can ask for both debug and release configuration builds. Beta and Alpha testing is an important phase of the application life cycle. Beta and Alpha builds might have a different configuration from the release build. This blog explains one of the ways to handle this through an XCode scheme.</p>
+
+<h2 id="-problem-statement"><img src="/Assest/common/problem.png" width="30" height="30" /> Problem Statement</h2>
+
+<p>Suppose you are working on an e-commerce application shoptime. In the development phase, multiple backend environments need to support (Dev, QA, UAT, Release). To differentiate between the application build (Development, QA, Beta builds etc) separate application icons are provided by the customer. These builds also have a unique bundle-id. The launch screens are also different for each build so that users can easily identify the build. Configuration can support multiple features however for this blog we will focus on the following:</p>
+
+<ul>
+  <li>Bundle Identifier</li>
+  <li>App Icon</li>
+  <li>Launch Screen</li>
+  <li>Backend URL</li>
+</ul>
+
+<h2 id="-implementation"><img src="/Assest/common/implementation.png" width="30" height="30" /> Implementation</h2>
+
+<p>XCode support multiple configurations in a single target. By default, XCode provides debug and release configuration. Let’s start step by step the process:</p>
+
+<h3 id="step-1-add-a-new-configuration-beta-configuration">Step 1 Add a new configuration (Beta configuration)</h3>
+
+<p>Navigate to the project setting
+<br />
+<img src="/Assest/iOS/betaconfig/betaConfigStart.png" /></p>
+
+<p><br />
+Tap on the “+” button in the configuration section and duplicate the debug configuration(you can choose duplicate of release based on requirement).</p>
+
+<p><br />
+<img src="/Assest/iOS/betaconfig/duplicateDebugConfig.png" /></p>
+
+<p><br />
+Enter the name of the configuration (BetaDebug). 
+<br />
+<img src="/Assest/iOS/betaconfig/nameBetaDebug.png" /></p>
+
+<h3 id="step-2-change-product-bundleid-for-betadebug">Step 2 Change product bundleid for BetaDebug</h3>
+
+<p>Move to Target-&gt; Build Setting-&gt; Search(Product Bundle Identifier)</p>
+
+<p><img src="/Assest/iOS/betaconfig/productBundleIdentifier.png" /></p>
+
+<p><br />
+Set the bundle identifier as per your requirement.</p>
+
+<p><img src="/Assest/iOS/betaconfig/renameProductBundleId.png" /></p>
+
+<h3 id="step-2-set-separate-application-icon-for-betadebug">Step 2 Set separate application icon for BetaDebug</h3>
+
+<p>Add a new AppIcon asset in Assets with a specific name(AppIconBeta).
+<br />
+<img src="/Assest/iOS/betaconfig/betaAppIcon.png" /></p>
+
+<p><br />
+Add AppIconBeta in the BetaDebug configuration.
+<img src="/Assest/iOS/betaconfig/configBetaDebug.png" /></p>
+
+<p><br />
+Finally!, a separate application icon is set for BetaDebug.
+<img src="/Assest/iOS/betaconfig/appIconBetaConfigured.png" /></p>]]></content><author><name></name></author><category term="iOS," /><category term="iOS" /><category term="Beta" /><category term="Build" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Design Pattern Series: Decorator Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" /><published>2023-06-24T20:00:10+05:30</published><updated>2023-06-24T20:00:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/24/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html"><![CDATA[<style type="text/css">
   body{
   font-family:Roboto;
   font-size: 14pt;
