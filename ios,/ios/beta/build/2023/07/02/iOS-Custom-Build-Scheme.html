@@ -56,11 +56,13 @@
 
 <h2 id="-overview"><img src="/Assest/common/overview.png" width="30" height="30" /> Overview</h2>
 
-<p>It is a good practice to have multiple build configurations during the development phase of the application. Customers can ask for both debug and release configuration builds. Beta and Alpha testing is an important phase of the application life cycle. Beta and Alpha builds might have a different configuration from the release build. This blog explains one of the ways to handle this through an XCode scheme.</p>
+<p>It is a good practice to have multiple build configurations during the application’s development phase. Customers can ask for both debug and release configuration builds. Beta and Alpha testing is an important phase of the application life cycle. Beta and Alpha builds might have a different configurations from the release build. This blog explains one of the ways to handle this through an XCode scheme.</p>
+
+<p><br /></p>
 
 <h2 id="-problem-statement"><img src="/Assest/common/problem.png" width="30" height="30" /> Problem Statement</h2>
 
-<p>Suppose you are working on an e-commerce application shoptime. In the development phase, multiple backend environments need to support (Dev, QA, UAT, Release). To differentiate between the application build (Development, QA, Beta builds etc) separate application icons are provided by the customer. These builds also have a unique bundle-id. The launch screens are also different for each build so that users can easily identify the build. Configuration can support multiple features however for this blog we will focus on the following:</p>
+<p>Suppose you are working on an e-commerce application <code class="language-plaintext highlighter-rouge">ShopTime</code>. In the development phase, multiple backend environments need to support (Dev, QA, UAT, Release). To differentiate between the application build (Development, QA, Beta builds etc) separate application icons are provided by the customer. These builds also have a unique bundle-id. The launch screens should also be different for each build so that users can easily identify the build. Configuration can support multiple features however for this blog we will focus on the following:</p>
 
 <ul>
   <li>Bundle Identifier</li>
@@ -69,51 +71,93 @@
   <li>Backend URL</li>
 </ul>
 
+<p><br /></p>
 <h2 id="-implementation"><img src="/Assest/common/implementation.png" width="30" height="30" /> Implementation</h2>
 
 <p>XCode support multiple configurations in a single target. By default, XCode provides debug and release configuration. Let’s start step by step the process:</p>
 
 <h3 id="step-1-add-a-new-configuration-beta-configuration">Step 1 Add a new configuration (Beta configuration)</h3>
 
-<p>Navigate to the project setting
-<br />
+<h4 id="i-navigate-to-the-project-setting">i) Navigate to the project setting</h4>
+<p><br />
 <img src="/Assest/iOS/betaconfig/betaConfigStart.png" /></p>
 
-<p><br />
-Tap on the “+” button in the configuration section and duplicate the debug configuration(you can choose duplicate of release based on requirement).</p>
+<p><br /></p>
+<h4 id="ii-tap-on-the--button-in-the-configuration-section-and-duplicate-the-debug-configurationyou-can-choose-duplicate-of-release-based-on-requirement">ii) Tap on the “+” button in the configuration section and duplicate the debug configuration(you can choose duplicate of release based on requirement).</h4>
 
 <p><br />
 <img src="/Assest/iOS/betaconfig/duplicateDebugConfig.png" /></p>
 
+<p><br /></p>
+<h4 id="iii-enter-the-name-of-the-configuration-betadebug">iii) Enter the name of the configuration (BetaDebug).</h4>
 <p><br />
-Enter the name of the configuration (BetaDebug). 
-<br />
 <img src="/Assest/iOS/betaconfig/nameBetaDebug.png" /></p>
 
+<p><br /></p>
 <h3 id="step-2-change-product-bundleid-for-betadebug">Step 2 Change product bundleid for BetaDebug</h3>
 
-<p>Move to Target-&gt; Build Setting-&gt; Search(Product Bundle Identifier)</p>
+<h4 id="i-move-to-target--build-setting--searchproduct-bundle-identifier">i) Move to Target-&gt; Build Setting-&gt; Search(Product Bundle Identifier)</h4>
 
 <p><img src="/Assest/iOS/betaconfig/productBundleIdentifier.png" /></p>
 
-<p><br />
-Set the bundle identifier as per your requirement.</p>
+<p><br /></p>
+<h4 id="ii-set-the-bundle-identifier-as-per-your-requirement">ii) Set the bundle identifier as per your requirement.</h4>
 
 <p><img src="/Assest/iOS/betaconfig/renameProductBundleId.png" /></p>
 
-<h3 id="step-2-set-separate-application-icon-for-betadebug">Step 2 Set separate application icon for BetaDebug</h3>
+<p><br /></p>
+<h3 id="step-3-set-separate-application-icon-for-betadebug">Step 3 Set separate application icon for BetaDebug</h3>
 
-<p>Add a new AppIcon asset in Assets with a specific name(AppIconBeta).
-<br />
+<h4 id="i-add-a-new-appicon-asset-in-assets-with-a-specific-nameappiconbeta">i) Add a new AppIcon asset in Assets with a specific name(AppIconBeta).</h4>
+<p><br />
 <img src="/Assest/iOS/betaconfig/betaAppIcon.png" /></p>
 
-<p><br />
-Add AppIconBeta in the BetaDebug configuration.
-<img src="/Assest/iOS/betaconfig/configBetaDebug.png" /></p>
+<p><br /></p>
+<h4 id="ii-add-appiconbeta-in-the-betadebug-configuration">ii) Add AppIconBeta in the BetaDebug configuration.</h4>
+<p><img src="/Assest/iOS/betaconfig/configBetaDebug.png" /></p>
 
+<p><br /></p>
+<h4 id="iii-finally-a-separate-application-icon-is-set-for-betadebug">iii) Finally!, a separate application icon is set for BetaDebug.</h4>
+<p><img src="/Assest/iOS/betaconfig/appIconBetaConfigured.png" /></p>
+
+<p><br /></p>
+<h3 id="step-4-set-separate-launch-screen-for-betadebug">Step 4 Set separate Launch screen for BetaDebug</h3>
+<p><br /></p>
+
+<h4 id="i-add-a-new-launch-screen-for-beta-config">i) Add a new launch screen for Beta config.</h4>
 <p><br />
-Finally!, a separate application icon is set for BetaDebug.
-<img src="/Assest/iOS/betaconfig/appIconBetaConfigured.png" /></p>
+<img src="/Assest/iOS/betaconfig/betaLaunchOption.png" /></p>
+
+<p><br /></p>
+<h4 id="ii-edit-launch-screen-configuration-for-betadebug">ii) Edit launch screen configuration for BetaDebug.</h4>
+<p><img src="/Assest/iOS/betaconfig/configBetaLaunchDebug.png" /></p>
+
+<p><br /></p>
+<h4 id="iii-finally-a-separate-launch-screen-is-set-for-betadebug">iii) Finally!, a separate Launch screen is set for BetaDebug.</h4>
+<p><img src="/Assest/iOS/betaconfig/launchSetupConfigDebug.png" /></p>
+
+<p><br /></p>
+<h3 id="step-4-add-a-user-setting-for-the-backend-url">Step 4 Add a user setting for the backend URL</h3>
+
+<h4 id="i-add-a-new-user-defined-setting-in-the-target-setting">i) Add a new user-defined setting in the target setting.</h4>
+<p><br />
+<img src="/Assest/iOS/betaconfig/addUserDefined.png" /></p>
+
+<p><br /></p>
+<h4 id="ii-name-the-configuration-backend_urlchoose-your-own-name-and-change-the-url-string-for-betaconfig">ii) Name the configuration “Backend_URL”(choose your own name) and change the URL string for BetaConfig.</h4>
+<p><img src="/Assest/iOS/betaconfig/updateForBetaConfig.png" /></p>
+
+<p><br /></p>
+<h4 id="iii-add-the-entry-in-infoplist-for-the-backend-url">iii) Add the entry in <code class="language-plaintext highlighter-rouge">info.plist</code> for the backend URL.</h4>
+<p><img src="/Assest/iOS/betaconfig/editInfoPlist.png" /></p>
+
+<p><br /></p>
+<h4 id="iv-fetch-the-user-defined-setting-in-the-code">iv) Fetch the user-defined setting in the code.</h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="k">let</span> <span class="nv">urlString</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">object</span><span class="p">(</span><span class="nv">forInfoDictionaryKey</span><span class="p">:</span> <span class="s">"Backend URL"</span><span class="p">)</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">urlString</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
+
 
   </div><a class="u-url" href="/ios,/ios/beta/build/2023/07/02/iOS-Custom-Build-Scheme.html" hidden></a>
 </article>
