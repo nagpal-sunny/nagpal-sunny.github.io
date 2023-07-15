@@ -1,533 +1,260 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T18:55:26+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Saurav Nagpal Writings</title><subtitle>Hi, I am Saurav Nagpal. I have more than a decade of experience in mobile application development. Here you will find </subtitle><entry><title type="html">Distribute iOS Beta Build (Scheme &amp;amp; Configurations)</title><link href="http://localhost:4000/ios,/ios/beta/build/2023/07/02/iOS-Custom-Build-Scheme.html" rel="alternate" type="text/html" title="Distribute iOS Beta Build (Scheme &amp;amp; Configurations)" /><published>2023-07-02T17:01:10+05:30</published><updated>2023-07-02T17:01:10+05:30</updated><id>http://localhost:4000/ios,/ios/beta/build/2023/07/02/iOS%20Custom%20Build%20Scheme</id><content type="html" xml:base="http://localhost:4000/ios,/ios/beta/build/2023/07/02/iOS-Custom-Build-Scheme.html"><![CDATA[<style type="text/css">
-  body{
-  font-family:Roboto;
-  font-size: 14pt;
-}
-</style>
 
-<h2 id="-overview"><img src="/Assest/common/overview.png" width="30" height="30" /> Overview</h2>
 
-<p>It is a good practice to have multiple build configurations during the application’s development phase. Customers can ask for both debug and release configuration builds. Beta and Alpha testing is an important phase of the application life cycle. Beta and Alpha builds might have a different configurations from the release build. This blog explains one of the ways to handle this through an XCode scheme.</p>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Saurav Nagpal Writings</title>
+  <subtitle>Blog about iOS, Swift, Mobile Development and Design Pattern.</subtitle>
+  <updated>2023-07-15T15:12:02+05:30</updated>
+  <author>
+    <name>Saurav Nagpal</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
+  <rights> © 2023 Saurav Nagpal </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
-<p><br /></p>
 
-<h2 id="-problem-statement"><img src="/Assest/common/problem.png" width="30" height="30" /> Problem Statement</h2>
+  
+  <entry>
+    <title>Distribute iOS Beta Build (Scheme &amp; Configurations)</title>
+    <link href="http://localhost:4000/posts/iOS-Custom-Build-Scheme/" rel="alternate" type="text/html" title="Distribute iOS Beta Build (Scheme &amp;amp; Configurations)" />
+    <published>2023-07-02T17:01:10+05:30</published>
+  
+    <updated>2023-07-02T17:01:10+05:30</updated>
+  
+    <id>http://localhost:4000/posts/iOS-Custom-Build-Scheme/</id>
+    <content src="http://localhost:4000/posts/iOS-Custom-Build-Scheme/" />
+    <author>
+      <name>Saurav Nagpal</name>
+    </author>
 
-<p>Suppose you are working on an e-commerce application <code class="language-plaintext highlighter-rouge">ShopTime</code>. In the development phase, multiple backend environments need to support (Dev, QA, UAT, Release). To differentiate between the application build (Development, QA, Beta builds etc) separate application icons are provided by the customer. These builds also have a unique bundle-id. The launch screens should also be different for each build so that users can easily identify the build. Configuration can support multiple features however for this blog we will focus on the following:</p>
+  
+    
+    <category term="iOS" />
+    
+    <category term="iOS Beta Build" />
+    
+  
 
-<ul>
-  <li>Bundle Identifier</li>
-  <li>App Icon</li>
-  <li>Launch Screen</li>
-  <li>Backend URL</li>
-</ul>
+  
+    <summary>
+      
 
-<p><br /></p>
-<h2 id="-implementation"><img src="/Assest/common/implementation.png" width="30" height="30" /> Implementation</h2>
 
-<p>XCode support multiple configurations in a single target. By default, XCode provides debug and release configuration. Let’s start step by step the process:</p>
 
-<h3 id="step-1-add-a-new-configuration-beta-configuration">Step 1 Add a new configuration (Beta configuration)</h3>
 
-<h4 id="i-navigate-to-the-project-setting">i) Navigate to the project setting</h4>
-<p><br />
-<img src="/Assest/iOS/betaconfig/betaConfigStart.png" /></p>
 
-<p><br /></p>
-<h4 id="ii-tap-on-the--button-in-the-configuration-section-and-duplicate-the-debug-configurationyou-can-choose-duplicate-of-release-based-on-requirement">ii) Tap on the “+” button in the configuration section and duplicate the debug configuration(you can choose duplicate of release based on requirement).</h4>
+      
 
-<p><br />
-<img src="/Assest/iOS/betaconfig/duplicateDebugConfig.png" /></p>
+ Overview
 
-<p><br /></p>
-<h4 id="iii-enter-the-name-of-the-configuration-betadebug">iii) Enter the name of the configuration (BetaDebug).</h4>
-<p><br />
-<img src="/Assest/iOS/betaconfig/nameBetaDebug.png" /></p>
+It is a good practice to have multiple build configurations during the application’s development phase. Customers can ask for both debug and release configuration builds. Beta and Alpha testing is an important phase of the application life cycle. Beta and Alpha builds might have a different configurations from the release build. This blog explains one of the ways to handle this thr...
+    </summary>
+  
 
-<p><br /></p>
-<h3 id="step-2-change-product-bundleid-for-betadebug">Step 2 Change product bundleid for BetaDebug</h3>
+  </entry>
 
-<h4 id="i-move-to-target--build-setting--searchproduct-bundle-identifier">i) Move to Target-&gt; Build Setting-&gt; Search(Product Bundle Identifier)</h4>
+  
+  <entry>
+    <title>Design Pattern Series: Decorator Pattern (Structure Pattern)</title>
+    <link href="http://localhost:4000/posts/decoratorpattern/" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" />
+    <published>2023-06-24T20:00:10+05:30</published>
+  
+    <updated>2023-07-04T18:35:27+05:30</updated>
+  
+    <id>http://localhost:4000/posts/decoratorpattern/</id>
+    <content src="http://localhost:4000/posts/decoratorpattern/" />
+    <author>
+      <name>Saurav Nagpal</name>
+    </author>
 
-<p><img src="/Assest/iOS/betaconfig/productBundleIdentifier.png" /></p>
+  
+    
+    <category term="Design Pattern" />
+    
+    <category term="Clean Code" />
+    
+  
 
-<p><br /></p>
-<h4 id="ii-set-the-bundle-identifier-as-per-your-requirement">ii) Set the bundle identifier as per your requirement.</h4>
+  
+    <summary>
+      
 
-<p><img src="/Assest/iOS/betaconfig/renameProductBundleId.png" /></p>
 
-<p><br /></p>
-<h3 id="step-3-set-separate-application-icon-for-betadebug">Step 3 Set separate application icon for BetaDebug</h3>
 
-<h4 id="i-add-a-new-appicon-asset-in-assets-with-a-specific-nameappiconbeta">i) Add a new AppIcon asset in Assets with a specific name(AppIconBeta).</h4>
-<p><br />
-<img src="/Assest/iOS/betaconfig/betaAppIcon.png" /></p>
 
-<p><br /></p>
-<h4 id="ii-add-appiconbeta-in-the-betadebug-configuration">ii) Add AppIconBeta in the BetaDebug configuration.</h4>
-<p><img src="/Assest/iOS/betaconfig/configBetaDebug.png" /></p>
 
-<p><br /></p>
-<h4 id="iii-finally-a-separate-application-icon-is-set-for-betadebug">iii) Finally!, a separate application icon is set for BetaDebug.</h4>
-<p><img src="/Assest/iOS/betaconfig/appIconBetaConfigured.png" /></p>
+      
 
-<p><br /></p>
-<h3 id="step-4-set-separate-launch-screen-for-betadebug">Step 4 Set separate Launch screen for BetaDebug</h3>
-<p><br /></p>
+ Overview
 
-<h4 id="i-add-a-new-launch-screen-for-beta-config">i) Add a new launch screen for Beta config.</h4>
-<p><br />
-<img src="/Assest/iOS/betaconfig/betaLaunchOption.png" /></p>
 
-<p><br /></p>
-<h4 id="ii-edit-launch-screen-configuration-for-betadebug">ii) Edit launch screen configuration for BetaDebug.</h4>
-<p><img src="/Assest/iOS/betaconfig/configBetaLaunchDebug.png" /></p>
 
-<p><br /></p>
-<h4 id="iii-finally-a-separate-launch-screen-is-set-for-betadebug">iii) Finally!, a separate Launch screen is set for BetaDebug.</h4>
-<p><img src="/Assest/iOS/betaconfig/launchSetupConfigDebug.png" /></p>
+ Decorator Pattern - Decorate an object (wrapper of an object).
 
-<p><br /></p>
-<h3 id="step-4-add-a-user-setting-for-the-backend-url">Step 4 Add a user setting for the backend URL</h3>
-
-<h4 id="i-add-a-new-user-defined-setting-in-the-target-setting">i) Add a new user-defined setting in the target setting.</h4>
-<p><br />
-<img src="/Assest/iOS/betaconfig/addUserDefined.png" /></p>
-
-<p><br /></p>
-<h4 id="ii-name-the-configuration-backend_urlchoose-your-own-name-and-change-the-url-string-for-betaconfig">ii) Name the configuration “Backend_URL”(choose your own name) and change the URL string for BetaConfig.</h4>
-<p><img src="/Assest/iOS/betaconfig/updateForBetaConfig.png" /></p>
-
-<p><br /></p>
-<h4 id="iii-add-the-entry-in-infoplist-for-the-backend-url">iii) Add the entry in <code class="language-plaintext highlighter-rouge">info.plist</code> for the backend URL.</h4>
-<p><img src="/Assest/iOS/betaconfig/editInfoPlist.png" /></p>
-
-<p><br /></p>
-<h4 id="iv-fetch-the-user-defined-setting-in-the-code">iv) Fetch the user-defined setting in the code.</h4>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="k">let</span> <span class="nv">urlString</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">object</span><span class="p">(</span><span class="nv">forInfoDictionaryKey</span><span class="p">:</span> <span class="s">"Backend URL"</span><span class="p">)</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">urlString</span><span class="p">)</span>
-<span class="p">}</span></code></pre></figure>]]></content><author><name></name></author><category term="iOS," /><category term="iOS" /><category term="Beta" /><category term="Build" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Design Pattern Series: Decorator Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" /><published>2023-06-24T20:00:10+05:30</published><updated>2023-06-24T20:00:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/24/decoratorpattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/24/decoratorpattern.html"><![CDATA[<style type="text/css">
-  body{
-  font-family:Roboto;
-  font-size: 14pt;
-}
-</style>
-
-<h2 id="-overview"><img src="/Assest/common/overview.png" width="30" height="30" /> Overview</h2>
-
-<hr />
-<p><br /></p>
-<p style="text-align: center;"> Decorator Pattern - Decorate an object (wrapper of an object).
-<br />
 The decorator pattern is used to add new functionality to an existing object without changing its structure. A wrapper on the existing object is created to add new functionality.
-</p>
-<p><br /></p>
-
-<hr />
-
-<p><br /></p>
-
-<h2 id="-problem-statement"><img src="/Assest/common/problem.png" width="30" height="30" /> Problem Statement</h2>
-
-<p>One day I woke up and as per my daily routine attended the daily scrum parallelly checking the customer email.  As usual a new requirement (part of Agile :)) was asked by the customer to add one more analytic tool to the application. We already integrated Firebase analytic tool into the application. The reason mentioned by the customer to add a new analytic tool is that it provides good support with their BI Tool.</p>
-
-<p>Now I sit with the team and check the current implementation. The current structure has an analytics event controller class which accepts an event object and sends the same to the google analytics framework.</p>
-
-<p><br /></p>
-
-<p><img src="/Assest/designpattern/decorator/decoratorProblem.png" /></p>
-
-<p><br />
-One quick common approach all the team members have is to add support for Adobe Analytics in the Analytic controller, so when the developer sends analytics from any screen it will by default capture both frameworks (Firebase, Adobe Analytics).</p>
-
-<p><br /></p>
-
-<p><img src="/Assest/designpattern/decorator/decoratorProblemBruteForce.png" /></p>
-
-<p><br /></p>
-
-<p>With this approach, the Analytic Controller code will become bloated. If there is a new requirement to add a new type of analytics, then it will not be easy to accommodate in the controller.</p>
-
-<p>We brainstormed more on this to save ourselves and future team members and then the decorator came into the picture.</p>
-
-<h2 id="-implementation"><img src="/Assest/common/implementation.png" width="30" height="30" /> Implementation</h2>
-
-<p>The decorator pattern uses an interface/protocol(Swift) with the composition.</p>
-
-<p><br /></p>
-
-<p><img src="/Assest/designpattern/decorator/decoratorSolution.png" /></p>
-
-<p><br /></p>
-
-<h4 id="code-snippet"><strong><em>Code Snippet</em></strong></h4>
-
-<p>An analytic event is a struct which will hold an analytic event and Analytic Delegate is protocol.</p>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="kt">AnalyticEvent</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">eventName</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="k">var</span> <span class="nv">eventDetail</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span>
-<span class="p">}</span>
 
 
-<span class="kd">protocol</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
-    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span>
-<span class="p">}</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Firebase Analytics</span>
 
-<span class="kd">import</span> <span class="kt">Firebase</span>
 
-<span class="kd">class</span> <span class="kt">AnalyticController</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
-    <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kt">FirebaseApp</span><span class="o">.</span><span class="nf">configure</span><span class="p">()</span>
-    <span class="p">}</span>
+
+
+ Problem Statement
+
+One day I woke up and as per my daily routine attended the daily scrum parallelly checking the customer email. ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Design Pattern Series: Facade Pattern (Structure Pattern)</title>
+    <link href="http://localhost:4000/posts/Facadepattern/" rel="alternate" type="text/html" title="Design Pattern Series: Facade Pattern (Structure Pattern)" />
+    <published>2023-06-24T20:00:10+05:30</published>
+  
+    <updated>2023-06-24T20:00:10+05:30</updated>
+  
+    <id>http://localhost:4000/posts/Facadepattern/</id>
+    <content src="http://localhost:4000/posts/Facadepattern/" />
+    <author>
+      <name>Saurav Nagpal</name>
+    </author>
+
+  
     
-    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">Analytics</span><span class="o">.</span><span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span><span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Class Implementation before Decorator</span>
-<span class="kd">class</span> <span class="kt">AddToCartController</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
+    <category term="Design Pattern" />
     
-    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
-    <span class="p">}</span>
+    <category term="Clean Code" />
     
-    <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="k">for</span> <span class="nv">product</span><span class="p">:</span> <span class="kt">Product</span><span class="p">,</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">paymentInfo</span> <span class="o">=</span> <span class="kt">PaymentInfo</span><span class="p">(</span><span class="nv">skuID</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">skuID</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span>
-        <span class="n">facade</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+  
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Decorator class implement the Adobe Analytics and delegate firebase event to the existing controller.</span>
+  
+    <summary>
+      
 
-<span class="kd">class</span> <span class="kt">AnalyticControllerDecorator</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
-    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
-    <span class="p">}</span>
-    
-    <span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">AnalyticEvent</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">MobileCore</span><span class="o">.</span><span class="nf">track</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span><span class="o">.</span><span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">eventName</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span><span class="n">event</span><span class="o">.</span><span class="n">eventDetail</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Class Implementation before Decorator</span>
 
-<span class="kd">class</span> <span class="kt">AddToCartController</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span>
-    
-    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticDelegate</span><span class="p">:</span> <span class="kt">AnalyticDelegate</span> <span class="o">=</span> <span class="kt">AnalyticController</span><span class="p">())</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">analyticDelegate</span> <span class="o">=</span> <span class="n">analyticDelegate</span>
-    <span class="p">}</span>
-    
-    <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="k">for</span> <span class="nv">product</span><span class="p">:</span> <span class="kt">Product</span><span class="p">,</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">paymentInfo</span> <span class="o">=</span> <span class="kt">PaymentInfo</span><span class="p">(</span><span class="nv">skuID</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">skuID</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span>
-        <span class="n">facade</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Uses with or without Decorator</span>
-<span class="k">var</span> <span class="nv">controllerWithFirebaseAnalytic</span> <span class="o">=</span>  <span class="kt">AddToCartController</span><span class="p">(</span><span class="kt">AnalyticController</span><span class="p">())</span>
-<span class="k">var</span> <span class="nv">controllerWithFirebaseAnalytic</span> <span class="o">=</span>  <span class="kt">AddToCartController</span><span class="p">(</span><span class="kt">AnalyticControllerDecorator</span><span class="p">())</span></code></pre></figure>
 
-<p><br /></p>
+      
 
-<h2 id="-applicability"><img src="/Assest/common/applicablity.png" width="30" height="30" /> Applicability</h2>
-<hr />
-<p><br /></p>
+ Overview
 
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">Use the decorator when you need to add additional behaviour to an existing object without impacting the current uses of the object.
-<br />
-<font size="3">
-The decorator object and main objects share a common interface so both can be used interchangeably. In this way, existing applications can use additional business requirements with minimal changes.
-</font>
-</div>
-</div>
-<p><br /></p>
 
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;"> Additional behaviour requires on the final class without changing anything on an existing object.
-<br />
-<font size="3">
-The decorator object and main objects share a common interface so both can be used interchangeably. In this way, existing applications can use additional business requirements with minimal changes.
-</font>
-</div>
-</div>
-<p><br /></p>
 
-<h2 id="-facts"><img src="/Assest/common/factIcon.png" width="30" height="30" /> Facts</h2>
-<hr />
-<p><br /></p>
+ Facade - Face of a building.
 
-<h4 id="inheritance-vs-decorator"><strong>Inheritance vs Decorator</strong></h4>
-
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">The decorator can be used on different objects which share a common interface. However, inheritance only works for similar kinds of objects.
-</div>
-</div>
-
-<p><br /></p>
-
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">Classes with final behaviour. In those cases, inheritance is not possible. so we can use a decorator pattern to add additional behaviour.
-</div>
-</div>
-
-<p><br /></p>
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">Decorator is applicable to only a single object of a class. However, inheritance is applicable to the entire class.
-</div>
-</div>
-<p><br /></p>
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">Use inheritance when you need additional behaviour on non-public members of the class.
-</div>
-</div>
-
-<p><br /></p>
-<h4 id="adapter-vs-decorator"><strong>Adapter vs Decorator</strong></h4>
-<p><br /></p>
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">An adapter pattern also holds an object and provides a simplified interface (familiar Interface) to the outer world for that object.
-</div>
-</div>
-
-<p><br /></p>
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">Adapter Object does not provide an additional behaviour on the object.
-</div>
-</div>
-
-<p><br /></p>
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">In the case of the adapter, the client (who calls the method) does not aware of the object interface. It only knows the Adapter interface.
-</div>
-</div>]]></content><author><name></name></author><category term="Design" /><category term="Pattern" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Flutter on Apple Silicon Mac: Cocoa-pods Issue</title><link href="http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter-on-Apple-Silicon-Mac.html" rel="alternate" type="text/html" title="Flutter on Apple Silicon Mac: Cocoa-pods Issue" /><published>2023-06-22T09:15:10+05:30</published><updated>2023-06-22T09:15:10+05:30</updated><id>http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter%20on%20Apple%20Silicon%20Mac</id><content type="html" xml:base="http://localhost:4000/crossplatform/2023/06/22/crossplatform-Flutter-on-Apple-Silicon-Mac.html"><![CDATA[<h2 id="step-1">Step 1:</h2>
-<p>Flutter requires the rosette must be installed on your machine. 
-Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>softwareupdate <span class="nt">--install-rosetta</span> <span class="nt">--agree-to-license</span></code></pre></figure>
-
-<h2 id="step-2">Step 2:</h2>
-
-<p>Cocoa-pods require a terminal using UTF-8 encoding.  Sometimes only setting “LANG=en_US.UTF-8” not works. you need to perform the following steps:</p>
-
-<ol>
-  <li>Open Terminal</li>
-  <li></li>
-</ol>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">nano ~/.zshrc <span class="o">(</span><span class="s2">"or nano ~/.profile if you don't use zsh"</span><span class="o">)</span></code></pre></figure>
-
-<ol>
-  <li>Apeen the following in the editor:</li>
-</ol>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-<span class="nb">export </span><span class="nv">LANGUAGE</span><span class="o">=</span>en_US.UTF-8
-<span class="nb">export </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8</code></pre></figure>
-
-<ol>
-  <li>Save the file and quit the terminal.</li>
-  <li>Open the file again and verify.</li>
-</ol>
-
-<p>Step 3 (Optional)</p>
-
-<p>if you still see an error related to “ffi” then reinstall the gem “ffi” in the system with the following command.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>gem uninstall ffi <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>gem <span class="nb">install </span>ffi <span class="nt">--</span> <span class="nt">--enable-libffi-alloc</span></code></pre></figure>]]></content><author><name></name></author><category term="CrossPlatform" /><summary type="html"><![CDATA[Step 1: Flutter requires the rosette must be installed on your machine. Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.]]></summary></entry><entry><title type="html">Design Pattern Series: Facade Pattern (Structure Pattern)</title><link href="http://localhost:4000/design/pattern/2023/06/21/Facadepattern.html" rel="alternate" type="text/html" title="Design Pattern Series: Facade Pattern (Structure Pattern)" /><published>2023-06-21T17:53:10+05:30</published><updated>2023-06-21T17:53:10+05:30</updated><id>http://localhost:4000/design/pattern/2023/06/21/Facadepattern</id><content type="html" xml:base="http://localhost:4000/design/pattern/2023/06/21/Facadepattern.html"><![CDATA[<style type="text/css">
-  body{
-  font-family:Roboto;
-  font-size: 14pt;
-}
-</style>
-
-<h2 id="-overview"><img src="/Assest/common/overview.png" width="30" height="30" /> Overview</h2>
-
-<hr />
-<p><br /></p>
-<p style="text-align: center;"> Facade - Face of a building.
-<br />
 A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the framework.
-</p>
-<p><br /></p>
 
-<hr />
 
-<p><br /></p>
 
-<h2 id="-problem-statement"><img src="/Assest/common/problem.png" width="30" height="30" /> Problem Statement</h2>
 
-<p>Suppose you are working on an e-commerce application. You have to support multiple payment options like UPI, Credit card, Debit Card, Wallet etc. You have chosen a third-party payment gateway which provides support for all types of payments. The payment gateway has an initiation setup (API key, session) and multiple objects for payment methods.</p>
 
-<p>If you write all the logic in your application class then your class object require to manage all the payment objects and track the life cycle of those objects. In this way, your code will be tightly depend upon third-party payment SDK.</p>
 
-<center>
-<img src="/Assest/designpattern/facade/facadeProblem.png" width="70%" height="70%" />
-</center>
 
-<p>To make things simple we can use here Facade Design Pattern.</p>
+ Problem Statement
 
-<h2 id="-implementation"><img src="/Assest/common/implementation.png" width="30" height="30" /> Implementation</h2>
+Suppose you are working on an e-commerce application. You have to support multiple payment options like UPI, Credit card, Debit Card, Wallet etc. You have chosen a t...
+    </summary>
+  
 
-<p>In the Facade pattern, a class is created to provide a simple interface for a complex system.</p>
+  </entry>
 
-<p><br /></p>
-<center>
-<img src="/Assest/designpattern/facade/facadeSolution.png" width="70%" height="70%" />
-</center>
-<p><br /></p>
+  
+  <entry>
+    <title>Flutter on Apple Silicon Mac: Cocoa-pods Issue</title>
+    <link href="http://localhost:4000/posts/crossplatform-Flutter-on-Apple-Silicon-Mac/" rel="alternate" type="text/html" title="Flutter on Apple Silicon Mac: Cocoa-pods Issue" />
+    <published>2023-06-22T09:15:10+05:30</published>
+  
+    <updated>2023-06-22T09:15:10+05:30</updated>
+  
+    <id>http://localhost:4000/posts/crossplatform-Flutter-on-Apple-Silicon-Mac/</id>
+    <content src="http://localhost:4000/posts/crossplatform-Flutter-on-Apple-Silicon-Mac/" />
+    <author>
+      <name>Saurav Nagpal</name>
+    </author>
 
-<h4 id="code-snippet"><strong><em>Code Snippet</em></strong></h4>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Enum to identify payment type.</span>
-<span class="kd">enum</span> <span class="kt">SupportedPaymentFacade</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">wallet</span>
-    <span class="k">case</span> <span class="n">upi</span>
-    <span class="k">case</span> <span class="n">card</span>
-<span class="p">}</span>
-
-<span class="c1">//Payment Information.</span>
-<span class="kd">struct</span> <span class="kt">PaymentInfo</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">skuID</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="k">let</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span>
-    <span class="k">let</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span>
-<span class="p">}</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// sample class which represent the complex third party framework</span>
-<span class="kd">class</span> <span class="kt">PaymentSDKUmbrella</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">walletSDK</span><span class="p">:</span> <span class="kt">PSWallet</span>
-    <span class="k">let</span> <span class="nv">upiSDK</span><span class="p">:</span> <span class="kt">PSUPI</span>
-    <span class="k">let</span> <span class="nv">cardSDK</span><span class="p">:</span> <span class="kt">PSCard</span>
-<span class="p">}</span>
-
-<span class="c1">// Facade class application interact with this object. Application will not aware about PaymentSDKUmbrella.</span>
-<span class="kd">class</span> <span class="kt">PaymentFacade</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">paymentSDKUmbrella</span><span class="p">:</span> <span class="kt">PaymentSDKUmbrella</span><span class="p">?</span>
-    <span class="kd">func</span> <span class="nf">doPayment</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentInfo</span><span class="p">:</span> <span class="kt">PaymentInfo</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">switch</span> <span class="n">paymentInfo</span><span class="o">.</span><span class="n">method</span> <span class="p">{</span>
-        <span class="k">case</span> <span class="o">.</span><span class="nv">card</span><span class="p">:</span>
-            <span class="n">cardSDK</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
-        <span class="k">case</span> <span class="o">.</span><span class="nv">upi</span><span class="p">:</span>
-            <span class="n">upi</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
-        <span class="k">case</span> <span class="o">.</span><span class="nv">wallet</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">walletSDK</span><span class="o">.</span><span class="nf">hasSufficientAmount</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">walletSDK</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nf">print</span><span class="p">(</span><span class="s">"Insufficient balance"</span><span class="p">)</span>
-                <span class="n">walletSDK</span><span class="o">.</span><span class="nf">addPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Application uses of facade class</span>
-<span class="kd">class</span> <span class="kt">AppPaymentController</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">facade</span> <span class="o">=</span> <span class="kt">PaymentFacade</span><span class="p">()</span>
+  
     
-    <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="k">for</span> <span class="nv">product</span><span class="p">:</span> <span class="kt">Product</span><span class="p">,</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">SupportedPaymentFacade</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">paymentInfo</span> <span class="o">=</span> <span class="kt">PaymentInfo</span><span class="p">(</span><span class="nv">skuID</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">skuID</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="n">product</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span>
-        <span class="n">facade</span><span class="o">.</span><span class="nf">doPayment</span><span class="p">(</span><span class="n">paymentInfo</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+    <category term="CrossPlatform" />
+    
+    <category term="Flutter" />
+    
+  
 
-<h2 id="-applicability"><img src="/Assest/common/applicablity.png" width="30" height="30" /> Applicability</h2>
-<hr />
-<p><br /></p>
-<h4 id="complex-library"><strong>Complex Library</strong></h4>
+  
+    <summary>
+      
 
-<p>Integrating a library which has multiple subsystems can be done through the facade pattern. Also, if the library is used at multiple places then to avoid the redundant code of init and setup the library facade can be used.  In the above example, payment SDK has multiple sub-systems like wallet, net banking and Card payment. So you can create a facade class in a way that your application has minimal knowledge of all the dependencies of the payment SDK.</p>
 
-<p><br /></p>
-<h4 id="small-interfaces"><strong>Small Interfaces</strong></h4>
 
-<p>Use a facade pattern when you want to use limited functionality from a complex library.  In the case of payment SDK, if you want to use only wallet and card payment in your application then you can create a facade class to support only those features.</p>
 
-<h2 id="-facts"><img src="/Assest/common/factIcon.png" width="30" height="30" /> Facts</h2>
-<hr />
-<p><br /></p>
-<h4 id="adapter-vs-facade-pattern"><strong>Adapter vs Facade Pattern</strong></h4>
 
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">The facade provides a new interface to interact with a complex framework. However, the adapter fits the new object in the existing interface.
-</div>
-</div>
+      Step 1:
+Flutter requires the rosette must be installed on your machine. 
+Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.
 
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">An adapter or wrapper pattern is usually for a single object. However, Facade also interacts with multiple objects.
-</div>
-</div>
+sudo softwareupdate --install-rosetta --agree-to-license
 
-<p><br /></p>
-<h4 id="mediator-vs-facade-pattern"><strong>Mediator vs Facade Pattern</strong></h4>
+Step 2:
 
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">The mediator class is used for providing the interaction between sub-components. However, the facade class is used for providing access (simple interface) to sub-components of a large component.
-</div>
-</div>
+Cocoa-pods require a terminal using UTF-8 encoding.  Sometimes only setting “LANG=en_US.UTF-8” not works. you need to perform the followi...
+    </summary>
+  
 
-<div class="row" style="height:auto;">
-  <div class="column" style="width:40px;float: left;"><img src="/Assest/common/listStar.png" width="30" height="30" /></div>
-  <div class="column" style="margin-left:50px;">In the case of the mediator, sub-components are aware of the mediator class but the facade class is only visible to the application using sub-components.
-</div>
-</div>
-<p><br /></p>
+  </entry>
 
-<h2 id="-advantages"><img src="/Assest/common/advantage.png" width="30" height="30" /> Advantages</h2>
-<hr />
-<p><br />
-You must have been feeling now that the use of the facade pattern is just that the responsibility of interaction to complex system is shifted to facade class. 
-<br /></p>
+  
+  <entry>
+    <title>Swift ?? (Nil Coalescing) Do's and Don't</title>
+    <link href="http://localhost:4000/posts/Swift-(Nil-Coalescing)-Do's-and-Don't/" rel="alternate" type="text/html" title="Swift ?? (Nil Coalescing) Do's and Don't" />
+    <published>2023-06-21T02:24:10+05:30</published>
+  
+    <updated>2023-07-13T13:52:23+05:30</updated>
+  
+    <id>http://localhost:4000/posts/Swift-(Nil-Coalescing)-Do's-and-Don't/</id>
+    <content src="http://localhost:4000/posts/Swift-(Nil-Coalescing)-Do's-and-Don't/" />
+    <author>
+      <name>Saurav Nagpal</name>
+    </author>
 
-<h4 id="decoupling"><strong>Decoupling</strong></h4>
-<p>It is always considered good practice that your application code should not directly depend upon the third-party library interface. Facade patterns provide a simple interface to a complex framework, in a way you also achieve decoupling here.  Like in the above case your application code depends upon the Facade class, so if in the future library code changes then only the Facade class will be impacted.</p>
+  
+    
+    <category term="Swift" />
+    
+    <category term="Swift Safety" />
+    
+  
 
-<h4 id="reusability"><strong>Reusability</strong></h4>
-<p>In some use cases, the same library needs to be used from multiple places. Like in the above case payment can be done from multiple screens, so instead of the user accessing the library code at each screen the facade class can be used which also reduces the library setup/init burden at every place.</p>
+  
+    <summary>
+      
 
-<h4 id="readability"><strong>Readability</strong></h4>
-<p>Most of the time library/framework code is legacy code. Coding convention changes from time to time and the library interface might not fit your current coding convention, So the facade can be used to make code consistent in your application.</p>]]></content><author><name></name></author><category term="Design" /><category term="Pattern" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Swift ?? (Nil Coalescing) Do’s and Don’t</title><link href="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html" rel="alternate" type="text/html" title="Swift ?? (Nil Coalescing) Do’s and Don’t" /><published>2023-06-21T02:24:10+05:30</published><updated>2023-06-21T02:24:10+05:30</updated><id>http://localhost:4000/swift/2023/06/21/Swift??%20(Nil%20Coalescing)%20Do's%20and%20Don't</id><content type="html" xml:base="http://localhost:4000/swift/2023/06/21/Swift-(Nil-Coalescing)-Do's-and-Don't.html"><![CDATA[<style type="text/css">
-  body{
-  font-family:Roboto;
-  font-size: 14pt;
-}
-</style>
 
-<h2 id="-overview"><img src="/Assest/common/overview.png" width="30" height="30" /> Overview</h2>
-<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not.</p>
 
-<p>Jekyll requires blog post files to be named according to the following format:</p>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
 
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+      
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+ Overview
+Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not.
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+Jekyll requires blog post files to be named according to the following format:
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="Swift" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+YEAR-MONTH-DAY-title.MARKUP
+
+Where YEAR is a four-digit number, MONTH and DAY are both two-digit ...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+

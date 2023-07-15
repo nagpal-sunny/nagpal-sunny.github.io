@@ -1,0 +1,89 @@
+[
+  
+  {
+    "title": "Distribute iOS Beta Build (Scheme & Configurations)",
+    "url": "/posts/iOS-Custom-Build-Scheme/",
+    "categories": "iOS, iOS Beta Build",
+    "tags": "iOS scheme, iOS build config",
+    "date": "2023-07-02 17:01:10 +0530",
+    
+
+
+
+
+
+    
+    "snippet": " OverviewIt is a good practice to have multiple build configurations during the application’s development phase. Customers can ask for both debug and release configuration builds. Beta and Alpha te...",
+    "content": " OverviewIt is a good practice to have multiple build configurations during the application’s development phase. Customers can ask for both debug and release configuration builds. Beta and Alpha testing is an important phase of the application life cycle. Beta and Alpha builds might have a different configurations from the release build. This blog explains one of the ways to handle this through an XCode scheme. Problem StatementSuppose you are working on an e-commerce application ShopTime. In the development phase, multiple backend environments need to support (Dev, QA, UAT, Release). To differentiate between the application build (Development, QA, Beta builds etc) separate application icons are provided by the customer. These builds also have a unique bundle-id. The launch screens should also be different for each build so that users can easily identify the build. Configuration can support multiple features however for this blog we will focus on the following:  Bundle Identifier  App Icon  Launch Screen  Backend URL ImplementationXCode support multiple configurations in a single target. By default, XCode provides debug and release configuration. Let’s start step by step the process:Step 1 Add a new configuration (Beta configuration)i) Navigate to the project settingii) Tap on the “+” button in the configuration section and duplicate the debug configuration(you can choose duplicate of release based on requirement).iii) Enter the name of the configuration (BetaDebug).Step 2 Change product bundleid for BetaDebugi) Move to Target-&gt; Build Setting-&gt; Search(Product Bundle Identifier)ii) Set the bundle identifier as per your requirement.Step 3 Set separate application icon for BetaDebugi) Add a new AppIcon asset in Assets with a specific name(AppIconBeta).ii) Add AppIconBeta in the BetaDebug configuration.iii) Finally!, a separate application icon is set for BetaDebug.Step 4 Set separate Launch screen for BetaDebugi) Add a new launch screen for Beta config.ii) Edit launch screen configuration for BetaDebug.iii) Finally!, a separate Launch screen is set for BetaDebug.Step 4 Add a user setting for the backend URLi) Add a new user-defined setting in the target setting.ii) Name the configuration “Backend_URL”(choose your own name) and change the URL string for BetaConfig.iii) Add the entry in info.plist for the backend URL.iv) Fetch the user-defined setting in the code.if let urlString = Bundle.main.object(forInfoDictionaryKey: \"Backend URL\") as? String {    print(urlString)}"
+  },
+  
+  {
+    "title": "Design Pattern Series: Decorator Pattern (Structure Pattern)",
+    "url": "/posts/decoratorpattern/",
+    "categories": "Design Pattern, Clean Code",
+    "tags": "Decorator Pattern, Class Wrapper",
+    "date": "2023-06-24 20:00:10 +0530",
+    
+
+
+
+
+
+    
+    "snippet": " Overview Decorator Pattern - Decorate an object (wrapper of an object).The decorator pattern is used to add new functionality to an existing object without changing its structure. A wrapper on the...",
+    "content": " Overview Decorator Pattern - Decorate an object (wrapper of an object).The decorator pattern is used to add new functionality to an existing object without changing its structure. A wrapper on the existing object is created to add new functionality. Problem StatementOne day I woke up and as per my daily routine attended the daily scrum parallelly checking the customer email.  As usual a new requirement (part of Agile :)) was asked by the customer to add one more analytic tool to the application. We already integrated Firebase analytic tool into the application. The reason mentioned by the customer to add a new analytic tool is that it provides good support with their BI Tool.Now I sit with the team and check the current implementation. The current structure has an analytics event controller class which accepts an event object and sends the same to the google analytics framework.One quick common approach all the team members have is to add support for Adobe Analytics in the Analytic controller, so when the developer sends analytics from any screen it will by default capture both frameworks (Firebase, Adobe Analytics).With this approach, the Analytic Controller code will become bloated. If there is a new requirement to add a new type of analytics, then it will not be easy to accommodate in the controller.We brainstormed more on this to save ourselves and future team members and then the decorator came into the picture. ImplementationThe decorator pattern uses an interface/protocol(Swift) with the composition.Code SnippetAn analytic event is a struct which will hold an analytic event and Analytic Delegate is protocol.struct AnalyticEvent {    let eventName: String    var eventDetail: [String: String]}protocol AnalyticDelegate {    func sendEvent(_ event: AnalyticEvent)}//Firebase Analyticsimport Firebaseclass AnalyticController: AnalyticDelegate {    init() {        FirebaseApp.configure()    }        func sendEvent(_ event: AnalyticEvent) {        Analytics.logEvent(event.eventName, parameters:event.eventDetail)    }}//Class Implementation before Decoratorclass AddToCartController {    let analyticDelegate: AnalyticDelegate        init(analyticDelegate: AnalyticDelegate = AnalyticController()) {        self.analyticDelegate = analyticDelegate    }        func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)        facade.doPayment(paymentInfo)    }}//Decorator class implement the Adobe Analytics and delegate firebase event to the existing controller.class AnalyticControllerDecorator: AnalyticDelegate {    let analyticDelegate: AnalyticDelegate    init(analyticDelegate: AnalyticDelegate = AnalyticController()) {        self.analyticDelegate = analyticDelegate    }        func sendEvent(_ event: AnalyticEvent) {        MobileCore.track(action: event.eventName, data: event.eventDetail)        self.analyticDelegate.logEvent(event.eventName, parameters:event.eventDetail)    }}//Class Implementation before Decoratorclass AddToCartController {    let analyticDelegate: AnalyticDelegate        init(analyticDelegate: AnalyticDelegate = AnalyticController()) {        self.analyticDelegate = analyticDelegate    }        func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)        facade.doPayment(paymentInfo)    }}//Uses with or without Decoratorvar controllerWithFirebaseAnalytic =  AddToCartController(AnalyticController())var controllerWithFirebaseAnalytic =  AddToCartController(AnalyticControllerDecorator()) Applicability    Use the decorator when you need to add additional behaviour to an existing object without impacting the current uses of the object.The decorator object and main objects share a common interface so both can be used interchangeably. In this way, existing applications can use additional business requirements with minimal changes.     Additional behaviour requires on the final class without changing anything on an existing object.The decorator object and main objects share a common interface so both can be used interchangeably. In this way, existing applications can use additional business requirements with minimal changes. FactsInheritance vs Decorator    The decorator can be used on different objects which share a common interface. However, inheritance only works for similar kinds of objects.    Classes with final behaviour. In those cases, inheritance is not possible. so we can use a decorator pattern to add additional behaviour.    Decorator is applicable to only a single object of a class. However, inheritance is applicable to the entire class.    Use inheritance when you need additional behaviour on non-public members of the class.Adapter vs Decorator    An adapter pattern also holds an object and provides a simplified interface (familiar Interface) to the outer world for that object.    Adapter Object does not provide an additional behaviour on the object.    In the case of the adapter, the client (who calls the method) does not aware of the object interface. It only knows the Adapter interface."
+  },
+  
+  {
+    "title": "Design Pattern Series: Facade Pattern (Structure Pattern)",
+    "url": "/posts/Facadepattern/",
+    "categories": "Design Pattern, Clean Code",
+    "tags": "Facade Pattern, Face of a building",
+    "date": "2023-06-24 20:00:10 +0530",
+    
+
+
+
+
+
+    
+    "snippet": " Overview Facade - Face of a building.A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the framework. ...",
+    "content": " Overview Facade - Face of a building.A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the framework. Problem StatementSuppose you are working on an e-commerce application. You have to support multiple payment options like UPI, Credit card, Debit Card, Wallet etc. You have chosen a third-party payment gateway which provides support for all types of payments. The payment gateway has an initiation setup (API key, session) and multiple objects for payment methods.If you write all the logic in your application class then your class object require to manage all the payment objects and track the life cycle of those objects. In this way, your code will be tightly depend upon third-party payment SDK.To make things simple we can use here Facade Design Pattern. ImplementationIn the Facade pattern, a class is created to provide a simple interface for a complex system.Code Snippet//Enum to identify payment type.enum SupportedPaymentFacade {    case wallet    case upi    case card}//Payment Information.struct PaymentInfo {    let skuID: String    let amount: Int    let method: SupportedPaymentFacade}// sample class which represent the complex third party frameworkclass PaymentSDKUmbrella {    let walletSDK: PSWallet    let upiSDK: PSUPI    let cardSDK: PSCard}// Facade class application interact with this object. Application will not aware about PaymentSDKUmbrella.class PaymentFacade {    var paymentSDKUmbrella: PaymentSDKUmbrella?    func doPayment(_ paymentInfo: PaymentInfo) {        switch paymentInfo.method {        case .card:            cardSDK.doPayment(paymentInfo.amount)        case .upi:            upi.doPayment(paymentInfo.amount)        case .wallet:            if walletSDK.hasSufficientAmount(paymentInfo.amount) {                walletSDK.doPayment(paymentInfo.amount)            } else {                print(\"Insufficient balance\")                walletSDK.addPayment(paymentInfo.amount)            }        }    }}//Application uses of facade classclass AppPaymentController {    let facade = PaymentFacade()        func startPayment(for product: Product, paymentMethod: SupportedPaymentFacade) {        let paymentInfo = PaymentInfo(skuID: product.skuID, amount: product.amount, method: paymentMethod)        facade.doPayment(paymentInfo)    }} ApplicabilityComplex LibraryIntegrating a library which has multiple subsystems can be done through the facade pattern. Also, if the library is used at multiple places then to avoid the redundant code of init and setup the library facade can be used.  In the above example, payment SDK has multiple sub-systems like wallet, net banking and Card payment. So you can create a facade class in a way that your application has minimal knowledge of all the dependencies of the payment SDK.Small InterfacesUse a facade pattern when you want to use limited functionality from a complex library.  In the case of payment SDK, if you want to use only wallet and card payment in your application then you can create a facade class to support only those features. FactsAdapter vs Facade Pattern    The facade provides a new interface to interact with a complex framework. However, the adapter fits the new object in the existing interface.    An adapter or wrapper pattern is usually for a single object. However, Facade also interacts with multiple objects.Mediator vs Facade Pattern    The mediator class is used for providing the interaction between sub-components. However, the facade class is used for providing access (simple interface) to sub-components of a large component.    In the case of the mediator, sub-components are aware of the mediator class but the facade class is only visible to the application using sub-components. AdvantagesYou must have been feeling now that the use of the facade pattern is just that the responsibility of interaction to complex system is shifted to facade class. DecouplingIt is always considered good practice that your application code should not directly depend upon the third-party library interface. Facade patterns provide a simple interface to a complex framework, in a way you also achieve decoupling here.  Like in the above case your application code depends upon the Facade class, so if in the future library code changes then only the Facade class will be impacted.ReusabilityIn some use cases, the same library needs to be used from multiple places. Like in the above case payment can be done from multiple screens, so instead of the user accessing the library code at each screen the facade class can be used which also reduces the library setup/init burden at every place.ReadabilityMost of the time library/framework code is legacy code. Coding convention changes from time to time and the library interface might not fit your current coding convention, So the facade can be used to make code consistent in your application."
+  },
+  
+  {
+    "title": "Flutter on Apple Silicon Mac: Cocoa-pods Issue",
+    "url": "/posts/crossplatform-Flutter-on-Apple-Silicon-Mac/",
+    "categories": "CrossPlatform, Flutter",
+    "tags": "Mac rosetta, Mac M1",
+    "date": "2023-06-22 09:15:10 +0530",
+    
+
+
+
+
+
+    
+    "snippet": "Step 1:Flutter requires the rosette must be installed on your machine. Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.sudo sof...",
+    "content": "Step 1:Flutter requires the rosette must be installed on your machine. Rosetta is a translation library which allows users to run apps that contain X86_64 instructions on Apple silicon Mac.sudo softwareupdate --install-rosetta --agree-to-licenseStep 2:Cocoa-pods require a terminal using UTF-8 encoding.  Sometimes only setting “LANG=en_US.UTF-8” not works. you need to perform the following steps:  Open Terminal  nano ~/.zshrc (\"or nano ~/.profile if you don't use zsh\")  Apeen the following in the editor:export LANG=en_US.UTF-8export LANGUAGE=en_US.UTF-8export LC_ALL=en_US.UTF-8  Save the file and quit the terminal.  Open the file again and verify.Step 3 (Optional)if you still see an error related to “ffi” then reinstall the gem “ffi” in the system with the following command.sudo gem uninstall ffi &amp;&amp; sudo gem install ffi -- --enable-libffi-alloc"
+  },
+  
+  {
+    "title": "Swift ?? (Nil Coalescing) Do's and Don't",
+    "url": "/posts/Swift-(Nil-Coalescing)-Do's-and-Don't/",
+    "categories": "Swift, Swift Safety",
+    "tags": "Swift optional, Swift Nil Coalescing",
+    "date": "2023-06-21 02:24:10 +0530",
+    
+
+
+
+
+
+    
+    "snippet": " OverviewOptional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may conta...",
+    "content": " OverviewOptional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not.Jekyll requires blog post files to be named according to the following format:YEAR-MONTH-DAY-title.MARKUPWhere YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and MARKUP is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.Jekyll also offers powerful support for code snippets:def print_hi(name)  puts \"Hi, #{name}\"endprint_hi('Tom')#=&gt; prints 'Hi, Tom' to STDOUT.Check out the Jekyll docs for more info on how to get the most out of Jekyll. File all bugs/feature requests at Jekyll’s GitHub repo. If you have questions, you can ask them on Jekyll Talk."
+  }
+  
+]
+
