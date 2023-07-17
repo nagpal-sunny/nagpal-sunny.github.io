@@ -547,102 +547,6 @@
 
 
 
-  
-  
-
-  <!-- CDN URL -->
-  
-
-  <!-- Add image path -->
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-        <!-- add SVG placehoder -->
-        
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-
-  
-
-
 
 <!-- Add header for code snippets -->
 
@@ -677,6 +581,30 @@
       
 
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
 
     
 
@@ -689,6 +617,65 @@
 
   
   
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+
+    
 
   
 
@@ -801,7 +788,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="161 words"
+  title="276 words"
 >
   <em>1 min</em> read</span>
 
@@ -819,25 +806,63 @@
 }
 </style>
 
-<h2 id="-overview"><span class="me-2"><a href="/Assest/common/overview.png" class="popup img-link  shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3C/svg%3E" data-src="/Assest/common/overview.png" width="30" height="30" class="lazyload" data-proofer-ignore></a> Overview</span><a href="#-overview" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not.</p>
+<h2 id="what-is-it"><span class="me-2">What is it?</span><a href="#what-is-it" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not. Nil coalescing <code class="language-plaintext highlighter-rouge">??</code> is an operator used to provide a default if the optional is empty.</p>
 
-<p>Jekyll requires blog post files to be named according to the following format:</p>
+<h2 id="how-to-use-it"><span class="me-2">How to use it?</span><a href="#how-to-use-it" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Add default value after the <code class="language-plaintext highlighter-rouge">?? </code> operator following Optional.</p>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+ <span class="k">let</span> <span class="nv">displayName</span> <span class="o">=</span> <span class="n">name</span> <span class="p">??</span> <span class="s">"NA"</span>
+ <span class="nf">print</span><span class="p">(</span><span class="s">"name is:</span><span class="se">\(</span><span class="n">displayName</span><span class="se">)</span><span class="s">"</span><span class="p">)</span></code></pre></figure>
 
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>In this case, if the name is not available then “name is NA” will be printed. In Swift, we need to always take care while unwrapping an Optional as it might crash the application. The Nil coalescing <code class="language-plaintext highlighter-rouge">??</code> operator does the Job for you if it finds the optional has no value then it uses a default instead.</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<h2 id="dos-and-dont-with--my-opinion"><span class="me-2">Do’s and Don’t with <code class="language-plaintext highlighter-rouge">??</code> (#My Opinion)</span><a href="#dos-and-dont-with--my-opinion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<p>Following are some of the uses I have seen in the code and we go through them one by one and discuss the case:</p>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+<h4 id="i"><span class="me-2">(i)</span><a href="#i" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+ <span class="k">let</span> <span class="nv">displayName</span> <span class="o">=</span> <span class="n">name</span> <span class="p">??</span> <span class="s">"NA"</span>
+ <span class="nf">print</span><span class="p">(</span><span class="s">"name is:</span><span class="se">\(</span><span class="n">displayName</span><span class="se">)</span><span class="s">"</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="ii-with-value"><span class="me-2">(ii) With Value</span><a href="#ii-with-value" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">    <span class="kd">func</span> <span class="nf">indexPathOfTableView</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">?</span>
+        <span class="c1">//Assing a value in code somewhere</span>
+        <span class="n">indexPath</span> <span class="o">=</span> <span class="kt">IndexPath</span><span class="p">(</span><span class="nv">section</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">row</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1">//Uses of the indexPath</span>
+        <span class="n">tableView</span><span class="p">?</span><span class="o">.</span><span class="nf">numberOfRows</span><span class="p">(</span><span class="nv">inSection</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">?</span><span class="o">.</span><span class="n">section</span> <span class="p">??</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">}</span></code></pre></figure>
+
+<h4 id="iii-with-object"><span class="me-2">(iii) With Object</span><a href="#iii-with-object" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">    <span class="kd">func</span> <span class="nf">randomStudent</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">randomStudent</span><span class="p">:</span> <span class="kt">Student</span><span class="p">?</span>
+        <span class="c1">//Assign Value to the random student in code</span>
+        
+        <span class="c1">//Somewhere in code</span>
+        <span class="k">let</span> <span class="nv">selectedStudent</span> <span class="o">=</span> <span class="n">randomStudent</span> <span class="p">??</span> <span class="kt">Student</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">selectedStudent</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></figure>
+
+<h4 id="iv"><span class="me-2">(iv)</span><a href="#iv" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">    <span class="kd">struct</span> <span class="kt">Student</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="p">}</span>
+    
+    <span class="kd">func</span> <span class="nf">fetchAllNames</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">students</span><span class="p">:</span> <span class="p">[</span><span class="kt">Student</span><span class="p">]?</span>
+        <span class="c1">//All student Name</span>
+        <span class="k">let</span> <span class="nv">studentNames</span> <span class="o">=</span> <span class="n">students</span><span class="p">?</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">name</span> <span class="p">??</span> <span class="s">""</span> <span class="p">}</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"All Student Names:</span><span class="se">\(</span><span class="n">studentNames</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -1640,7 +1665,7 @@
 
  Overview
 
-It is a good practice to have multiple build configurations during the application’s development phase. Customers can ask for both debug and release configuration builds. Beta and Alph...
+Having multiple build configurations during the application’s development phase is a good practice. Customers can ask for both debug and release configuration builds. Beta and Alpha te...
                 </p>
               </div>
             </div>
