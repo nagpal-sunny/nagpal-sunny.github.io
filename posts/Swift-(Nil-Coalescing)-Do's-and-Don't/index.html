@@ -674,6 +674,54 @@
       
 
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
 
     
 
@@ -681,6 +729,53 @@
 
   
   
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+
+    
 
   
 
@@ -788,9 +883,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="276 words"
+  title="487 words"
 >
-  <em>1 min</em> read</span>
+  <em>2 min</em> read</span>
 
     </div>
 
@@ -863,6 +958,29 @@
         <span class="k">let</span> <span class="nv">studentNames</span> <span class="o">=</span> <span class="n">students</span><span class="p">?</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">name</span> <span class="p">??</span> <span class="s">""</span> <span class="p">}</span>
         <span class="nf">print</span><span class="p">(</span><span class="s">"All Student Names:</span><span class="se">\(</span><span class="n">studentNames</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
     <span class="p">}</span></code></pre></figure>
+
+<h4 id="v-if-condition"><span class="me-2">(v) If Condition</span><a href="#v-if-condition" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">   <span class="kd">func</span> <span class="nf">checkStudentExist</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">students</span><span class="p">:</span> <span class="p">[</span><span class="kt">Student</span><span class="p">]?</span>
+        <span class="c1">//check student exist</span>
+        <span class="k">if</span> <span class="n">students</span><span class="p">?</span><span class="o">.</span><span class="n">count</span> <span class="p">??</span> <span class="mi">0</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span>
+    <span class="p">}</span></code></pre></figure>
+
+<h4 id="my-opinion"><span class="me-2">My Opinion</span><a href="#my-opinion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<h5 id="i-do---it-is-correct-usage-as-we-are-providing-the-default-value-if-the-value-does-not-exist"><span class="me-2">(i) Do - It is correct usage as we are providing the default value if the value does not exist.</span><a href="#i-do---it-is-correct-usage-as-we-are-providing-the-default-value-if-the-value-does-not-exist" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+
+<h5 id="ii-dont---0-is-not-the-default-value-for-the-section-and-it-also-can-cause-an-unexpected-issue-if-the-index-path-in-any-case-nil"><span class="me-2">(ii) Don’t - 0 is not the default value for the section and it also can cause an unexpected issue If the index path in any case nil.</span><a href="#ii-dont---0-is-not-the-default-value-for-the-section-and-it-also-can-cause-an-unexpected-issue-if-the-index-path-in-any-case-nil" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+
+<h5 id="ii-dont---in-this-case-a-student-object-without-referring-to-any-student-is-not-a-correct-usage-it-is-not-a-default-value-it-can-cause-an-issue-or-crash-if-you-are-expecting-a-real-object-and-get-this-value"><span class="me-2">(ii) Don’t - In this case, a student object without referring to any student is not a correct usage it is not a default value. It can cause an issue or crash if you are expecting a real object and get this value.</span><a href="#ii-dont---in-this-case-a-student-object-without-referring-to-any-student-is-not-a-correct-usage-it-is-not-a-default-value-it-can-cause-an-issue-or-crash-if-you-are-expecting-a-real-object-and-get-this-value" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+
+<h4 id="iv-dont---the-requirement-is-to-fetch-all-names-of-a-student-and-in-case-the-student-does-not-exist-in-the-record-then-you-should-not-assign-a-default-value-like--either-you-have-some-agreed-default-value-or-raise-an-exception-name-not-exist"><span class="me-2">(iv) Don’t - The requirement is to fetch all names of a student and in case the student does not exist in the record then you should not assign a default value like “”. Either you have some agreed default value or raise an exception name not exist.</span><a href="#iv-dont---the-requirement-is-to-fetch-all-names-of-a-student-and-in-case-the-student-does-not-exist-in-the-record-then-you-should-not-assign-a-default-value-like--either-you-have-some-agreed-default-value-or-raise-an-exception-name-not-exist" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<h4 id="v-dont---the-requirement-is-to-check-if-the-student-list-exists-or-not-in-the-case-of-the-if-studentscount--0--0-condition-using-the-default-value-is-reducing-the-condition-however-in-my-opinion-it-reduces-the-readability"><span class="me-2">(v) Don’t - The requirement is to check if the student list exists or not. In the case of the, <code class="language-plaintext highlighter-rouge">if students?.count ?? 0 &gt; 0</code> condition using the default value is reducing the condition. However, in my opinion, it reduces the readability.</span><a href="#v-dont---the-requirement-is-to-check-if-the-student-list-exists-or-not-in-the-case-of-the-if-studentscount--0--0-condition-using-the-default-value-is-reducing-the-condition-however-in-my-opinion-it-reduces-the-readability" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 </div>
 
