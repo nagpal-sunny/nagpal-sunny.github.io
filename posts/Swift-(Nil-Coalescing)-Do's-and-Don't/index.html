@@ -883,7 +883,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="487 words"
+  title="530 words"
 >
   <em>2 min</em> read</span>
 
@@ -917,24 +917,24 @@
 
 <p>Following are some of the uses I have seen in the code and we go through them one by one and discuss the case:</p>
 
-<h4 id="i"><span class="me-2">(i)</span><a href="#i" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h4 id="i-requirement-is-if-name-is-not-present-then-display-na"><span class="me-2">(i) Requirement is if Name is not present then display “NA”</span><a href="#i-requirement-is-if-name-is-not-present-then-display-na" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift"> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
  <span class="k">let</span> <span class="nv">displayName</span> <span class="o">=</span> <span class="n">name</span> <span class="p">??</span> <span class="s">"NA"</span>
  <span class="nf">print</span><span class="p">(</span><span class="s">"name is:</span><span class="se">\(</span><span class="n">displayName</span><span class="se">)</span><span class="s">"</span><span class="p">)</span></code></pre></figure>
 
-<h4 id="ii-with-value"><span class="me-2">(ii) With Value</span><a href="#ii-with-value" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h4 id="ii-requirement-is-to-get-number-of-rows-in-the-selected-section"><span class="me-2">(ii) Requirement is to get number of rows in the selected section</span><a href="#ii-requirement-is-to-get-number-of-rows-in-the-selected-section" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift">    <span class="kd">func</span> <span class="nf">indexPathOfTableView</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">?</span>
+        <span class="k">var</span> <span class="nv">selectedIndexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">?</span>
         <span class="c1">//Assing a value in code somewhere</span>
-        <span class="n">indexPath</span> <span class="o">=</span> <span class="kt">IndexPath</span><span class="p">(</span><span class="nv">section</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">row</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">selectedIndexPath</span> <span class="o">=</span> <span class="kt">IndexPath</span><span class="p">(</span><span class="nv">section</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">row</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
         
         <span class="c1">//Uses of the indexPath</span>
-        <span class="n">tableView</span><span class="p">?</span><span class="o">.</span><span class="nf">numberOfRows</span><span class="p">(</span><span class="nv">inSection</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">?</span><span class="o">.</span><span class="n">section</span> <span class="p">??</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">tableView</span><span class="p">?</span><span class="o">.</span><span class="nf">numberOfRows</span><span class="p">(</span><span class="nv">inSection</span><span class="p">:</span> <span class="n">selectedIndexPath</span><span class="p">?</span><span class="o">.</span><span class="n">section</span> <span class="p">??</span> <span class="mi">0</span><span class="p">)</span>
     <span class="p">}</span></code></pre></figure>
 
-<h4 id="iii-with-object"><span class="me-2">(iii) With Object</span><a href="#iii-with-object" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h4 id="iii-requirement-is-to-fetch-a-random-student-from-the-list"><span class="me-2">(iii) Requirement is to fetch a random student from the list</span><a href="#iii-requirement-is-to-fetch-a-random-student-from-the-list" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift">    <span class="kd">func</span> <span class="nf">randomStudent</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nv">randomStudent</span><span class="p">:</span> <span class="kt">Student</span><span class="p">?</span>
@@ -946,7 +946,7 @@
         <span class="p">}</span>
     <span class="p">}</span></code></pre></figure>
 
-<h4 id="iv"><span class="me-2">(iv)</span><a href="#iv" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h4 id="iv-requirement-is-to-fetch-all-student-names"><span class="me-2">(iv) Requirement is to fetch all student names.</span><a href="#iv-requirement-is-to-fetch-all-student-names" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift">    <span class="kd">struct</span> <span class="kt">Student</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span>
@@ -959,7 +959,7 @@
         <span class="nf">print</span><span class="p">(</span><span class="s">"All Student Names:</span><span class="se">\(</span><span class="n">studentNames</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
     <span class="p">}</span></code></pre></figure>
 
-<h4 id="v-if-condition"><span class="me-2">(v) If Condition</span><a href="#v-if-condition" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h4 id="v-requirement-is-to-check-if-the-student-list-exists-or-not"><span class="me-2">(v) Requirement is to check if the student list exists or not.</span><a href="#v-requirement-is-to-check-if-the-student-list-exists-or-not" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift">   <span class="kd">func</span> <span class="nf">checkStudentExist</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nv">students</span><span class="p">:</span> <span class="p">[</span><span class="kt">Student</span><span class="p">]?</span>
