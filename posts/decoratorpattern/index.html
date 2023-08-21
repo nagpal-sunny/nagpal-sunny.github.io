@@ -2493,88 +2493,10 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
-  
-    
-    
-    
-    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2603,6 +2525,38 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2614,6 +2568,37 @@ The decorator object and main objects share a common interface so both can be us
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2636,24 +2621,10 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2683,24 +2654,10 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2737,8 +2694,48 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -2793,13 +2790,6 @@ The decorator object and main objects share a common interface so both can be us
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2868,13 +2858,16 @@ The decorator object and main objects share a common interface so both can be us
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/class-wrapper/">Class Wrapper</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/facade-pattern/">Facade Pattern</a>
@@ -2893,9 +2886,6 @@ The decorator object and main objects share a common interface so both can be us
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mac-rosetta/">Mac rosetta</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
     </div>
   </div>
@@ -2944,6 +2934,18 @@ The decorator object and main objects share a common interface so both can be us
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -3071,7 +3073,7 @@ The decorator object and main objects share a common interface so both can be us
   Jun 24, 2023
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>Design Pattern Series: Decorator Pattern (Structure Pattern)</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>Design Pattern Series: Template Pattern (Behaviour Pattern)</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -3082,14 +3084,15 @@ The decorator object and main objects share a common interface so both can be us
 
                   
 
- Overview
+ Outline
 
 
 
 
- Decorator Pattern - Decorate an object (wrapper of an object).
+ Template - A structure/pattern to be follow for an algorithm/process.
 
-The decorator pattern is used to add new functionality to an existing object without changing its structure. A wrapp...
+
+The Template pattern decalre/defines structure for a process/algorithm in a superclass and subclass can overr...
                 </p>
               </div>
             </div>
@@ -3147,7 +3150,7 @@ A pattern to provide a simple interface to a complex framework or library. It hi
         
         
         <div class="col">
-          <a href="/posts/arc-in-swift/" class="card post-preview h-100">
+          <a href="/posts/enum/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -3176,7 +3179,20 @@ A pattern to provide a simple interface to a complex framework or library. It hi
 
 
 
-                  One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications de...
+                  1
+2
+3
+4
+5
+6
+7
+8
+    guard let category = attributes.filter({
+        if case .category(_) = $0 {
+            return true
+        }
+        return false
+    }).first, case .category(let categoryMask...
                 </p>
               </div>
             </div>
@@ -3251,88 +3267,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-  
-    
-    
-    
-    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3361,6 +3299,38 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -3372,6 +3342,37 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -3394,24 +3395,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3441,24 +3428,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3495,8 +3468,48 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -3551,13 +3564,6 @@ A pattern to provide a simple interface to a complex framework or library. It hi
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -3626,13 +3632,16 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/class-wrapper/">Class Wrapper</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/facade-pattern/">Facade Pattern</a>
@@ -3651,9 +3660,6 @@ A pattern to provide a simple interface to a complex framework or library. It hi
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mac-rosetta/">Mac rosetta</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
     </div>
   </div>

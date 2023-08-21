@@ -39,8 +39,8 @@
 <meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="ARC in Swift" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory. Reference counting is only applicable to instances of classes." />
-<meta property="og:description" content="One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory. Reference counting is only applicable to instances of classes." />
+<meta name="description" content="One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory." />
+<meta property="og:description" content="One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory." />
 <link rel="canonical" href="http://localhost:4000/posts/arc-in-swift/" />
 <meta property="og:url" content="http://localhost:4000/posts/arc-in-swift/" />
 <meta property="og:site_name" content="Saurav Nagpal Writings" />
@@ -50,7 +50,7 @@
 <meta property="twitter:title" content="ARC in Swift" />
 <meta name="twitter:site" content="@nagpalsaurav" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-08T21:19:19+05:30","datePublished":"2023-07-15T14:22:00+05:30","description":"One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory. Reference counting is only applicable to instances of classes.","headline":"ARC in Swift","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/arc-in-swift/"},"url":"http://localhost:4000/posts/arc-in-swift/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-08T22:15:41+05:30","datePublished":"2023-07-15T14:22:00+05:30","description":"One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory.","headline":"ARC in Swift","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/arc-in-swift/"},"url":"http://localhost:4000/posts/arc-in-swift/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -823,7 +823,7 @@
 
 <em
   class=""
-  data-ts="1691509759"
+  data-ts="1691513141"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -873,7 +873,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="962 words"
+  title="1035 words"
 >
   <em>5 min</em> read</span>
 
@@ -884,33 +884,34 @@
 </div> <!-- .post-meta -->
 
 <div class="post-content">
-  <p>One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory. Reference counting is only applicable to instances of classes.</p>
+  <p>One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory.</p>
 
 <h1 id="what-is-arc">What is ARC?</h1>
 
-<p>ARC is a memory management tool which tracks and manages the application memory. It is a compiler-driven feature. It observes the reference count of object of a class to manage and free the memory. So the question is what is reference count?</p>
+<p>ARC is a memory management tool which tracks and manages the application memory. It is a compiler-driven feature. It observes the reference count of an object of a class to manage and free the memory. So the question is what is reference count?</p>
 
 <p>Reference count in simple language is the “number of pointers to any object”.</p>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Amount</span> <span class="o">=</span> <span class="kt">Int</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Amount</span> <span class="o">=</span> <span class="kt">Int</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
-    
-    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Uses of My Travel Class</span>
-<span class="c1">//My trip List</span>
-<span class="k">let</span> <span class="nv">goaTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Panji"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span> <span class="c1">//init is one pointer to Object of</span>
-<span class="nf">print</span><span class="p">(</span><span class="s">"I spent Rs </span><span class="se">\(</span><span class="n">goaTrip</span><span class="o">.</span><span class="n">totalSpending</span><span class="se">)</span><span class="s"> in goa trip"</span><span class="p">)</span>
-<span class="k">var</span> <span class="nv">tripWithHigherSpending</span> <span class="o">=</span> <span class="p">[</span><span class="n">goaTrip</span><span class="p">]</span> <span class="c1">// One more pointer to goaTrip</span>
-<span class="k">var</span> <span class="nv">recentTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>              <span class="c1">// One more pointer to goaTrip</span>
-<span class="nf">print</span><span class="p">(</span><span class="s">"I spent Rs </span><span class="se">\(</span><span class="n">recentTrip</span><span class="o">.</span><span class="n">totalSpending</span><span class="se">)</span><span class="s"> during recentTrip"</span><span class="p">)</span></code></pre></figure>
+      <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+      <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="c1">//Uses of My Travel Class</span>
+  <span class="c1">//My trip List</span>
+  <span class="k">let</span> <span class="nv">goaTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Panji"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span> <span class="c1">//init is one pointer to Object of</span>
+  <span class="nf">print</span><span class="p">(</span><span class="s">"I spent Rs </span><span class="se">\(</span><span class="n">goaTrip</span><span class="o">.</span><span class="n">totalSpending</span><span class="se">)</span><span class="s"> in goa trip"</span><span class="p">)</span>
+  
+  <span class="k">var</span> <span class="nv">tripWithHigherSpending</span> <span class="o">=</span> <span class="p">[</span><span class="n">goaTrip</span><span class="p">]</span> <span class="c1">// One more pointer to goaTrip</span>
+  <span class="k">var</span> <span class="nv">recentTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>              <span class="c1">// One more pointer to goaTrip</span>
+  <span class="nf">print</span><span class="p">(</span><span class="s">"I spent Rs </span><span class="se">\(</span><span class="n">recentTrip</span><span class="o">.</span><span class="n">totalSpending</span><span class="se">)</span><span class="s"> during recentTrip"</span><span class="p">)</span></code></pre></figure>
 
 <p>Reference counting only applies to class instances, so struct &amp; enum do not participate in reference counting.</p>
 
@@ -940,17 +941,17 @@ ARC is the compiler-driven feature and it injects retain/release statements in a
 
 <p>ARC decide based on the above when to add retain and release statement.</p>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Amount</span> <span class="o">=</span> <span class="kt">Int</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Amount</span> <span class="o">=</span> <span class="kt">Int</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
     
-    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+      <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+      <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
 
 <p><a href="/Assest/iOS/arc/arcCompile.png" class="popup img-link "><img data-src="/Assest/iOS/arc/arcCompile.png" class="lazyload" data-proofer-ignore></a></p>
 
@@ -958,19 +959,22 @@ ARC is the compiler-driven feature and it injects retain/release statements in a
 
 <p>However, code should not be written based on this assumption and as it might change depending upon the compiler optimisation/changes.</p>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">explainARCSample</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//My trip List</span>
-    <span class="k">let</span> <span class="nv">goaTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Panji"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span>
-    <span class="k">weak</span> <span class="k">var</span> <span class="nv">goaWeakTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>
-    <span class="k">var</span> <span class="nv">recentTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">func</span> <span class="nf">explainARCSample</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//My trip List</span>
+      <span class="k">let</span> <span class="nv">goaTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Panji"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span>
+      <span class="k">weak</span> <span class="k">var</span> <span class="nv">goaWeakTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>
+      <span class="k">var</span> <span class="nv">recentTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>
 
-    <span class="n">recentTrip</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="s">"Manali"</span>
-    <span class="n">recentTrip</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="mi">40000</span>
+      <span class="n">recentTrip</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="s">"Manali"</span>
+      <span class="n">recentTrip</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="mi">40000</span>
     
-    <span class="nf">print</span><span class="p">(</span><span class="s">"I used weak reference here: Goa Trip Rs </span><span class="se">\(</span><span class="n">goaWeakTrip</span><span class="p">?</span><span class="o">.</span><span class="n">totalSpending</span> <span class="p">??</span> <span class="mi">50000</span><span class="se">)</span><span class="s"> during recent trip"</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">"I used weak reference here: Goa Trip Rs </span><span class="se">\(</span><span class="n">goaWeakTrip</span><span class="p">?</span><span class="o">.</span><span class="n">totalSpending</span> <span class="p">??</span> <span class="mi">50000</span><span class="se">)</span><span class="s">   
+  during the recent trip"</span><span class="p">)</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>You should not write logic as written above as the result is unexpected in the above case.</p>
+<p>In the above case, it is wrong to assume that <code class="language-plaintext highlighter-rouge">goaWeakTrip</code> will always be there. The last use of the object is <code class="language-plaintext highlighter-rouge">recentTrip.totalSpending = 40000</code> and the compiler will insert release after this statement.</p>
+
+<p>So print statement here totally depends upon how the compiler works. if <code class="language-plaintext highlighter-rouge">"Object life cycle in Swift begins with init and ends at last use."</code> is strictly followed by the compiler then 50000 is the result. In the future, due to some drawbacks of this approach, Apple decided the scope based on the brace start and end then the result will be different.</p>
 
 <h1 id="arc-need-your-help">ARC need your help.</h1>
 
@@ -986,52 +990,52 @@ ARC is the compiler-driven feature and it injects retain/release statements in a
 
 <p>To break the reference cycle weak and unowned keywords can be used. Both reference type does not participate in reference counting.</p>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravelDiary</span> <span class="p">{</span>
-    <span class="kd">fileprivate</span> <span class="k">var</span> <span class="nv">travels</span><span class="p">:</span> <span class="p">[</span><span class="kt">MyTravel</span><span class="p">]</span>
-    <span class="kd">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">travels</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="p">}</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravelDiary</span> <span class="p">{</span>
+      <span class="kd">fileprivate</span> <span class="k">var</span> <span class="nv">travels</span><span class="p">:</span> <span class="p">[</span><span class="kt">MyTravel</span><span class="p">]</span>
+      <span class="kd">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">travels</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="p">}</span>
     
-    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTravel</span><span class="p">(</span><span class="n">_</span> <span class="nv">travel</span><span class="p">:</span> <span class="kt">MyTravel</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">travel</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+      <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTravel</span><span class="p">(</span><span class="n">_</span> <span class="nv">travel</span><span class="p">:</span> <span class="kt">MyTravel</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">travel</span><span class="p">)</span>
+      <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
 
 <p>Weak reference can be used when you are not sure about the life cycle of the referred object. It will automatically be set to nil if the object reference count becomes zero. The only constraint with weak is must be optional.</p>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
-    <span class="k">weak</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">?</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+      <span class="k">weak</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">?</span>
     
-    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+      <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+      <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
 
 <p>Unowned reference can be used when you are sure about the life cycle of the referred object and it will not be deallocated. It can be used with an object which has an equal or greater life cycle. Unowned references can be declared as non-optional and faster access as compared to weak ones. The weak need to unwrap to access the value.</p>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
-    <span class="k">unowned</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+      <span class="k">unowned</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span>
     
-    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+      <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span>
+      <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="kt">MyTravelDiary</span><span class="p">()</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="kt">MyTravelDiary</span><span class="p">()</span>
 
-<span class="c1">//unowned uses</span>
-<span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="n">travelDiary</span><span class="p">)</span>
+  <span class="c1">//unowned uses</span>
+  <span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="n">travelDiary</span><span class="p">)</span>
 
-<span class="c1">//weak uses</span>
-<span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">)</span>
-<span class="n">manaliTrip</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span></code></pre></figure>
+  <span class="c1">//weak uses</span>
+  <span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">)</span>
+  <span class="n">manaliTrip</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span></code></pre></figure>
 
 <div id="divActivites" name="divActivites" style="padding-left:10px; padding-right:10px; background-color: #FFFFE0; border:1px solid black;">
 
@@ -1045,58 +1049,58 @@ A weak reference is automatically set to nil if no strong reference remains and 
 
 <p>There are safe ways to access the weak refrence to avoid unexpected result or fatal excpetion (force unrawp) at run time.</p>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
-    <span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">?</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+      <span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">?</span>
     
-    <span class="kd">public</span> <span class="k">var</span> <span class="nv">isExistInTravelDiary</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span><span class="o">!.</span><span class="n">travels</span><span class="o">.</span><span class="n">filter</span> <span class="p">{</span>
-            <span class="nv">$0</span><span class="o">.</span><span class="n">city</span> <span class="o">==</span> <span class="k">self</span><span class="o">.</span><span class="n">city</span>
-        <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="kc">nil</span>
-    <span class="p">}</span>
+      <span class="kd">public</span> <span class="k">var</span> <span class="nv">isExistInTravelDiary</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span><span class="o">!.</span><span class="n">travels</span><span class="o">.</span><span class="n">filter</span> <span class="p">{</span>
+              <span class="nv">$0</span><span class="o">.</span><span class="n">city</span> <span class="o">==</span> <span class="k">self</span><span class="o">.</span><span class="n">city</span>
+          <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="kc">nil</span>
+      <span class="p">}</span>
     
-    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+      <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravelDiary</span> <span class="p">{</span>
-    <span class="kd">fileprivate</span> <span class="k">var</span> <span class="nv">travels</span><span class="p">:</span> <span class="p">[</span><span class="kt">MyTravel</span><span class="p">]</span>
-    <span class="kd">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">travels</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="p">}</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravelDiary</span> <span class="p">{</span>
+      <span class="kd">fileprivate</span> <span class="k">var</span> <span class="nv">travels</span><span class="p">:</span> <span class="p">[</span><span class="kt">MyTravel</span><span class="p">]</span>
+      <span class="kd">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">travels</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="p">}</span>
     
-    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTravel</span><span class="p">(</span><span class="n">_</span> <span class="nv">travel</span><span class="p">:</span> <span class="kt">MyTravel</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">travel</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+      <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTravel</span><span class="p">(</span><span class="n">_</span> <span class="nv">travel</span><span class="p">:</span> <span class="kt">MyTravel</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">travel</span><span class="p">)</span>
+      <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
 
 <h4 id="option-1-withextendedlifetime"><span class="me-2">Option 1: withExtendedLifetime</span><a href="#option-1-withextendedlifetime" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">testTravelDiary</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//Manali Trip</span>
-    <span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="kt">MyTravelDiary</span><span class="p">()</span>
-    <span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">)</span>
-    <span class="n">manaliTrip</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">func</span> <span class="nf">testTravelDiary</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//Manali Trip</span>
+      <span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="kt">MyTravelDiary</span><span class="p">()</span>
+      <span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">)</span>
+      <span class="n">manaliTrip</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span>
     
-    <span class="nf">withExtendedLifetime</span><span class="p">(</span><span class="n">travelDiary</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">existString</span> <span class="o">=</span> <span class="n">manaliTrip</span><span class="o">.</span><span class="n">isExistInTravelDiary</span> <span class="p">?</span> <span class="s">"exist"</span> <span class="p">:</span> <span class="s">"not exist"</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"Manali Travel </span><span class="se">\(</span><span class="n">existString</span><span class="se">)</span><span class="s"> in Travel Diary"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+      <span class="nf">withExtendedLifetime</span><span class="p">(</span><span class="n">travelDiary</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">let</span> <span class="nv">existString</span> <span class="o">=</span> <span class="n">manaliTrip</span><span class="o">.</span><span class="n">isExistInTravelDiary</span> <span class="p">?</span> <span class="s">"exist"</span> <span class="p">:</span> <span class="s">"not exist"</span>
+          <span class="nf">print</span><span class="p">(</span><span class="s">"Manali Travel </span><span class="se">\(</span><span class="n">existString</span><span class="se">)</span><span class="s"> in Travel Diary"</span><span class="p">)</span>
+      <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
 
 <h4 id="option-2-strong-reference-capture"><span class="me-2">Option 2: Strong Reference Capture</span><a href="#option-2-strong-reference-capture" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="k">var</span> <span class="nv">isExistInTravelDiary</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span>
-     <span class="k">if</span> <span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span> <span class="p">{</span>
-           <span class="k">return</span> <span class="n">travelDiary</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="n">filter</span><span class="p">{</span>
-                <span class="nv">$0</span><span class="o">.</span><span class="n">city</span> <span class="o">==</span> <span class="k">self</span><span class="o">.</span><span class="n">city</span>
-            <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="kc">nil</span>
-      <span class="p">}</span>
-      <span class="k">return</span> <span class="kc">false</span>
- <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="k">var</span> <span class="nv">isExistInTravelDiary</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span>
+       <span class="k">if</span> <span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span> <span class="p">{</span>
+             <span class="k">return</span> <span class="n">travelDiary</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="n">filter</span><span class="p">{</span>
+                  <span class="nv">$0</span><span class="o">.</span><span class="n">city</span> <span class="o">==</span> <span class="k">self</span><span class="o">.</span><span class="n">city</span>
+              <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="kc">nil</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span>
+   <span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -1288,88 +1292,10 @@ A weak reference is automatically set to nil if no strong reference remains and 
     
     
     
-  
-    
-    
-    
-    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1398,6 +1324,38 @@ A weak reference is automatically set to nil if no strong reference remains and 
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1409,6 +1367,37 @@ A weak reference is automatically set to nil if no strong reference remains and 
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1431,24 +1420,10 @@ A weak reference is automatically set to nil if no strong reference remains and 
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1478,24 +1453,10 @@ A weak reference is automatically set to nil if no strong reference remains and 
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1532,8 +1493,48 @@ A weak reference is automatically set to nil if no strong reference remains and 
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -1588,13 +1589,6 @@ A weak reference is automatically set to nil if no strong reference remains and 
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1663,13 +1657,16 @@ A weak reference is automatically set to nil if no strong reference remains and 
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/class-wrapper/">Class Wrapper</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/facade-pattern/">Facade Pattern</a>
@@ -1688,9 +1685,6 @@ A weak reference is automatically set to nil if no strong reference remains and 
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mac-rosetta/">Mac rosetta</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
     </div>
   </div>
@@ -1734,6 +1728,18 @@ A weak reference is automatically set to nil if no strong reference remains and 
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1823,20 +1829,16 @@ A weak reference is automatically set to nil if no strong reference remains and 
   
     
     
-  
-    
-    
       
       
     
   
     
     
+  
+    
+    
       
-      
-        
-        
-        
       
     
   
@@ -1856,6 +1858,58 @@ A weak reference is automatically set to nil if no strong reference remains and 
       Further Reading
     </h3>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        
+        
+        <div class="col">
+          <a href="/posts/enum/" class="card post-preview h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em
+  class="small"
+  data-ts="1689411120"
+  data-df="ll"
+  
+>
+  Jul 15, 2023
+</em>
+
+              <h4 class="pt-0 my-2" data-toc-skip>ARC in Swift</h4>
+              <div class="text-muted small">
+                <p>
+                  
+
+
+
+
+
+                  1
+2
+3
+4
+5
+6
+7
+8
+    guard let category = attributes.filter({
+        if case .category(_) = $0 {
+            return true
+        }
+        return false
+    }).first, case .category(let categoryMask...
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
       
         
         
@@ -1948,54 +2002,6 @@ The decorator pattern is used to add new functionality to an existing object wit
           </a>
         </div>
       
-        
-        
-        <div class="col">
-          <a href="/posts/Facadepattern/" class="card post-preview h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em
-  class="small"
-  data-ts="1687617010"
-  data-df="ll"
-  
->
-  Jun 24, 2023
-</em>
-
-              <h4 class="pt-0 my-2" data-toc-skip>Design Pattern Series: Facade Pattern (Structure Pattern)</h4>
-              <div class="text-muted small">
-                <p>
-                  
-
-
-
-
-
-                  
-
- Overview
-
-
-
-
- Facade - Face of a building.
-
-A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the fr...
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-      
     </div>
     <!-- .card-deck -->
   </div>
@@ -2018,12 +2024,13 @@ A pattern to provide a simple interface to a complex framework or library. It hi
   
 
   
-    <div
-      class="btn btn-outline-primary disabled"
+    <a
+      href="/posts/enum/"
+      class="btn btn-outline-primary"
       prompt="Newer"
     >
-      <p>-</p>
-    </div>
+      <p>ARC in Swift</p>
+    </a>
   
 </div>
 
@@ -2063,88 +2070,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-  
-    
-    
-    
-    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2173,6 +2102,38 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2184,6 +2145,37 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2206,24 +2198,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2253,24 +2231,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2307,8 +2271,48 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -2363,13 +2367,6 @@ A pattern to provide a simple interface to a complex framework or library. It hi
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2438,13 +2435,16 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/class-wrapper/">Class Wrapper</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/facade-pattern/">Facade Pattern</a>
@@ -2463,9 +2463,6 @@ A pattern to provide a simple interface to a complex framework or library. It hi
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mac-rosetta/">Mac rosetta</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
     </div>
   </div>

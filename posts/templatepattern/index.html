@@ -37,7 +37,7 @@
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Design Pattern Series: Decorator Pattern (Structure Pattern)" />
+<meta property="og:title" content="Design Pattern Series: Template Pattern (Behaviour Pattern)" />
 <meta name="author" content="Saurav Nagpal" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Blog about iOS, Swift, Mobile Development and Design Pattern." />
@@ -48,16 +48,16 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-06-24T20:00:10+05:30" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Design Pattern Series: Decorator Pattern (Structure Pattern)" />
+<meta property="twitter:title" content="Design Pattern Series: Template Pattern (Behaviour Pattern)" />
 <meta name="twitter:site" content="@nagpalsaurav" />
 <meta name="twitter:creator" content="@Saurav Nagpal" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-06-24T20:00:10+05:30","datePublished":"2023-06-24T20:00:10+05:30","description":"Blog about iOS, Swift, Mobile Development and Design Pattern.","headline":"Design Pattern Series: Decorator Pattern (Structure Pattern)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/templatepattern/"},"url":"http://localhost:4000/posts/templatepattern/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-06-24T20:00:10+05:30","datePublished":"2023-06-24T20:00:10+05:30","description":"Blog about iOS, Swift, Mobile Development and Design Pattern.","headline":"Design Pattern Series: Template Pattern (Behaviour Pattern)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/templatepattern/"},"url":"http://localhost:4000/posts/templatepattern/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Design Pattern Series: Decorator Pattern (Structure Pattern) | Saurav Nagpal Writings
+  <title>Design Pattern Series: Template Pattern (Behaviour Pattern) | Saurav Nagpal Writings
   </title>
 
   <!--
@@ -467,7 +467,7 @@
         
           
             
-              <span>Design Pattern Series: Decorator Pattern (Structure Pattern)</span>
+              <span>Design Pattern Series: Template Pattern (Behaviour Pattern)</span>
             
 
           
@@ -818,6 +818,85 @@
 
     <!-- add image placeholder -->
     
+      
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+      
+    
+
+    <!-- combine -->
+    
+
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
+        <!-- add SVG placehoder -->
+        
       
     
 
@@ -1932,6 +2011,18 @@
       
 
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
 
     
 
@@ -2007,7 +2098,7 @@
 
 
 
-<h1 data-toc-skip>Design Pattern Series: Decorator Pattern (Structure Pattern)</h1>
+<h1 data-toc-skip>Design Pattern Series: Template Pattern (Behaviour Pattern)</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -2079,9 +2170,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="679 words"
+  title="723 words"
 >
-  <em>3 min</em> read</span>
+  <em>4 min</em> read</span>
 
     </div>
 
@@ -2097,15 +2188,15 @@
 }
 </style>
 
-<h2 id="-overview"><span class="me-2"><a href="/Assest/common/overview.png" class="popup img-link  shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3C/svg%3E" data-src="/Assest/common/overview.png" width="30" height="30" class="lazyload" data-proofer-ignore></a> Overview</span><a href="#-overview" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="-outline"><span class="me-2"><a href="/Assest/common/overview.png" class="popup img-link  shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3C/svg%3E" data-src="/Assest/common/overview.png" width="30" height="30" class="lazyload" data-proofer-ignore></a> Outline</span><a href="#-outline" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <hr />
 <p><br /></p>
-<p style="text-align: center;"> Decorator Pattern - Decorate an object (wrapper of an object).
+<p style="text-align: center;"> Template - A structure/pattern to be follow for an algorithm/process.
 <br />
-The decorator pattern is used to add new functionality to an existing object without changing its structure. A wrapper on the existing object is created to add new functionality.
+<br />
+The Template pattern decalre/defines structure for a process/algorithm in a superclass and subclass can override specefic steps of an algortihm to provide desired behaviour without changing execution flow of the process. The method/function which decide the execution seqeunce of a process/algorithim called Template method.  
 </p>
-<p><br /></p>
 
 <hr />
 
@@ -2134,9 +2225,17 @@ One quick common approach all the team members have is to add support for Adobe 
 
 <p>We brainstormed more on this to save ourselves and future team members and then the decorator came into the picture.</p>
 
+<h2 id="-metaphor"><span class="me-2"><a href="/Assest/common/problem.png" class="popup img-link  shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3C/svg%3E" data-src="/Assest/common/problem.png" width="30" height="30" class="lazyload" data-proofer-ignore></a> Metaphor</span><a href="#-metaphor" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>The template pattern</p>
+
 <h2 id="-implementation"><span class="me-2"><a href="/Assest/common/implementation.png" class="popup img-link  shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3C/svg%3E" data-src="/Assest/common/implementation.png" width="30" height="30" class="lazyload" data-proofer-ignore></a> Implementation</span><a href="#-implementation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>The decorator pattern uses an interface/protocol(Swift) with the composition.</p>
+<p><br />
+Interface/Protocol can be used to declare structure for the process/algortithm. Subclass can override specefic methods to provide desired behaviour without changing structure or execution flow.</p>
+
+<p><br />
+The decorator pattern uses an interface/protocol(Swift) with the composition.</p>
 
 <p><br /></p>
 
@@ -2323,8 +2422,8 @@ The decorator object and main objects share a common interface so both can be us
   <div class="post-tags">
     <i class="fa fa-tags fa-fw me-1"></i>
       
-      <a href="/tags/decorator-pattern/"
-          class="post-tag no-text-decoration" >Decorator Pattern</a>
+      <a href="/tags/template-pattern/"
+          class="post-tag no-text-decoration" >Template Pattern</a>
       
       <a href="/tags/class-wrapper/"
           class="post-tag no-text-decoration" >Class Wrapper</a>
@@ -2361,7 +2460,7 @@ The decorator object and main objects share a common interface so both can be us
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Design%20Pattern%20Series:%20Decorator%20Pattern%20(Structure%20Pattern)%20-%20Saurav%20Nagpal%20Writings&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F"
+        href="https://twitter.com/intent/tweet?text=Design%20Pattern%20Series:%20Template%20Pattern%20(Behaviour%20Pattern)%20-%20Saurav%20Nagpal%20Writings&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -2374,7 +2473,7 @@ The decorator object and main objects share a common interface so both can be us
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Design%20Pattern%20Series:%20Decorator%20Pattern%20(Structure%20Pattern)%20-%20Saurav%20Nagpal%20Writings&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=Design%20Pattern%20Series:%20Template%20Pattern%20(Behaviour%20Pattern)%20-%20Saurav%20Nagpal%20Writings&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -2387,7 +2486,7 @@ The decorator object and main objects share a common interface so both can be us
     
       
       <a
-        href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F&text=Design%20Pattern%20Series:%20Decorator%20Pattern%20(Structure%20Pattern)%20-%20Saurav%20Nagpal%20Writings"
+        href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F&text=Design%20Pattern%20Series:%20Template%20Pattern%20(Behaviour%20Pattern)%20-%20Saurav%20Nagpal%20Writings"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"
@@ -2493,88 +2592,10 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
-  
-    
-    
-    
-    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2603,6 +2624,38 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2614,6 +2667,37 @@ The decorator object and main objects share a common interface so both can be us
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2636,24 +2720,10 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2683,24 +2753,10 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2737,8 +2793,48 @@ The decorator object and main objects share a common interface so both can be us
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -2793,13 +2889,6 @@ The decorator object and main objects share a common interface so both can be us
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2868,13 +2957,16 @@ The decorator object and main objects share a common interface so both can be us
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/class-wrapper/">Class Wrapper</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/facade-pattern/">Facade Pattern</a>
@@ -2893,9 +2985,6 @@ The decorator object and main objects share a common interface so both can be us
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mac-rosetta/">Mac rosetta</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
     </div>
   </div>
@@ -2944,6 +3033,18 @@ The decorator object and main objects share a common interface so both can be us
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -3145,7 +3246,7 @@ A pattern to provide a simple interface to a complex framework or library. It hi
         
         
         <div class="col">
-          <a href="/posts/arc-in-swift/" class="card post-preview h-100">
+          <a href="/posts/enum/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -3174,7 +3275,20 @@ A pattern to provide a simple interface to a complex framework or library. It hi
 
 
 
-                  One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications de...
+                  1
+2
+3
+4
+5
+6
+7
+8
+    guard let category = attributes.filter({
+        if case .category(_) = $0 {
+            return true
+        }
+        return false
+    }).first, case .category(let categoryMask...
                 </p>
               </div>
             </div>
@@ -3249,88 +3363,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-  
-    
-    
-    
-    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3359,6 +3395,38 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -3370,6 +3438,37 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -3392,24 +3491,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3439,24 +3524,10 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3493,8 +3564,48 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -3549,13 +3660,6 @@ A pattern to provide a simple interface to a complex framework or library. It hi
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -3624,13 +3728,16 @@ A pattern to provide a simple interface to a complex framework or library. It hi
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/class-wrapper/">Class Wrapper</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/arc/">ARC</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/decorator-pattern/">Decorator Pattern</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/facade-pattern/">Facade Pattern</a>
@@ -3649,9 +3756,6 @@ A pattern to provide a simple interface to a complex framework or library. It hi
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mac-rosetta/">Mac rosetta</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/swift-arc/">Swift ARC</a>
       
     </div>
   </div>
