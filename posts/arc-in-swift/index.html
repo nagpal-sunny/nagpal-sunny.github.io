@@ -16,6 +16,8 @@
 <!-- `site.alt_lang` can specify a language different from the UI -->
 <html lang="en" 
   
+    data-mode="light"
+  
 >
   <!-- The Head -->
 
@@ -50,7 +52,7 @@
 <meta property="twitter:title" content="ARC in Swift" />
 <meta name="twitter:site" content="@nagpalsaurav" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-08T22:15:41+05:30","datePublished":"2023-07-15T14:22:00+05:30","description":"One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory.","headline":"ARC in Swift","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/arc-in-swift/"},"url":"http://localhost:4000/posts/arc-in-swift/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-21T19:10:53+05:30","datePublished":"2023-07-15T14:22:00+05:30","description":"One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications developed using Swift language rely on ARC for tracking and managing application memory usage. ARC uses reference counting to manage the application memory.","headline":"ARC in Swift","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/arc-in-swift/"},"url":"http://localhost:4000/posts/arc-in-swift/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -116,151 +118,6 @@
   
 
   <!-- JavaScript -->
-
-  
-    <!-- Switch the mode between dark and light. -->
-
-<script type="text/javascript">
-  class ModeToggle {
-    static get MODE_KEY() {
-      return 'mode';
-    }
-    static get MODE_ATTR() {
-      return 'data-mode';
-    }
-    static get DARK_MODE() {
-      return 'dark';
-    }
-    static get LIGHT_MODE() {
-      return 'light';
-    }
-    static get ID() {
-      return 'mode-toggle';
-    }
-
-    constructor() {
-      if (this.hasMode) {
-        if (this.isDarkMode) {
-          if (!this.isSysDarkPrefer) {
-            this.setDark();
-          }
-        } else {
-          if (this.isSysDarkPrefer) {
-            this.setLight();
-          }
-        }
-      }
-
-      let self = this;
-
-      /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener('change', () => {
-        if (self.hasMode) {
-          if (self.isDarkMode) {
-            if (!self.isSysDarkPrefer) {
-              self.setDark();
-            }
-          } else {
-            if (self.isSysDarkPrefer) {
-              self.setLight();
-            }
-          }
-
-          self.clearMode();
-        }
-
-        self.notify();
-      });
-    } /* constructor() */
-
-    get sysDarkPrefers() {
-      return window.matchMedia('(prefers-color-scheme: dark)');
-    }
-
-    get isSysDarkPrefer() {
-      return this.sysDarkPrefers.matches;
-    }
-
-    get isDarkMode() {
-      return this.mode === ModeToggle.DARK_MODE;
-    }
-
-    get isLightMode() {
-      return this.mode === ModeToggle.LIGHT_MODE;
-    }
-
-    get hasMode() {
-      return this.mode != null;
-    }
-
-    get mode() {
-      return sessionStorage.getItem(ModeToggle.MODE_KEY);
-    }
-
-    /* get the current mode on screen */
-    get modeStatus() {
-      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
-        return ModeToggle.DARK_MODE;
-      } else {
-        return ModeToggle.LIGHT_MODE;
-      }
-    }
-
-    setDark() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
-    }
-
-    setLight() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
-    }
-
-    clearMode() {
-      document.documentElement.removeAttribute(ModeToggle.MODE_ATTR);
-      sessionStorage.removeItem(ModeToggle.MODE_KEY);
-    }
-
-    /* Notify another plugins that the theme mode has changed */
-    notify() {
-      window.postMessage(
-        {
-          direction: ModeToggle.ID,
-          message: this.modeStatus
-        },
-        '*'
-      );
-    }
-
-    flipMode() {
-      if (this.hasMode) {
-        if (this.isSysDarkPrefer) {
-          if (this.isLightMode) {
-            this.clearMode();
-          } else {
-            this.setLight();
-          }
-        } else {
-          if (this.isDarkMode) {
-            this.clearMode();
-          } else {
-            this.setDark();
-          }
-        }
-      } else {
-        if (this.isSysDarkPrefer) {
-          this.setLight();
-        } else {
-          this.setDark();
-        }
-      }
-
-      this.notify();
-    } /* flipMode() */
-  } /* ModeToggle */
-
-  const modeToggle = new ModeToggle();
-</script>
 
   
 
@@ -339,14 +196,6 @@
   <!-- ul.nav.flex-column -->
 
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
-    
-      <button class="mode-toggle btn" aria-label="Switch Mode">
-        <i class="fas fa-adjust"></i>
-      </button>
-
-      
-        <span class="icon-border"></span>
-      
     
 
     
@@ -823,13 +672,13 @@
 
 <em
   class=""
-  data-ts="1691513141"
+  data-ts="1692625253"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Aug  8, 2023
+  Aug 21, 2023
 </em>
 
     </span>
@@ -873,7 +722,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1035 words"
+  title="1036 words"
 >
   <em>5 min</em> read</span>
 
@@ -972,9 +821,9 @@ ARC is the compiler-driven feature and it injects retain/release statements in a
   during the recent trip"</span><span class="p">)</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>In the above case, it is wrong to assume that <code class="language-plaintext highlighter-rouge">goaWeakTrip</code> will always be there. The last use of the object is <code class="language-plaintext highlighter-rouge">recentTrip.totalSpending = 40000</code> and the compiler will insert release after this statement.</p>
+<p>In the above case, it is wrong to assume that goaWeakTrip will always be there. The last use of the object is recentTrip.totalSpending = 40000 and the compiler will insert release after this statement.</p>
 
-<p>So print statement here totally depends upon how the compiler works. if <code class="language-plaintext highlighter-rouge">"Object life cycle in Swift begins with init and ends at last use."</code> is strictly followed by the compiler then 50000 is the result. In the future, due to some drawbacks of this approach, Apple decided the scope based on the brace start and end then the result will be different.</p>
+<p>So print statement here totally depends upon how the compiler works. if an Object life cycle in Swift begins with init and ends at last use. is strictly followed by the compiler then 50000 is the result. In the future, due to some drawbacks of this approach, Apple decided the scope based on the brace start and end then the result will be different.</p>
 
 <h1 id="arc-need-your-help">ARC need your help.</h1>
 
@@ -1244,6 +1093,13 @@ A weak reference is automatically set to nil if no strong reference remains and 
   <div id="access-lastmod" class="post">
     <div class="panel-heading">Recently Updated</div>
     <ul class="post-content list-unstyled ps-0 pb-1 ms-1 mt-2">
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/templatepattern/">Design Pattern Series: Template Pattern (Behaviour Pattern)</a>
+        </li>
       
         
         
@@ -2037,6 +1893,28 @@ The decorator pattern is used to add new functionality to an existing object wit
       
         
         <!--  The comments switcher -->
+
+  
+  <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-nagpal-saurav-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 
       

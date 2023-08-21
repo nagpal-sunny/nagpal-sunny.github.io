@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Saurav Nagpal Writings</title>
   <subtitle>Blog about iOS, Swift, Mobile Development and Design Pattern.</subtitle>
-  <updated>2023-08-21T13:29:46+05:30</updated>
+  <updated>2023-08-21T19:23:32+05:30</updated>
   <author>
     <name>Saurav Nagpal</name>
     <uri>http://localhost:4000/</uri>
@@ -74,7 +74,7 @@ ARC is a memory management tool which tracks and manages the application memory.
     <link href="http://localhost:4000/posts/arc-in-swift/" rel="alternate" type="text/html" title="ARC in Swift" />
     <published>2023-07-15T14:22:00+05:30</published>
   
-    <updated>2023-08-08T22:15:41+05:30</updated>
+    <updated>2023-08-21T19:10:53+05:30</updated>
   
     <id>http://localhost:4000/posts/arc-in-swift/</id>
     <content src="http://localhost:4000/posts/arc-in-swift/" />

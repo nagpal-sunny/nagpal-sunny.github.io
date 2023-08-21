@@ -16,6 +16,8 @@
 <!-- `site.alt_lang` can specify a language different from the UI -->
 <html lang="en" 
   
+    data-mode="light"
+  
 >
   <!-- The Head -->
 
@@ -120,151 +122,6 @@
   <!-- JavaScript -->
 
   
-    <!-- Switch the mode between dark and light. -->
-
-<script type="text/javascript">
-  class ModeToggle {
-    static get MODE_KEY() {
-      return 'mode';
-    }
-    static get MODE_ATTR() {
-      return 'data-mode';
-    }
-    static get DARK_MODE() {
-      return 'dark';
-    }
-    static get LIGHT_MODE() {
-      return 'light';
-    }
-    static get ID() {
-      return 'mode-toggle';
-    }
-
-    constructor() {
-      if (this.hasMode) {
-        if (this.isDarkMode) {
-          if (!this.isSysDarkPrefer) {
-            this.setDark();
-          }
-        } else {
-          if (this.isSysDarkPrefer) {
-            this.setLight();
-          }
-        }
-      }
-
-      let self = this;
-
-      /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener('change', () => {
-        if (self.hasMode) {
-          if (self.isDarkMode) {
-            if (!self.isSysDarkPrefer) {
-              self.setDark();
-            }
-          } else {
-            if (self.isSysDarkPrefer) {
-              self.setLight();
-            }
-          }
-
-          self.clearMode();
-        }
-
-        self.notify();
-      });
-    } /* constructor() */
-
-    get sysDarkPrefers() {
-      return window.matchMedia('(prefers-color-scheme: dark)');
-    }
-
-    get isSysDarkPrefer() {
-      return this.sysDarkPrefers.matches;
-    }
-
-    get isDarkMode() {
-      return this.mode === ModeToggle.DARK_MODE;
-    }
-
-    get isLightMode() {
-      return this.mode === ModeToggle.LIGHT_MODE;
-    }
-
-    get hasMode() {
-      return this.mode != null;
-    }
-
-    get mode() {
-      return sessionStorage.getItem(ModeToggle.MODE_KEY);
-    }
-
-    /* get the current mode on screen */
-    get modeStatus() {
-      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
-        return ModeToggle.DARK_MODE;
-      } else {
-        return ModeToggle.LIGHT_MODE;
-      }
-    }
-
-    setDark() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
-    }
-
-    setLight() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
-    }
-
-    clearMode() {
-      document.documentElement.removeAttribute(ModeToggle.MODE_ATTR);
-      sessionStorage.removeItem(ModeToggle.MODE_KEY);
-    }
-
-    /* Notify another plugins that the theme mode has changed */
-    notify() {
-      window.postMessage(
-        {
-          direction: ModeToggle.ID,
-          message: this.modeStatus
-        },
-        '*'
-      );
-    }
-
-    flipMode() {
-      if (this.hasMode) {
-        if (this.isSysDarkPrefer) {
-          if (this.isLightMode) {
-            this.clearMode();
-          } else {
-            this.setLight();
-          }
-        } else {
-          if (this.isDarkMode) {
-            this.clearMode();
-          } else {
-            this.setDark();
-          }
-        }
-      } else {
-        if (this.isSysDarkPrefer) {
-          this.setLight();
-        } else {
-          this.setDark();
-        }
-      }
-
-      this.notify();
-    } /* flipMode() */
-  } /* ModeToggle */
-
-  const modeToggle = new ModeToggle();
-</script>
-
-  
 
   <!-- A placeholder to allow defining custom metadata -->
 
@@ -341,14 +198,6 @@
   <!-- ul.nav.flex-column -->
 
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
-    
-      <button class="mode-toggle btn" aria-label="Switch Mode">
-        <i class="fas fa-adjust"></i>
-      </button>
-
-      
-        <span class="icon-border"></span>
-      
     
 
     
@@ -2061,7 +1910,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="386 words"
+  title="389 words"
 >
   <em>2 min</em> read</span>
 
@@ -2087,7 +1936,9 @@
 
 <h2 id="-problem-statement"><span class="me-2"><a href="/Assest/common/problem.png" class="popup img-link  shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3C/svg%3E" data-src="/Assest/common/problem.png" width="30" height="30" class="lazyload" data-proofer-ignore></a> Problem Statement</span><a href="#-problem-statement" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>Suppose you are working on an e-commerce application <code class="language-plaintext highlighter-rouge">ShopTime</code>. In the development phase, multiple backend environments need to support (Dev, QA, UAT, Release). To differentiate between the application build (Development, QA, Beta builds etc) separate application icons are provided by the customer. These builds also have a unique bundle-id. The launch screens should also be different for each build so that users can easily identify the build. Configuration can support multiple features however for this blog we will focus on the following:</p>
+<p>Suppose you are working on an e-commerce application <code class="language-plaintext highlighter-rouge"><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>ShopTime
+</pre></td></tr></tbody></table></code>. In the development phase, multiple backend environments need to support (Dev, QA, UAT, Release). To differentiate between the application build (Development, QA, Beta builds etc) separate application icons are provided by the customer. These builds also have a unique bundle-id. The launch screens should also be different for each build so that users can easily identify the build. Configuration can support multiple features however for this blog we will focus on the following:</p>
 
 <ul>
   <li>Bundle Identifier</li>
@@ -2173,7 +2024,9 @@
 <p><a href="/Assest/iOS/betaconfig/updateForBetaConfig.png" class="popup img-link "><img data-src="/Assest/iOS/betaconfig/updateForBetaConfig.png" class="lazyload" data-proofer-ignore></a></p>
 
 <p><br /></p>
-<h4 id="iii-add-the-entry-in-infoplist-for-the-backend-url"><span class="me-2">iii) Add the entry in <code class="language-plaintext highlighter-rouge">info.plist</code> for the backend URL.</span><a href="#iii-add-the-entry-in-infoplist-for-the-backend-url" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h4 id="iii-add-the-entry-in-infoplist-for-the-backend-url"><span class="me-2">iii) Add the entry in <code class="language-plaintext highlighter-rouge"><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>info.plist
+</pre></td></tr></tbody></table></code> for the backend URL.</span><a href="#iii-add-the-entry-in-infoplist-for-the-backend-url" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 <p><a href="/Assest/iOS/betaconfig/editInfoPlist.png" class="popup img-link "><img data-src="/Assest/iOS/betaconfig/editInfoPlist.png" class="lazyload" data-proofer-ignore></a></p>
 
 <p><br /></p>
@@ -2325,6 +2178,13 @@
   <div id="access-lastmod" class="post">
     <div class="panel-heading">Recently Updated</div>
     <ul class="post-content list-unstyled ps-0 pb-1 ms-1 mt-2">
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/templatepattern/">Design Pattern Series: Template Pattern (Behaviour Pattern)</a>
+        </li>
       
         
         
@@ -3119,6 +2979,28 @@ The decorator pattern is used to add new functionality to an existing object wit
       
         
         <!--  The comments switcher -->
+
+  
+  <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-nagpal-saurav-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 
       

@@ -16,6 +16,8 @@
 <!-- `site.alt_lang` can specify a language different from the UI -->
 <html lang="en" 
   
+    data-mode="light"
+  
 >
   <!-- The Head -->
 
@@ -120,151 +122,6 @@
   <!-- JavaScript -->
 
   
-    <!-- Switch the mode between dark and light. -->
-
-<script type="text/javascript">
-  class ModeToggle {
-    static get MODE_KEY() {
-      return 'mode';
-    }
-    static get MODE_ATTR() {
-      return 'data-mode';
-    }
-    static get DARK_MODE() {
-      return 'dark';
-    }
-    static get LIGHT_MODE() {
-      return 'light';
-    }
-    static get ID() {
-      return 'mode-toggle';
-    }
-
-    constructor() {
-      if (this.hasMode) {
-        if (this.isDarkMode) {
-          if (!this.isSysDarkPrefer) {
-            this.setDark();
-          }
-        } else {
-          if (this.isSysDarkPrefer) {
-            this.setLight();
-          }
-        }
-      }
-
-      let self = this;
-
-      /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener('change', () => {
-        if (self.hasMode) {
-          if (self.isDarkMode) {
-            if (!self.isSysDarkPrefer) {
-              self.setDark();
-            }
-          } else {
-            if (self.isSysDarkPrefer) {
-              self.setLight();
-            }
-          }
-
-          self.clearMode();
-        }
-
-        self.notify();
-      });
-    } /* constructor() */
-
-    get sysDarkPrefers() {
-      return window.matchMedia('(prefers-color-scheme: dark)');
-    }
-
-    get isSysDarkPrefer() {
-      return this.sysDarkPrefers.matches;
-    }
-
-    get isDarkMode() {
-      return this.mode === ModeToggle.DARK_MODE;
-    }
-
-    get isLightMode() {
-      return this.mode === ModeToggle.LIGHT_MODE;
-    }
-
-    get hasMode() {
-      return this.mode != null;
-    }
-
-    get mode() {
-      return sessionStorage.getItem(ModeToggle.MODE_KEY);
-    }
-
-    /* get the current mode on screen */
-    get modeStatus() {
-      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
-        return ModeToggle.DARK_MODE;
-      } else {
-        return ModeToggle.LIGHT_MODE;
-      }
-    }
-
-    setDark() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
-    }
-
-    setLight() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
-    }
-
-    clearMode() {
-      document.documentElement.removeAttribute(ModeToggle.MODE_ATTR);
-      sessionStorage.removeItem(ModeToggle.MODE_KEY);
-    }
-
-    /* Notify another plugins that the theme mode has changed */
-    notify() {
-      window.postMessage(
-        {
-          direction: ModeToggle.ID,
-          message: this.modeStatus
-        },
-        '*'
-      );
-    }
-
-    flipMode() {
-      if (this.hasMode) {
-        if (this.isSysDarkPrefer) {
-          if (this.isLightMode) {
-            this.clearMode();
-          } else {
-            this.setLight();
-          }
-        } else {
-          if (this.isDarkMode) {
-            this.clearMode();
-          } else {
-            this.setDark();
-          }
-        }
-      } else {
-        if (this.isSysDarkPrefer) {
-          this.setLight();
-        } else {
-          this.setDark();
-        }
-      }
-
-      this.notify();
-    } /* flipMode() */
-  } /* ModeToggle */
-
-  const modeToggle = new ModeToggle();
-</script>
-
-  
 
   <!-- A placeholder to allow defining custom metadata -->
 
@@ -341,14 +198,6 @@
   <!-- ul.nav.flex-column -->
 
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
-    
-      <button class="mode-toggle btn" aria-label="Switch Mode">
-        <i class="fas fa-adjust"></i>
-      </button>
-
-      
-        <span class="icon-border"></span>
-      
     
 
     
@@ -883,7 +732,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="528 words"
+  title="533 words"
 >
   <em>2 min</em> read</span>
 
@@ -902,18 +751,26 @@
 </style>
 
 <h2 id="what-is-it"><span class="me-2">What is it?</span><a href="#what-is-it" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not. Nil coalescing <code class="language-plaintext highlighter-rouge">??</code> is an operator used to provide a default if the optional is empty.</p>
+<p>Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not. Nil coalescing <code class="language-plaintext highlighter-rouge"><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>??
+</pre></td></tr></tbody></table></code> is an operator used to provide a default if the optional is empty.</p>
 
 <h2 id="how-to-use-it"><span class="me-2">How to use it?</span><a href="#how-to-use-it" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Add default value after the <code class="language-plaintext highlighter-rouge">?? </code> operator following Optional.</p>
+<p>Add default value after the <code class="language-plaintext highlighter-rouge"><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>?? 
+</pre></td></tr></tbody></table></code> operator following Optional.</p>
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift"> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
  <span class="k">let</span> <span class="nv">displayName</span> <span class="o">=</span> <span class="n">name</span> <span class="p">??</span> <span class="s">"NA"</span>
  <span class="nf">print</span><span class="p">(</span><span class="s">"name is:</span><span class="se">\(</span><span class="n">displayName</span><span class="se">)</span><span class="s">"</span><span class="p">)</span></code></pre></figure>
 
-<p>In this case, if the name is not available then “name is NA” will be printed. In Swift, we need to always take care while unwrapping an Optional as it might crash the application. The Nil coalescing <code class="language-plaintext highlighter-rouge">??</code> operator does the Job for you if it finds the optional has no value then it uses a default instead.</p>
+<p>In this case, if the name is not available then “name is NA” will be printed. In Swift, we need to always take care while unwrapping an Optional as it might crash the application. The Nil coalescing <code class="language-plaintext highlighter-rouge"><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>??
+</pre></td></tr></tbody></table></code> operator does the Job for you if it finds the optional has no value then it uses a default instead.</p>
 
-<h2 id="dos-and-dont-with--my-opinion"><span class="me-2">Do’s and Don’t with <code class="language-plaintext highlighter-rouge">??</code> (#My Opinion)</span><a href="#dos-and-dont-with--my-opinion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="dos-and-dont-with--my-opinion"><span class="me-2">Do’s and Don’t with <code class="language-plaintext highlighter-rouge"><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>??
+</pre></td></tr></tbody></table></code> (#My Opinion)</span><a href="#dos-and-dont-with--my-opinion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>Following are some of the uses I have seen in the code and we go through them one by one and discuss the case:</p>
 
@@ -980,7 +837,9 @@
 
 <h4 id="iv-dont---the-requirement-is-to-fetch-all-names-of-a-student-and-in-case-the-student-does-not-exist-in-the-record-then-you-should-not-assign-a-default-value-like--either-you-have-some-agreed-default-value-or-raise-an-exception-name-not-exist"><span class="me-2">(iv) Don’t - The requirement is to fetch all names of a student and in case the student does not exist in the record then you should not assign a default value like “”. Either you have some agreed default value or raise an exception name not exist.</span><a href="#iv-dont---the-requirement-is-to-fetch-all-names-of-a-student-and-in-case-the-student-does-not-exist-in-the-record-then-you-should-not-assign-a-default-value-like--either-you-have-some-agreed-default-value-or-raise-an-exception-name-not-exist" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<h4 id="v-dont---the-requirement-is-to-check-if-the-student-list-exists-or-not-in-the-case-of-the-if-studentscount--0--0-condition-using-the-default-value-is-reducing-the-condition-however-in-my-opinion-it-reduces-the-readability"><span class="me-2">(v) Don’t - The requirement is to check if the student list exists or not. In the case of the, <code class="language-plaintext highlighter-rouge">if students?.count ?? 0 &gt; 0</code> condition using the default value is reducing the condition. However, in my opinion, it reduces the readability.</span><a href="#v-dont---the-requirement-is-to-check-if-the-student-list-exists-or-not-in-the-case-of-the-if-studentscount--0--0-condition-using-the-default-value-is-reducing-the-condition-however-in-my-opinion-it-reduces-the-readability" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h4 id="v-dont---the-requirement-is-to-check-if-the-student-list-exists-or-not-in-the-case-of-the-if-studentscount--0--0-condition-using-the-default-value-is-reducing-the-condition-however-in-my-opinion-it-reduces-the-readability"><span class="me-2">(v) Don’t - The requirement is to check if the student list exists or not. In the case of the, <code class="language-plaintext highlighter-rouge"><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>if students?.count ?? 0 &gt; 0
+</pre></td></tr></tbody></table></code> condition using the default value is reducing the condition. However, in my opinion, it reduces the readability.</span><a href="#v-dont---the-requirement-is-to-check-if-the-student-list-exists-or-not-in-the-case-of-the-if-studentscount--0--0-condition-using-the-default-value-is-reducing-the-condition-however-in-my-opinion-it-reduces-the-readability" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 </div>
 
@@ -1123,6 +982,13 @@
   <div id="access-lastmod" class="post">
     <div class="panel-heading">Recently Updated</div>
     <ul class="post-content list-unstyled ps-0 pb-1 ms-1 mt-2">
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/templatepattern/">Design Pattern Series: Template Pattern (Behaviour Pattern)</a>
+        </li>
       
         
         
@@ -1916,6 +1782,28 @@ Having multiple build configurations during the application’s development phas
       
         
         <!--  The comments switcher -->
+
+  
+  <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-nagpal-saurav-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 
       
