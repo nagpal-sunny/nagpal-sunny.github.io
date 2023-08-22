@@ -723,7 +723,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1036 words"
+  title="1034 words"
 >
   <em>5 min</em> read</span>
 
@@ -744,22 +744,21 @@
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Amount</span> <span class="o">=</span> <span class="kt">Int</span>
 
-  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
-      <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
-      <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
-
-      <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
-          <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
-      <span class="p">}</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">Trip</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+    
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+    <span class="p">}</span>
   <span class="p">}</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="c1">//Uses of My Travel Class</span>
-  <span class="c1">//My trip List</span>
-  <span class="k">let</span> <span class="nv">goaTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Panji"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span> <span class="c1">//init is one pointer to Object of</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="c1">//Uses of Trip Class</span>
+  <span class="k">let</span> <span class="nv">goaTrip</span> <span class="o">=</span> <span class="kt">Trip</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Panji"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span> <span class="c1">//init is one pointer to Object of</span>
   <span class="nf">print</span><span class="p">(</span><span class="s">"I spent Rs </span><span class="se">\(</span><span class="n">goaTrip</span><span class="o">.</span><span class="n">totalSpending</span><span class="se">)</span><span class="s"> in goa trip"</span><span class="p">)</span>
   
-  <span class="k">var</span> <span class="nv">tripWithHigherSpending</span> <span class="o">=</span> <span class="p">[</span><span class="n">goaTrip</span><span class="p">]</span> <span class="c1">// One more pointer to goaTrip</span>
+  <span class="k">var</span> <span class="nv">tripToBeach</span> <span class="o">=</span> <span class="p">[</span><span class="n">goaTrip</span><span class="p">]</span> <span class="c1">// One more pointer to goaTrip</span>
   <span class="k">var</span> <span class="nv">recentTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>              <span class="c1">// One more pointer to goaTrip</span>
   <span class="nf">print</span><span class="p">(</span><span class="s">"I spent Rs </span><span class="se">\(</span><span class="n">recentTrip</span><span class="o">.</span><span class="n">totalSpending</span><span class="se">)</span><span class="s"> during recentTrip"</span><span class="p">)</span></code></pre></figure>
 
@@ -770,8 +769,8 @@
 <p>As mentioned, ARC is a compiler-driven feature. It inserts retain and release statements during compilation.</p>
 
 <ul>
-  <li>Retain increase the reference count.</li>
-  <li>Release decrease the reference count.</li>
+  <li>Retain - increase the reference count.</li>
+  <li>Release - decrease the reference count.</li>
 </ul>
 
 <div id="divActivites" name="divActivites" style="padding-left:10px; padding-right:10px; background-color: #FFFFE0; border:1px solid black;">
@@ -793,14 +792,14 @@ ARC is the compiler-driven feature and it injects retain/release statements in a
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift">  <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Amount</span> <span class="o">=</span> <span class="kt">Int</span>
 
-  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
-      <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
-      <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="kt">Trip</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
     
-      <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
-          <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
-      <span class="p">}</span>
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+    <span class="p">}</span>
   <span class="p">}</span></code></pre></figure>
 
 <p><a href="/Assest/iOS/arc/arcCompile.png" class="popup img-link "><img data-src="/Assest/iOS/arc/arcCompile.png" class="lazyload" data-proofer-ignore></a></p>
