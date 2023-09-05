@@ -45,7 +45,7 @@ const allowedDomains = [
         'www.google-analytics.com',
     
 
-    'nagpal-saurav.github.io',
+    'localhost:4000',
 
     
 

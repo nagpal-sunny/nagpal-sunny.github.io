@@ -39,28 +39,26 @@
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Design Pattern Series: Template Pattern (Behaviour Pattern)" />
-<meta name="author" content="Saurav Nagpal" />
+<meta property="og:title" content="Enum in Swift" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Outline" />
-<meta property="og:description" content="Outline" />
-<link rel="canonical" href="http://localhost:4000/posts/templatepattern/" />
-<meta property="og:url" content="http://localhost:4000/posts/templatepattern/" />
+<meta name="description" content="1 2 3 4 5 6 7 8 guard let category = attributes.filter({ if case .category(_) = $0 { return true } return false }).first, case .category(let categoryMask) = category else { return nil }" />
+<meta property="og:description" content="1 2 3 4 5 6 7 8 guard let category = attributes.filter({ if case .category(_) = $0 { return true } return false }).first, case .category(let categoryMask) = category else { return nil }" />
+<link rel="canonical" href="http://localhost:4000/posts/enum-in-swift/" />
+<meta property="og:url" content="http://localhost:4000/posts/enum-in-swift/" />
 <meta property="og:site_name" content="Saurav Nagpal Writings" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-06-24T20:00:10+05:30" />
+<meta property="article:published_time" content="2023-07-15T14:22:00+05:30" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Design Pattern Series: Template Pattern (Behaviour Pattern)" />
+<meta property="twitter:title" content="Enum in Swift" />
 <meta name="twitter:site" content="@nagpalsaurav" />
-<meta name="twitter:creator" content="@Saurav Nagpal" />
 <meta name="google-site-verification" content="_7CbT2oLxEbzhBcpoyPoHWtOLgC2fJY_oGmcFFv48bM" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-06-24T20:00:10+05:30","datePublished":"2023-06-24T20:00:10+05:30","description":"Outline","headline":"Design Pattern Series: Template Pattern (Behaviour Pattern)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/templatepattern/"},"url":"http://localhost:4000/posts/templatepattern/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-07-15T14:22:00+05:30","datePublished":"2023-07-15T14:22:00+05:30","description":"1 2 3 4 5 6 7 8 guard let category = attributes.filter({ if case .category(_) = $0 { return true } return false }).first, case .category(let categoryMask) = category else { return nil }","headline":"Enum in Swift","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/enum-in-swift/"},"url":"http://localhost:4000/posts/enum-in-swift/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Design Pattern Series: Template Pattern (Behaviour Pattern) | Saurav Nagpal Writings
+  <title>Enum in Swift | Saurav Nagpal Writings
   </title>
 
   <!--
@@ -317,7 +315,7 @@
         
           
             
-              <span>Design Pattern Series: Template Pattern (Behaviour Pattern)</span>
+              <span>Enum in Swift</span>
             
 
           
@@ -530,66 +528,6 @@
     
 
   
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
 
   
 
@@ -609,87 +547,9 @@
   
 
   
-    
-    
 
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-
-    
+  
+  
 
   
 
@@ -716,13 +576,44 @@
       
 
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
 
     
 
-  
-
-  
-  
+    
 
   
 
@@ -739,7 +630,7 @@
 
 
 
-<h1 data-toc-skip>Design Pattern Series: Template Pattern (Behaviour Pattern)</h1>
+<h1 data-toc-skip>Enum in Swift</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -756,13 +647,13 @@
 
 <em
   class=""
-  data-ts="1687617010"
+  data-ts="1689411120"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jun 24, 2023
+  Jul 15, 2023
 </em>
 
     </span>
@@ -781,10 +672,7 @@
 
       <em>
       
-        
-          <a href=""></a>
-          
-        
+        <a href="https://twitter.com/nagpalsaurav">Saurav Nagpal</a>
       
       </em>
     </span>
@@ -811,9 +699,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="630 words"
+  title="935 words"
 >
-  <em>3 min</em> read</span>
+  <em>5 min</em> read</span>
 
     </div>
 
@@ -822,139 +710,237 @@
 </div> <!-- .post-meta -->
 
 <div class="post-content">
-  <h2 id="outline"><span class="me-2">Outline</span><a href="#outline" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+  <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>    guard let category = attributes.filter({
+        if case .category(_) = $0 {
+            return true
+        }
+        return false
+    }).first, case .category(let categoryMask) = category  else {
+        return nil
+    }
+</pre></td></tr></tbody></table></code></div></div>
 
-<hr />
+<h1 id="what-is-arc">What is ARC?</h1>
 
-<center>
+<p>ARC is a memory management tool which tracks and manages the application memory. It is a compiler-driven feature. It observes the reference count of object of a class to manage and free the memory. So the question is what is reference count?</p>
 
-Template - A structure/pattern to be followed for an algorithm/process.
+<p>Reference count in simple language is the “number of pointers to any object”.</p>
 
-</center>
-<p><br />
-The Template pattern declares/defines a structure for a process/algorithm in a superclass and the subclass can override specific steps of an algorithm to provide desired behaviour without changing the execution flow of the process. The method/function that decides the execution sequence of a process/algorithm is called the Template method.</p>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Amount</span> <span class="o">=</span> <span class="kt">Int</span>
 
-<hr />
-
-<h2 id="problem-statement"><span class="me-2">Problem Statement</span><a href="#problem-statement" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>While writing code sometimes you might get into a situation where a standard set of steps to be performed to achieve the functionality. The easy option is to call these steps one by one at the required place. This way the desired functionality will be achieved however, the process is not standardised and not reusable.</p>
-
-<p>For example, you are working on a news reader application. To display the news in the application a standard set of steps needs to be followed:</p>
-
-<ol>
-  <li>Fetch the news from the source.</li>
-  <li>parse the news feed.</li>
-  <li>Categories the news (Entertainment, Top News etc.).</li>
-  <li>Filter the duplicate news.</li>
-  <li>Sort the Categories &amp; News based on Timestamp.</li>
-</ol>
-
-<p>Let’s suppose you have written a code to support XML type of response initially. After 6 months of development, a new news feed source needs to be supported which has a JSON-type response. In this case, most of the steps will be the same only the parsing step is changed.</p>
-
-<p>A straightforward approach will handle all the requests and responses in the common class. However, the common class will have a check based on response and request type. Another approach will be a Template method for getting the Feeds from the source.</p>
-
-<p><br /></p>
-
-<p><a href="/Assest/designpattern/template/templateProblem.png" class="popup img-link "><img data-src="/Assest/designpattern/template/templateProblem.png" class="lazyload" data-proofer-ignore></a></p>
-
-<h2 id="metaphor"><span class="me-2">Metaphor</span><a href="#metaphor" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>Template patterns can be related to a car assembly. A Car assembly has a sequence of steps in the following order designing, Fit Car Body, Fit car chassis, Fit Car Engine, Fit Car Door.</p>
-
-<p><a href="/Assest/designpattern/template/templateMetaphor.png" class="popup img-link "><img data-src="/Assest/designpattern/template/templateMetaphor.png" class="lazyload" data-proofer-ignore></a></p>
-
-<p>Each step, such as designing, fitting a chassis, and fitting a car engine can be slightly changed based on the type of car but the sequence of steps will be the same.</p>
-
-<h2 id="implementation"><span class="me-2">Implementation</span><a href="#implementation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>Steps for the process/algorithm declared in an interface and the template method defined in an abstract class or interface which defined the sequence of execution of steps.</p>
-
-<p><br /></p>
-
-<p><a href="/Assest/designpattern/template/templateSolution.png" class="popup img-link "><img data-src="/Assest/designpattern/template/templateSolution.png" class="lazyload" data-proofer-ignore></a></p>
-
-<p><br /></p>
-
-<h3 id="code-snippet"><span class="me-2"><strong><em>Code Snippet</em></strong></span><a href="#code-snippet" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>A Feed instance.</p>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="kt">Feed</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span>
-    <span class="k">var</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span>
-<span class="p">}</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">protocol</span> <span class="kt">FeedReader</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
     
-    <span class="kd">func</span> <span class="nf">fetchFeeds</span><span class="p">()</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span>
-    <span class="kd">func</span> <span class="nf">parseFeeds</span><span class="p">(</span><span class="nv">rawFeeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">])</span>
-    <span class="kd">func</span> <span class="nf">categorizeFeeds</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]</span>
-    <span class="kd">func</span> <span class="nf">filterDuplicate</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]</span>
-    <span class="kd">func</span> <span class="nf">sortFeeds</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]</span>
-    
-    <span class="kd">func</span> <span class="nf">startFeedReader</span><span class="p">()</span> <span class="k">async</span>
-<span class="p">}</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="kt">DefaultFeedReader</span><span class="p">:</span> <span class="kt">FeedReader</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="c1">//Template Method</span>
-    <span class="kd">func</span> <span class="nf">startFeedReader</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">rawFeeds</span> <span class="o">=</span> <span class="k">await</span> <span class="k">self</span><span class="o">.</span><span class="nf">fetchFeeds</span><span class="p">()</span>
-        <span class="k">self</span><span class="o">.</span><span class="nf">parseFeeds</span><span class="p">(</span><span class="nv">rawFeeds</span><span class="p">:</span> <span class="n">rawFeeds</span><span class="p">)</span>
-        <span class="k">let</span> <span class="nv">categorizeFeeds</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="nf">categorizeFeeds</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">feeds</span><span class="p">)</span>
-        <span class="k">let</span> <span class="nv">filterFeeds</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="nf">filterDuplicate</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="n">categorizeFeeds</span><span class="p">)</span>
-        <span class="k">let</span> <span class="nv">sortFeeds</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="nf">sortFeeds</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="n">categorizeFeeds</span><span class="p">)</span>
-        
-        <span class="k">self</span><span class="o">.</span><span class="n">feeds</span> <span class="o">=</span> <span class="n">sortFeeds</span>
-    <span class="p">}</span>
-    
-    <span class="c1">//Template methods</span>
-    <span class="kd">func</span> <span class="nf">fetchFeeds</span><span class="p">()</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="p">{</span>
-        <span class="c1">//Logic for fetch feed</span>
-    <span class="p">}</span>
-    
-    <span class="kd">func</span> <span class="nf">parseFeeds</span><span class="p">(</span><span class="nv">rawFeeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span> <span class="p">{</span>
-        <span class="c1">//Logic for general parse</span>
-    <span class="p">}</span>
-    
-    <span class="kd">func</span> <span class="nf">categorizeFeeds</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]</span> <span class="p">{</span>
-        <span class="c1">//Logic for categorize parse</span>
-    <span class="p">}</span>
-    
-    <span class="kd">func</span> <span class="nf">filterDuplicate</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]</span> <span class="p">{</span>
-        <span class="c1">//Logic for filter</span>
-    <span class="p">}</span>
-    
-    <span class="kd">func</span> <span class="nf">sortFeeds</span><span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]</span> <span class="p">{</span>
-        <span class="c1">//Logic for sort feeds</span>
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="kt">JsonFeedReader</span><span class="p">:</span> <span class="kt">DefaultFeedReader</span> <span class="p">{</span>
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">parseFeeds</span><span class="p">(</span><span class="nv">rawFeeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span> <span class="p">{</span>
-        <span class="c1">//Logic for  parse Json</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//Uses of My Travel Class</span>
+<span class="c1">//My trip List</span>
+<span class="k">let</span> <span class="nv">goaTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Panji"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span> <span class="c1">//init is one pointer to Object of</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"I spent Rs </span><span class="se">\(</span><span class="n">goaTrip</span><span class="o">.</span><span class="n">totalSpending</span><span class="se">)</span><span class="s"> in goa trip"</span><span class="p">)</span>
+<span class="k">var</span> <span class="nv">tripWithHigherSpending</span> <span class="o">=</span> <span class="p">[</span><span class="n">goaTrip</span><span class="p">]</span> <span class="c1">// One more pointer to goaTrip</span>
+<span class="k">var</span> <span class="nv">recentTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>              <span class="c1">// One more pointer to goaTrip</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"I spent Rs </span><span class="se">\(</span><span class="n">recentTrip</span><span class="o">.</span><span class="n">totalSpending</span><span class="se">)</span><span class="s"> during recentTrip"</span><span class="p">)</span></code></pre></figure>
+
+<p>Reference counting only applies to class instances, so struct &amp; enum do not participate in reference counting.</p>
+
+<h1 id="how-arc-works">How ARC Works?</h1>
+
+<p>As mentioned, ARC is a compiler-driven feature. It inserts retain and release statements during compilation.</p>
+
+<ul>
+  <li>Retain increase the reference count.</li>
+  <li>Release decrease the reference count.</li>
+</ul>
+
+<div id="divActivites" name="divActivites" style="padding-left:10px; padding-right:10px; background-color: #FFFFE0; border:1px solid black;">
+
+<b><span style="color:#A8571B">#TechShorts</span></b>
+<br />
+
+ARC is the compiler-driven feature and it injects retain/release statements in a code during compilation time.
+
+</div>
+
+<h4 id="how-does-the-compiler-decide-when-to-insert-retainrelease"><span class="me-2">How does the compiler decide when to insert retain/release?</span><a href="#how-does-the-compiler-decide-when-to-insert-retainrelease" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<blockquote>
+  <p>Object life cycle in Swift begins with init and ends at last use.</p>
+</blockquote>
+
+<p>ARC decide based on the above when to add retain and release statement.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Amount</span> <span class="o">=</span> <span class="kt">Int</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+    
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><br /></p>
+<p><a href="/Assest/iOS/arc/arcCompile.png" class="popup img-link "><img data-src="/Assest/iOS/arc/arcCompile.png" class="lazyload" data-proofer-ignore></a></p>
 
-<h2 id="applicability"><span class="me-2">Applicability</span><a href="#applicability" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>The object life cycle in Swift is different from the other language. In most of the other languages, it ends at the closing brace.</p>
 
-<ol>
-  <li>
-    <p>Use the template pattern when you are implementing an algorithm which has a sequence of steps to follow. In future, if you need a variant of the algorithm with a step change then a derived class can be used and required changes to be done in the derived class. Example: <em>Compiler designing.</em></p>
-  </li>
-  <li>
-    <p>When you need a variant in algorithm/process based on data type or extension in that case template pattern can be used. For example <em>parsing (XML/JSON/txt)</em>, <em>upload data (image/Xml/txt)</em>. So most of the steps will be the same only the handling of data will be changed.</p>
-  </li>
-  <li></li>
-</ol>
+<p>However, code should not be written based on this assumption and as it might change depending upon the compiler optimisation/changes.</p>
 
-<h2 id="facts"><span class="me-2">Facts</span><a href="#facts" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">explainARCSample</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//My trip List</span>
+    <span class="k">let</span> <span class="nv">goaTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Panji"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span>
+    <span class="k">weak</span> <span class="k">var</span> <span class="nv">goaWeakTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>
+    <span class="k">var</span> <span class="nv">recentTrip</span> <span class="o">=</span> <span class="n">goaTrip</span>
+
+    <span class="n">recentTrip</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="s">"Manali"</span>
+    <span class="n">recentTrip</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="mi">40000</span>
+    
+    <span class="nf">print</span><span class="p">(</span><span class="s">"I used weak reference here: Goa Trip Rs </span><span class="se">\(</span><span class="n">goaWeakTrip</span><span class="p">?</span><span class="o">.</span><span class="n">totalSpending</span> <span class="p">??</span> <span class="mi">50000</span><span class="se">)</span><span class="s"> during recent trip"</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>You should not write logic as written above as the result is unexpected in the above case.</p>
+
+<h1 id="arc-need-your-help">ARC need your help.</h1>
+
+<p>ARC cannot detect or break **Reference cycle **. If object holds a strong reference to each other directly or indirectly in that case memory cannot be released of the objects.</p>
+
+<p><a href="/Assest/iOS/arc/arcRefrencecycle.png" class="popup img-link "><img data-src="/Assest/iOS/arc/arcRefrencecycle.png" class="lazyload" data-proofer-ignore></a></p>
+
+<p>In the above cases, even if the compiler inserts a release statement the object will not be released from memory as both object holds each other.</p>
+
+<p>Prevention is the only cure here, so while writing code this need to take care of.</p>
+
+<h4 id="weak--unowned-reference-cycle"><span class="me-2">Weak &amp; Unowned Reference Cycle</span><a href="#weak--unowned-reference-cycle" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<p>To break the reference cycle weak and unowned keywords can be used. Both reference type does not participate in reference counting.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravelDiary</span> <span class="p">{</span>
+    <span class="kd">fileprivate</span> <span class="k">var</span> <span class="nv">travels</span><span class="p">:</span> <span class="p">[</span><span class="kt">MyTravel</span><span class="p">]</span>
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">travels</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTravel</span><span class="p">(</span><span class="n">_</span> <span class="nv">travel</span><span class="p">:</span> <span class="kt">MyTravel</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">travel</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Weak reference can be used when you are not sure about the life cycle of the referred object. It will automatically be set to nil if the object reference count becomes zero. The only constraint with weak is must be optional.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+    <span class="k">weak</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">?</span>
+    
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Unowned reference can be used when you are sure about the life cycle of the referred object and it will not be deallocated. It can be used with an object which has an equal or greater life cycle. Unowned references can be declared as non-optional and faster access as compared to weak ones. The weak need to unwrap to access the value.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+    <span class="k">unowned</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span>
+    
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="kt">MyTravelDiary</span><span class="p">()</span>
+
+<span class="c1">//unowned uses</span>
+<span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="n">travelDiary</span><span class="p">)</span>
+
+<span class="c1">//weak uses</span>
+<span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">)</span>
+<span class="n">manaliTrip</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span></code></pre></figure>
+
+<div id="divActivites" name="divActivites" style="padding-left:10px; padding-right:10px; background-color: #FFFFE0; border:1px solid black;">
+
+<b><span style="color:#A8571B">#TechShorts</span></b>
+<br />
+A weak reference is automatically set to nil if no strong reference remains and a weak reference is always optional. Unowned references will refer to deallocated memory if no strong reference remains, so the application can crash. Unowned is always non-optional.
+
+</div>
+
+<h1 id="bonus">Bonus.</h1>
+
+<p>There are safe ways to access the weak refrence to avoid unexpected result or fatal excpetion (force unrawp) at run time.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravel</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Amount</span>
+    <span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">travelDiary</span><span class="p">:</span> <span class="kt">MyTravelDiary</span><span class="p">?</span>
+    
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">isExistInTravelDiary</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span><span class="o">!.</span><span class="n">travels</span><span class="o">.</span><span class="n">filter</span> <span class="p">{</span>
+            <span class="nv">$0</span><span class="o">.</span><span class="n">city</span> <span class="o">==</span> <span class="k">self</span><span class="o">.</span><span class="n">city</span>
+        <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">totalSpending</span> <span class="o">=</span> <span class="n">totalSpending</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MyTravelDiary</span> <span class="p">{</span>
+    <span class="kd">fileprivate</span> <span class="k">var</span> <span class="nv">travels</span><span class="p">:</span> <span class="p">[</span><span class="kt">MyTravel</span><span class="p">]</span>
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">travels</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTravel</span><span class="p">(</span><span class="n">_</span> <span class="nv">travel</span><span class="p">:</span> <span class="kt">MyTravel</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">travel</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="option-1-withextendedlifetime"><span class="me-2">Option 1: withExtendedLifetime</span><a href="#option-1-withextendedlifetime" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">testTravelDiary</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//Manali Trip</span>
+    <span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="kt">MyTravelDiary</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">manaliTrip</span> <span class="o">=</span> <span class="kt">MyTravel</span><span class="p">(</span><span class="nv">city</span><span class="p">:</span> <span class="s">"Manali"</span><span class="p">,</span> <span class="nv">totalSpending</span><span class="p">:</span> <span class="mi">40000</span><span class="p">)</span>
+    <span class="n">manaliTrip</span><span class="o">.</span><span class="n">travelDiary</span> <span class="o">=</span> <span class="n">travelDiary</span>
+    
+    <span class="nf">withExtendedLifetime</span><span class="p">(</span><span class="n">travelDiary</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">existString</span> <span class="o">=</span> <span class="n">manaliTrip</span><span class="o">.</span><span class="n">isExistInTravelDiary</span> <span class="p">?</span> <span class="s">"exist"</span> <span class="p">:</span> <span class="s">"not exist"</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Manali Travel </span><span class="se">\(</span><span class="n">existString</span><span class="se">)</span><span class="s"> in Travel Diary"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="option-2-strong-reference-capture"><span class="me-2">Option 2: Strong Reference Capture</span><a href="#option-2-strong-reference-capture" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">public</span> <span class="k">var</span> <span class="nv">isExistInTravelDiary</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span>
+     <span class="k">if</span> <span class="k">let</span> <span class="nv">travelDiary</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">travelDiary</span> <span class="p">{</span>
+           <span class="k">return</span> <span class="n">travelDiary</span><span class="o">.</span><span class="n">travels</span><span class="o">.</span><span class="n">filter</span><span class="p">{</span>
+                <span class="nv">$0</span><span class="o">.</span><span class="n">city</span> <span class="o">==</span> <span class="k">self</span><span class="o">.</span><span class="n">city</span>
+            <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="kc">nil</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="kc">false</span>
+ <span class="p">}</span></code></pre></figure>
 
 
 </div>
@@ -966,8 +952,8 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
   <div class="post-meta mb-3">
     <i class="far fa-folder-open fa-fw me-1"></i>
     
-      <a href='/categories/design-pattern/'>Design Pattern</a>,
-      <a href='/categories/clean-code/'>Clean Code</a>
+      <a href='/categories/ios/'>iOS</a>,
+      <a href='/categories/swift/'>Swift</a>
   </div>
   
 
@@ -976,11 +962,14 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
   <div class="post-tags">
     <i class="fa fa-tags fa-fw me-1"></i>
       
-      <a href="/tags/template-pattern/"
-          class="post-tag no-text-decoration" >Template Pattern</a>
+      <a href="/tags/enum/"
+          class="post-tag no-text-decoration" >Enum</a>
       
-      <a href="/tags/template-method/"
-          class="post-tag no-text-decoration" >Template Method</a>
+      <a href="/tags/swift-enum/"
+          class="post-tag no-text-decoration" >Swift Enum</a>
+      
+      <a href="/tags/value-types-in-swift/"
+          class="post-tag no-text-decoration" >Value Types In Swift</a>
       
   </div>
   
@@ -1014,7 +1003,7 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Design%20Pattern%20Series:%20Template%20Pattern%20(Behaviour%20Pattern)%20-%20Saurav%20Nagpal%20Writings&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F"
+        href="https://twitter.com/intent/tweet?text=Enum%20in%20Swift%20-%20Saurav%20Nagpal%20Writings&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fenum-in-swift%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -1027,7 +1016,7 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Design%20Pattern%20Series:%20Template%20Pattern%20(Behaviour%20Pattern)%20-%20Saurav%20Nagpal%20Writings&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=Enum%20in%20Swift%20-%20Saurav%20Nagpal%20Writings&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fenum-in-swift%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -1040,7 +1029,7 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
     
       
       <a
-        href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Ftemplatepattern%2F&text=Design%20Pattern%20Series:%20Template%20Pattern%20(Behaviour%20Pattern)%20-%20Saurav%20Nagpal%20Writings"
+        href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fenum-in-swift%2F&text=Enum%20in%20Swift%20-%20Saurav%20Nagpal%20Writings"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"
@@ -1587,11 +1576,6 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
 
 
 
-  <div id="toc-wrapper" class="ps-0 pe-4 mb-5">
-    <div class="panel-heading ps-3 pt-2 mb-2">Contents</div>
-    <nav id="toc"></nav>
-  </div>
-
 
     
   </div>
@@ -1626,67 +1610,67 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
@@ -1720,16 +1704,6 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
 
 
 
-  
-    
-    
-      
-      
-        
-        
-        
-          
-
 
 
   <div id="related-posts" class="mb-2 mb-sm-4">
@@ -1741,7 +1715,7 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
         
         
         <div class="col">
-          <a href="/posts/Facadepattern/" class="card post-preview h-100">
+          <a href="/posts/Swift-(Nil-Coalescing)-Do's-and-Don't/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1754,14 +1728,14 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
 
 <em
   class="small"
-  data-ts="1687617010"
+  data-ts="1687294450"
   data-df="ll"
   
 >
-  Jun 24, 2023
+  Jun 21, 2023
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>Design Pattern Series: Facade Pattern (Structure Pattern)</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>Swift ?? (Nil Coalescing) Do's and Don't</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -1772,13 +1746,8 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
 
                   
 
- Overview
-
-
-
- Facade - Face of a building.
-
-A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the fra...
+What is it?
+Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may ...
                 </p>
               </div>
             </div>
@@ -1788,7 +1757,7 @@ A pattern to provide a simple interface to a complex framework or library. It hi
         
         
         <div class="col">
-          <a href="/posts/decoratorpattern/" class="card post-preview h-100">
+          <a href="/posts/iOS-Custom-Build-Scheme/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1801,14 +1770,14 @@ A pattern to provide a simple interface to a complex framework or library. It hi
 
 <em
   class="small"
-  data-ts="1687617010"
+  data-ts="1688297470"
   data-df="ll"
   
 >
-  Jun 24, 2023
+  Jul  2, 2023
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>Design Pattern Series: Decorator Pattern (Structure Pattern)</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>Distribute iOS Beta Build (Scheme & Configurations)</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -1821,11 +1790,7 @@ A pattern to provide a simple interface to a complex framework or library. It hi
 
  Overview
 
-
-
- Decorator Pattern - Decorate an object (wrapper of an object).
-
-The decorator pattern is used to add new functionality to an existing object without changing its structure. A wrappe...
+Having multiple build configurations during the application’s development phase is a good practice. Customers can ask for both debug and release configuration builds. Beta and Alpha te...
                 </p>
               </div>
             </div>
@@ -1835,7 +1800,7 @@ The decorator pattern is used to add new functionality to an existing object wit
         
         
         <div class="col">
-          <a href="/posts/enum-in-swift/" class="card post-preview h-100">
+          <a href="/posts/arc-in-swift/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1855,7 +1820,7 @@ The decorator pattern is used to add new functionality to an existing object wit
   Jul 15, 2023
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>Enum in Swift</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>ARC in Swift</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -1864,20 +1829,7 @@ The decorator pattern is used to add new functionality to an existing object wit
 
 
 
-                  1
-2
-3
-4
-5
-6
-7
-8
-    guard let category = attributes.filter({
-        if case .category(_) = $0 {
-            return true
-        }
-        return false
-    }).first, case .category(let categoryMask...
+                  One of the key factors for the success of any application is its performance. Effective Memory Management in an application is crucial for better performance of the application. iOS applications de...
                 </p>
               </div>
             </div>
@@ -1897,22 +1849,21 @@ The decorator pattern is used to add new functionality to an existing object wit
 <div class="post-navigation d-flex justify-content-between">
   
     <a
-      href="/posts/crossplatform-Flutter-on-Apple-Silicon-Mac/"
+      href="/posts/arc-in-swift/"
       class="btn btn-outline-primary"
       prompt="Older"
     >
-      <p>Flutter on Apple Silicon Mac: Cocoa-pods Issue</p>
+      <p>ARC in Swift</p>
     </a>
   
 
   
-    <a
-      href="/posts/Facadepattern/"
-      class="btn btn-outline-primary"
+    <div
+      class="btn btn-outline-primary disabled"
       prompt="Newer"
     >
-      <p>Design Pattern Series: Facade Pattern (Structure Pattern)</p>
-    </a>
+      <p>-</p>
+    </div>
   
 </div>
 
@@ -1928,8 +1879,8 @@ The decorator pattern is used to add new functionality to an existing object wit
 
 <script type="text/javascript">
   var disqus_config = function () {
-    this.page.url = 'http://localhost:4000/posts/templatepattern/';
-    this.page.identifier = '/posts/templatepattern/';
+    this.page.url = 'http://localhost:4000/posts/enum-in-swift/';
+    this.page.identifier = '/posts/enum-in-swift/';
   };
 
   /* Lazy loading */
@@ -2609,16 +2560,9 @@ The decorator pattern is used to add new functionality to an existing object wit
 
   
 
-  
-    
-
-    
-
-  
 
 
-
-  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.7.0/dist/jquery.min.js,npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js,npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.7/dayjs.min.js,npm/dayjs@1.11.7/locale/en.min.js,npm/dayjs@1.11.7/plugin/relativeTime.min.js,npm/dayjs@1.11.7/plugin/localizedFormat.min.js,npm/tocbot@4.21.0/dist/tocbot.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.7.0/dist/jquery.min.js,npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js,npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.7/dayjs.min.js,npm/dayjs@1.11.7/locale/en.min.js,npm/dayjs@1.11.7/plugin/relativeTime.min.js,npm/dayjs@1.11.7/plugin/localizedFormat.min.js"></script>
 
 
 
