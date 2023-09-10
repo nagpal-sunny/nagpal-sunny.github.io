@@ -55,7 +55,7 @@
 <meta name="twitter:creator" content="@Saurav Nagpal" />
 <meta name="google-site-verification" content="_7CbT2oLxEbzhBcpoyPoHWtOLgC2fJY_oGmcFFv48bM" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-06-24T20:00:10+05:30","datePublished":"2023-06-24T20:00:10+05:30","description":"Outline","headline":"Design Pattern Series: Template Pattern (Behaviour Pattern)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/templatepattern/"},"url":"http://localhost:4000/posts/templatepattern/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-09-07T19:09:24+05:30","datePublished":"2023-06-24T20:00:10+05:30","description":"Outline","headline":"Design Pattern Series: Template Pattern (Behaviour Pattern)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/templatepattern/"},"url":"http://localhost:4000/posts/templatepattern/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -166,11 +166,11 @@
       <!-- .nav-item -->
     
       <li class="nav-item">
-        <a href="/tags/" class="nav-link">
+        <a href="/apps/" class="nav-link">
           <i class="fa-fw fas fa-tags"></i>
           
 
-          <span>TAGS</span>
+          <span>APPS</span>
         </a>
       </li>
       <!-- .nav-item -->
@@ -688,6 +688,18 @@
       
 
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
 
     
 
@@ -704,6 +716,42 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
       
 
       
@@ -769,6 +817,30 @@
 
     <!-- lastmod date -->
     
+    <span>
+      Updated
+      <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em
+  class=""
+  data-ts="1694093964"
+  data-df="ll"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  Sep  7, 2023
+</em>
+
+    </span>
+    
 
   
 
@@ -811,9 +883,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="630 words"
+  title="758 words"
 >
-  <em>3 min</em> read</span>
+  <em>4 min</em> read</span>
 
     </div>
 
@@ -951,10 +1023,22 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
   <li>
     <p>When you need a variant in algorithm/process based on data type or extension in that case template pattern can be used. For example <em>parsing (XML/JSON/txt)</em>, <em>upload data (image/Xml/txt)</em>. So most of the steps will be the same only the handling of data will be changed.</p>
   </li>
-  <li></li>
+  <li>
+    <p>A Process with multiple variants like authentication can be implemented with the Template method. There might be steps before and after authentication that will not affected by the authentication method (PIN/ FACEId/ Touch ID).</p>
+  </li>
 </ol>
 
+<h2 id="trade-offs"><span class="me-2">Trade-offs</span><a href="#trade-offs" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="-reusability-vs-flexibility-"><span class="me-2"><em>** Reusability vs Flexibility **</em></span><a href="#-reusability-vs-flexibility-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>Template patterns support code reusability by moving common code in the base class. On the other hand, the flexibility to add custom steps in specific variants is not possible with the template method. For example, In the above case, a new car requires the solar panel to be set up on the roof to support an electric battery which is not possible in the current template. There is no step in the process to add a Panel on the rooftop.</p>
+
+<h3 id="-coupling-vs-cohesion-"><span class="me-2"><em>** Coupling vs Cohesion **</em></span><a href="#-coupling-vs-cohesion-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
 <h2 id="facts"><span class="me-2">Facts</span><a href="#facts" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="template-vs-"><span class="me-2"><em>**Template vs **</em></span><a href="#template-vs-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 
 </div>
@@ -1098,6 +1182,13 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
   <div id="access-lastmod" class="post">
     <div class="panel-heading">Recently Updated</div>
     <ul class="post-content list-unstyled ps-0 pb-1 ms-1 mt-2">
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/templatepattern/">Design Pattern Series: Template Pattern (Behaviour Pattern)</a>
+        </li>
       
         
         
