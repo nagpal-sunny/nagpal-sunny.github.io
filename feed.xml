@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Saurav Nagpal Writings</title>
   <subtitle>Blog about iOS, Swift, Mobile Development and Design Pattern.</subtitle>
-  <updated>2023-09-10T10:59:25+05:30</updated>
+  <updated>2023-09-10T15:26:16+05:30</updated>
   <author>
     <name>Saurav Nagpal</name>
     <uri>http://localhost:4000/</uri>
@@ -20,14 +20,54 @@
 
   
   <entry>
+    <title>Game - Connect Balls</title>
+    <link href="http://localhost:4000/posts/apps/" rel="alternate" type="text/html" title="Game - Connect Balls" />
+    <published>2023-09-10T09:15:10+05:30</published>
+  
+    <updated>2023-09-10T09:15:10+05:30</updated>
+  
+    <id>http://localhost:4000/posts/apps/</id>
+    <content src="http://localhost:4000/posts/apps/" />
+    <author>
+      <name>Saurav Nagpal</name>
+    </author>
+
+  
+    
+    <category term="Apps" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+
+It is about:
+
+School time Memories are always there to cherish. Playing games on paper while the teacher is present in the classroom is what everyone remembers.  This was one of the games I played most of the time with friends. The game is simple yet engaging. You have to connect all the balls (dots on the paper) with a line. The line can be drawn with the use of a joystick.
+
+Let’s play all t...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>Enum in Swift</title>
-    <link href="http://localhost:4000/posts/enum-in-swift/" rel="alternate" type="text/html" title="Enum in Swift" />
+    <link href="http://localhost:4000/posts/ios/swift/" rel="alternate" type="text/html" title="Enum in Swift" />
     <published>2023-07-15T14:22:00+05:30</published>
   
     <updated>2023-07-15T14:22:00+05:30</updated>
   
-    <id>http://localhost:4000/posts/enum-in-swift/</id>
-    <content src="http://localhost:4000/posts/enum-in-swift/" />
+    <id>http://localhost:4000/posts/ios/swift/</id>
+    <content src="http://localhost:4000/posts/ios/swift/" />
     <author>
       <name>Saurav Nagpal</name>
     </author>
@@ -69,13 +109,13 @@ ARC is a memory management tool which tracks and manages the application memory.
   
   <entry>
     <title>ARC in Swift</title>
-    <link href="http://localhost:4000/posts/arc-in-swift/" rel="alternate" type="text/html" title="ARC in Swift" />
+    <link href="http://localhost:4000/posts/ios/ios%20memory%20management/" rel="alternate" type="text/html" title="ARC in Swift" />
     <published>2023-07-15T14:22:00+05:30</published>
   
     <updated>2023-07-15T14:22:00+05:30</updated>
   
-    <id>http://localhost:4000/posts/arc-in-swift/</id>
-    <content src="http://localhost:4000/posts/arc-in-swift/" />
+    <id>http://localhost:4000/posts/ios/ios%20memory%20management/</id>
+    <content src="http://localhost:4000/posts/ios/ios%20memory%20management/" />
     <author>
       <name>Saurav Nagpal</name>
     </author>
@@ -109,13 +149,13 @@ ARC is a memory management too...
   
   <entry>
     <title>Distribute iOS Beta Build (Scheme &amp; Configurations)</title>
-    <link href="http://localhost:4000/posts/iOS-Custom-Build-Scheme/" rel="alternate" type="text/html" title="Distribute iOS Beta Build (Scheme &amp;amp; Configurations)" />
+    <link href="http://localhost:4000/posts/ios/ios%20beta%20build/" rel="alternate" type="text/html" title="Distribute iOS Beta Build (Scheme &amp;amp; Configurations)" />
     <published>2023-07-02T17:01:10+05:30</published>
   
     <updated>2023-07-02T17:01:10+05:30</updated>
   
-    <id>http://localhost:4000/posts/iOS-Custom-Build-Scheme/</id>
-    <content src="http://localhost:4000/posts/iOS-Custom-Build-Scheme/" />
+    <id>http://localhost:4000/posts/ios/ios%20beta%20build/</id>
+    <content src="http://localhost:4000/posts/ios/ios%20beta%20build/" />
     <author>
       <name>Saurav Nagpal</name>
     </author>
@@ -149,13 +189,13 @@ Having multiple build configurations during the application’s development phas
   
   <entry>
     <title>Design Pattern Series: Decorator Pattern (Structure Pattern)</title>
-    <link href="http://localhost:4000/posts/decoratorpattern/" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" />
+    <link href="http://localhost:4000/posts/design%20pattern/clean%20code/" rel="alternate" type="text/html" title="Design Pattern Series: Decorator Pattern (Structure Pattern)" />
     <published>2023-06-24T20:00:10+05:30</published>
   
     <updated>2023-06-24T20:00:10+05:30</updated>
   
-    <id>http://localhost:4000/posts/decoratorpattern/</id>
-    <content src="http://localhost:4000/posts/decoratorpattern/" />
+    <id>http://localhost:4000/posts/design%20pattern/clean%20code/</id>
+    <content src="http://localhost:4000/posts/design%20pattern/clean%20code/" />
     <author>
       <name>Saurav Nagpal</name>
     </author>
@@ -195,60 +235,6 @@ The decorator pattern is used to add new functionality to an existing object wit
  Problem Statement
 
 One day I woke up and as per my daily routine attended the daily scrum parallelly checking the customer email. ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Design Pattern Series: Facade Pattern (Structure Pattern)</title>
-    <link href="http://localhost:4000/posts/Facadepattern/" rel="alternate" type="text/html" title="Design Pattern Series: Facade Pattern (Structure Pattern)" />
-    <published>2023-06-24T20:00:10+05:30</published>
-  
-    <updated>2023-06-24T20:00:10+05:30</updated>
-  
-    <id>http://localhost:4000/posts/Facadepattern/</id>
-    <content src="http://localhost:4000/posts/Facadepattern/" />
-    <author>
-      <name>Saurav Nagpal</name>
-    </author>
-
-  
-    
-    <category term="Design Pattern" />
-    
-    <category term="Clean Code" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-
- Overview
-
-
-
- Facade - Face of a building.
-
-A pattern to provide a simple interface to a complex framework or library. It hides the complexity and interaction between different objects in the framework.
-
-
-
-
-
-
-
- Problem Statement
-
-Suppose you are working on an e-commerce application. You have to support multiple payment options like UPI, Credit card, Debit Card, Wallet etc. You have chosen a t...
     </summary>
   
 

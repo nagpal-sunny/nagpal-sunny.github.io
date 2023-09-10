@@ -1,8 +1,25 @@
 [
   
   {
+    "title": "Game - Connect Balls",
+    "url": "/posts/apps/",
+    "categories": "Apps",
+    "tags": "apps, game",
+    "date": "2023-09-10 09:15:10 +0530",
+    
+
+
+
+
+
+    
+    "snippet": "It is about:School time Memories are always there to cherish. Playing games on paper while the teacher is present in the classroom is what everyone remembers.  This was one of the games I played mo...",
+    "content": "It is about:School time Memories are always there to cherish. Playing games on paper while the teacher is present in the classroom is what everyone remembers.  This was one of the games I played most of the time with friends. The game is simple yet engaging. You have to connect all the balls (dots on the paper) with a line. The line can be drawn with the use of a joystick.Let’s play all the levels and break the records !!!!.Download:"
+  },
+  
+  {
     "title": "Enum in Swift",
-    "url": "/posts/enum-in-swift/",
+    "url": "/posts/ios/swift/",
     "categories": "iOS, Swift",
     "tags": "Enum, Swift Enum, Value Types In Swift",
     "date": "2023-07-15 14:22:00 +0530",
@@ -19,7 +36,7 @@
   
   {
     "title": "ARC in Swift",
-    "url": "/posts/arc-in-swift/",
+    "url": "/posts/ios/ios%20memory%20management/",
     "categories": "iOS, iOS Memory Management",
     "tags": "ARC, Swift ARC",
     "date": "2023-07-15 14:22:00 +0530",
@@ -36,7 +53,7 @@
   
   {
     "title": "Distribute iOS Beta Build (Scheme & Configurations)",
-    "url": "/posts/iOS-Custom-Build-Scheme/",
+    "url": "/posts/ios/ios%20beta%20build/",
     "categories": "iOS, iOS Beta Build",
     "tags": "iOS scheme, iOS build config",
     "date": "2023-07-02 17:01:10 +0530",
@@ -53,7 +70,7 @@
   
   {
     "title": "Design Pattern Series: Decorator Pattern (Structure Pattern)",
-    "url": "/posts/decoratorpattern/",
+    "url": "/posts/design%20pattern/clean%20code/",
     "categories": "Design Pattern, Clean Code",
     "tags": "Decorator Pattern, Class Wrapper",
     "date": "2023-06-24 20:00:10 +0530",
@@ -70,7 +87,7 @@
   
   {
     "title": "Design Pattern Series: Facade Pattern (Structure Pattern)",
-    "url": "/posts/Facadepattern/",
+    "url": "/posts/design%20pattern/clean%20code/",
     "categories": "Design Pattern, Clean Code",
     "tags": "Facade Pattern, Face of a building",
     "date": "2023-06-24 20:00:10 +0530",
@@ -87,7 +104,7 @@
   
   {
     "title": "Design Pattern Series: Template Pattern (Behaviour Pattern)",
-    "url": "/posts/templatepattern/",
+    "url": "/posts/design%20pattern/clean%20code/",
     "categories": "Design Pattern, Clean Code",
     "tags": "Template Pattern, Template Method",
     "date": "2023-06-24 20:00:10 +0530",
@@ -104,7 +121,7 @@
   
   {
     "title": "Flutter on Apple Silicon Mac: Cocoa-pods Issue",
-    "url": "/posts/crossplatform-Flutter-on-Apple-Silicon-Mac/",
+    "url": "/posts/crossplatform/flutter/",
     "categories": "CrossPlatform, Flutter",
     "tags": "Mac rosetta, Mac M1",
     "date": "2023-06-22 09:15:10 +0530",
@@ -121,7 +138,7 @@
   
   {
     "title": "Swift ?? (Nil Coalescing) Do's and Don't",
-    "url": "/posts/Swift-(Nil-Coalescing)-Do's-and-Don't/",
+    "url": "/posts/swift/swift%20safety/",
     "categories": "Swift, Swift Safety",
     "tags": "Swift optional, Swift Nil Coalescing",
     "date": "2023-06-21 02:24:10 +0530",
@@ -134,6 +151,23 @@
     
     "snippet": "What is it?Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may con...",
     "content": "What is it?Optional is one of the fundamental safety features provided in Swift. It is a container for a value of a particular type. We are using the term container here because it means it may contain a value or not. Nil coalescing ?? is an operator used to provide a default if the optional is empty.How to use it?Add default value after the ??  operator following Optional. var name: String? let displayName = name ?? \"NA\" print(\"name is:\\(displayName)\")In this case, if the name is not available then “name is NA” will be printed. In Swift, we need to always take care while unwrapping an Optional as it might crash the application. The Nil coalescing ?? operator does the Job for you if it finds the optional has no value then it uses a default instead.Do’s and Don’t with ?? (#My Opinion)Following are some of the uses I have seen in the code and we go through them one by one and discuss the case:(i) Requirement is if Name is not present then display “NA” var name: String? let displayName = name ?? \"NA\" print(\"name is:\\(displayName)\")(ii) Requirement is to get number of rows in the selected section    func indexPathOfTableView() {        var selectedIndexPath: IndexPath?        //Assing a value in code somewhere        selectedIndexPath = IndexPath(section: 1, row: 0)                //Uses of the indexPath        tableView?.numberOfRows(inSection: selectedIndexPath?.section ?? 0)    }(iii) Requirement is to fetch a random student from the list    func randomStudent() {        var randomStudent: Student?        //Assign Value to the random student in code                //Somewhere in code        let selectedStudent = randomStudent ?? Student()        if selectedStudent.name.count &gt; 0 {        }    }(iv) Requirement is to fetch all student names.    struct Student {        var name: String    }        func fetchAllNames() {        var students: [Student]?        //All student Name        let studentNames = students?.map { $0.name ?? \"\" }        print(\"All Student Names:\\(studentNames)\")    }(v) Requirement is to check if the student list exists or not.   func checkStudentExist() -&gt; Bool {        var students: [Student]?        //check student exist        if students?.count ?? 0 &gt; 0 {            return true        }        return false    }My Opinion(i) Do - It is correct usage as we provide the default value if it does not exist.(ii) Don’t - 0 is not the default value for the section and it also can cause an unexpected issue If the index path in any case nil.(ii) Don’t - In this case, a student object without referring to any student is not a correct usage it is not a default value. It can cause an issue or crash if you are expecting a real object and get this value.(iv) Don’t - The requirement is to fetch all names of a student and in case the student does not exist in the record then you should not assign a default value like “”. Either you have some agreed default value or raise an exception name not exist.(v) Don’t - The requirement is to check if the student list exists or not. In the case of the, if students?.count ?? 0 &gt; 0 condition using the default value is reducing the condition. However, in my opinion, it reduces the readability."
+  },
+  
+  {
+    "title": "Game - Save Trees",
+    "url": "/posts/apps/",
+    "categories": "Apps",
+    "tags": "Game, Apps",
+    "date": "2022-08-22 09:15:10 +0530",
+    
+
+
+
+
+
+    
+    "snippet": "It is about:Our earth’s temperature is rising day by day. It is time to save the earth and reduce the effects of global warming. Start with this game and reduce global warming by saving the trees.L...",
+    "content": "It is about:Our earth’s temperature is rising day by day. It is time to save the earth and reduce the effects of global warming. Start with this game and reduce global warming by saving the trees.Lumberjacks will come to cut the trees, you need to protect the trees by digging a hole in the way of lumberjacks. You can buy products from the nursery to ease your mission to save the earth.Download:"
   }
   
 ]

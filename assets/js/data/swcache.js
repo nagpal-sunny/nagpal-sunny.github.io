@@ -11,9 +11,9 @@ const resource = [
     '/404.html',
 
     
-        '/categories/',
-    
         '/apps/',
+    
+        '/categories/',
     
         '/archives/',
     
