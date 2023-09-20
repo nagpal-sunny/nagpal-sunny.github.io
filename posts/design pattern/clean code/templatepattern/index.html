@@ -42,8 +42,8 @@
 <meta property="og:title" content="Design Pattern Series: Template Pattern (Behaviour Pattern)" />
 <meta name="author" content="Saurav Nagpal" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Outline" />
-<meta property="og:description" content="Outline" />
+<meta name="description" content="🌑 Outline" />
+<meta property="og:description" content="🌑 Outline" />
 <link rel="canonical" href="http://localhost:4000/posts/design%20pattern/clean%20code/templatepattern/" />
 <meta property="og:url" content="http://localhost:4000/posts/design%20pattern/clean%20code/templatepattern/" />
 <meta property="og:site_name" content="Saurav Nagpal Writings" />
@@ -55,7 +55,7 @@
 <meta name="twitter:creator" content="@Saurav Nagpal" />
 <meta name="google-site-verification" content="_7CbT2oLxEbzhBcpoyPoHWtOLgC2fJY_oGmcFFv48bM" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-09-10T11:26:00+05:30","datePublished":"2023-06-24T20:00:10+05:30","description":"Outline","headline":"Design Pattern Series: Template Pattern (Behaviour Pattern)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/design%20pattern/clean%20code/templatepattern/"},"url":"http://localhost:4000/posts/design%20pattern/clean%20code/templatepattern/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-09-12T21:25:06+05:30","datePublished":"2023-06-24T20:00:10+05:30","description":"🌑 Outline","headline":"Design Pattern Series: Template Pattern (Behaviour Pattern)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/design%20pattern/clean%20code/templatepattern/"},"url":"http://localhost:4000/posts/design%20pattern/clean%20code/templatepattern/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -732,42 +732,6 @@
       
 
     
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
 
     
 
@@ -775,6 +739,65 @@
 
   
   
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+
+    
 
   
 
@@ -834,13 +857,13 @@
 
 <em
   class=""
-  data-ts="1694325360"
+  data-ts="1694534106"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Sep 10, 2023
+  Sep 12, 2023
 </em>
 
     </span>
@@ -887,9 +910,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="758 words"
+  title="1065 words"
 >
-  <em>4 min</em> read</span>
+  <em>5 min</em> read</span>
 
     </div>
 
@@ -898,21 +921,15 @@
 </div> <!-- .post-meta -->
 
 <div class="post-content">
-  <h2 id="outline"><span class="me-2">Outline</span><a href="#outline" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+  <h2 id="-outline"><span class="me-2">🌑 Outline</span><a href="#-outline" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<hr />
+<p>The Template pattern declares/defines a structure for a process/algorithm in a superclass and the subclass can override specific steps of an algorithm to provide desired behaviour without changing the execution flow of the process. The method/function that decides the execution sequence of a process/algorithm is called the Template method.</p>
 
-<center>
+<blockquote class="prompt-info">
+  <p>Template - A structure/pattern to be followed for an algorithm/process.</p>
+</blockquote>
 
-Template - A structure/pattern to be followed for an algorithm/process.
-
-</center>
-<p><br />
-The Template pattern declares/defines a structure for a process/algorithm in a superclass and the subclass can override specific steps of an algorithm to provide desired behaviour without changing the execution flow of the process. The method/function that decides the execution sequence of a process/algorithm is called the Template method.</p>
-
-<hr />
-
-<h2 id="problem-statement"><span class="me-2">Problem Statement</span><a href="#problem-statement" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="️-why-template"><span class="me-2">🌥️ Why Template</span><a href="#️-why-template" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>While writing code sometimes you might get into a situation where a standard set of steps to be performed to achieve the functionality. The easy option is to call these steps one by one at the required place. This way the desired functionality will be achieved however, the process is not standardised and not reusable.</p>
 
@@ -923,28 +940,36 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
   <li>parse the news feed.</li>
   <li>Categories the news (Entertainment, Top News etc.).</li>
   <li>Filter the duplicate news.</li>
-  <li>Sort the Categories &amp; News based on Timestamp.</li>
+  <li>Sort the categories &amp; news based on timestamp.</li>
 </ol>
 
-<p>Let’s suppose you have written a code to support XML type of response initially. After 6 months of development, a new news feed source needs to be supported which has a JSON-type response. In this case, most of the steps will be the same only the parsing step is changed.</p>
+<p>Intially you have written a code that only supports <strong>XML</strong>. After 6 months of development, a new JSON-based feed source needs to be supported. From the above steps, the impact is only on the parsing step.</p>
 
-<p>A straightforward approach will handle all the requests and responses in the common class. However, the common class will have a check based on response and request type. Another approach will be a Template method for getting the Feeds from the source.</p>
+<p>One basic approach will be at parsing time you will check if the response is XML then parse XML else parse JSON. This will work but this is not a scalable and easily maintained solution. If more response types need to be supported then more conditions and more change in existing class.</p>
+
+<p>Another approach will be a Template method for getting the Feeds from the source.</p>
 
 <p><br /></p>
 
 <p><a href="/assets/designpattern/template/templateProblem.png" class="popup img-link "><img data-src="/assets/designpattern/template/templateProblem.png" class="lazyload" data-proofer-ignore></a></p>
 
-<h2 id="metaphor"><span class="me-2">Metaphor</span><a href="#metaphor" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="---metaphor"><span class="me-2">🌛 = 🌜 Metaphor</span><a href="#---metaphor" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>Template patterns can be related to a car assembly. A Car assembly has a sequence of steps in the following order designing, Fit Car Body, Fit car chassis, Fit Car Engine, Fit Car Door.</p>
+<p>Template patterns can be related to a car assembly. A Car assembly has a sequence of steps in the following order: designing, Fit Car Body, Fit car chassis, Fit Car Engine, Fit Car Door.</p>
 
 <p><a href="/assets/designpattern/template/templateMetaphor.png" class="popup img-link "><img data-src="/assets/designpattern/template/templateMetaphor.png" class="lazyload" data-proofer-ignore></a></p>
 
 <p>Each step, such as designing, fitting a chassis, and fitting a car engine can be slightly changed based on the type of car but the sequence of steps will be the same.</p>
 
-<h2 id="implementation"><span class="me-2">Implementation</span><a href="#implementation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="-how-it-looks"><span class="me-2">🌓 How it looks</span><a href="#-how-it-looks" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>Steps for the process/algorithm declared in an interface and the template method defined in an abstract class or interface which defined the sequence of execution of steps.</p>
+<p>⚡ Define an Abstract class or interface
+<br />
+⚡ Define a default class by implementing the interface.
+<br />
+⚡ Define a template method in the default class. Implementation will contain the sequence of steps to be followed.
+<br />
+⚡ If any variant is required then make a new variant class derived from default class.</p>
 
 <p><br /></p>
 
@@ -1012,38 +1037,55 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="kt">JsonFeedReader</span><span class="p">:</span> <span class="kt">DefaultFeedReader</span> <span class="p">{</span>
     <span class="k">override</span> <span class="kd">func</span> <span class="nf">parseFeeds</span><span class="p">(</span><span class="nv">rawFeeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span> <span class="p">{</span>
-        <span class="c1">//Logic for  parse Json</span>
+        <span class="c1">//Logic for  parse JSON</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
 <p><br /></p>
 
-<h2 id="applicability"><span class="me-2">Applicability</span><a href="#applicability" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="-applicability"><span class="me-2">🌕 Applicability</span><a href="#-applicability" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<ol>
-  <li>
-    <p>Use the template pattern when you are implementing an algorithm which has a sequence of steps to follow. In future, if you need a variant of the algorithm with a step change then a derived class can be used and required changes to be done in the derived class. Example: <em>Compiler designing.</em></p>
-  </li>
-  <li>
-    <p>When you need a variant in algorithm/process based on data type or extension in that case template pattern can be used. For example <em>parsing (XML/JSON/txt)</em>, <em>upload data (image/Xml/txt)</em>. So most of the steps will be the same only the handling of data will be changed.</p>
-  </li>
-  <li>
-    <p>A Process with multiple variants like authentication can be implemented with the Template method. There might be steps before and after authentication that will not affected by the authentication method (PIN/ FACEId/ Touch ID).</p>
-  </li>
-</ol>
+<p>⚡ It can be applied when you are implementing an algorithm/process which has a standard sequence of steps to follow. 
+<br />
+Example: <em>Compiler designing.</em>
+<br />
+<br />
+⚡ When multiple variants with minor changes require an algorithm/process. An algorithm/process that supports multiple data types can be a good candidate for a template pattern.
+<br />
+Example: <em>parsing (XML/JSON/txt)</em>, <em>upload data (image/Xml/txt)</em>. So most of the steps will be the same only the handling of data will be changed.
+<br />
+<br /></p>
+<blockquote class="prompt-info">
+  <p>In most of the applications login/sign-up process has a set of steps which can be fit in the template method. The authentication may have variants like (PIN/ FACEId/ Touch ID). Steps before and after authentication will not be affected by the authentication method (PIN/ FACEId/ Touch ID).</p>
+</blockquote>
 
-<h2 id="trade-offs"><span class="me-2">Trade-offs</span><a href="#trade-offs" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="-trade-offs"><span class="me-2">✨ Trade-offs</span><a href="#-trade-offs" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<h3 id="-reusability-vs-flexibility-"><span class="me-2"><em>** Reusability vs Flexibility **</em></span><a href="#-reusability-vs-flexibility-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h4 id="reusability-vs-flexibility"><span class="me-2"><em>Reusability vs Flexibility</em></span><a href="#reusability-vs-flexibility" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<p>Template patterns support code reusability by moving common code in the base class. On the other hand, the flexibility to add custom steps in specific variants is not possible with the template method. For example, In the above case, a new car requires the solar panel to be set up on the roof to support an electric battery which is not possible in the current template. There is no step in the process to add a Panel on the rooftop.</p>
+<p>Template pattern supports code reusability by moving common code in the base class. On the other hand, It creates a rigid hierarchy of classes. You cannot change the flow and steps in the derived class. For example, In the above case, a new car requires the solar panel to be set up on the roof to support an electric battery which is not possible in the current template. There is no step in the process to add a Panel on the rooftop. You need to change the base class for this.</p>
 
-<h3 id="-coupling-vs-cohesion-"><span class="me-2"><em>** Coupling vs Cohesion **</em></span><a href="#-coupling-vs-cohesion-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h4 id="cohesion-vs-coupling"><span class="me-2"><em>Cohesion vs Coupling</em></span><a href="#cohesion-vs-coupling" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<h2 id="facts"><span class="me-2">Facts</span><a href="#facts" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Template pattern helps to achieve cohesion in a code by grouping similar functionality in a single place. In the above case, getting feed for the application is at a single place and no dependency will exist on another module to get feeds if structure followed. However, on the other hand, it creates a tight coupling between the base class and the subclasses. Any change in the base class will impact the derived class. While designing the base class you need to take care of the interface it should not be too fat.</p>
 
-<h3 id="template-vs-"><span class="me-2"><em>**Template vs **</em></span><a href="#template-vs-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="-facts"><span class="me-2">🌚 Facts</span><a href="#-facts" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
+<h4 id="template--factory"><span class="me-2"><em>Template &amp; Factory</em></span><a href="#template--factory" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<p>The Template method may look like the Factory pattern as both have similar designs. However, the Factory pattern is a creational pattern and abstracts the creation logic of similar kinds of objects. On the other hand, a Template pattern is a behavioural design pattern which defines the behaviour of the process.</p>
+
+<blockquote class="prompt-info">
+  <p><strong>Question</strong>: A template pattern which defines the behaviour of the creation of similar types of Objects can be called a Factory?
+<br />
+<strong>Answer</strong>: Still, the Template pattern here helps to define the behaviour of the creation of an object not initialize an object for another module. The creation responsibility of the object is still outside of the template method.</p>
+</blockquote>
+
+<h4 id="template--strategy"><span class="me-2"><em>Template &amp; Strategy</em></span><a href="#template--strategy" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<p>The template method is used when a standard/common behaviour exists for an algorithm/process. The common behaviour defined in the base class and variants in a process/algorithm can be added in the subclass.</p>
+
+<p>Strategy pattern is also used to handle multiple variants of an algorithm/Process. However, each variant has independent (No common) implementation. Sorting in most of the language is implemented through this pattern.</p>
 
 </div>
 
@@ -1186,6 +1228,13 @@ The Template pattern declares/defines a structure for a process/algorithm in a s
   <div id="access-lastmod" class="post">
     <div class="panel-heading">Recently Updated</div>
     <ul class="post-content list-unstyled ps-0 pb-1 ms-1 mt-2">
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/ios/ios%20beta%20build/iOS-Custom-Build-Scheme/">Distribute iOS Beta Build (Scheme & Configurations)</a>
+        </li>
       
         
         
