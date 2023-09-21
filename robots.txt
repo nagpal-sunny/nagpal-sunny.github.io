@@ -2,4 +2,4 @@ User-agent: *
 
 Disallow: /norobots/
 
-Sitemap: http://chewcode.blog/sitemap.xml
+Sitemap: http://codeworld.blog/sitemap.xml
