@@ -1362,77 +1362,6 @@
   
 
   
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-
-    
-
-  
 
 
 
@@ -1501,7 +1430,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="476 words"
+  title="485 words"
 >
   <em>2 min</em> read</span>
 
@@ -1534,93 +1463,64 @@
 
 <p>Xcode supports multiple configurations in a single target. By default, Xcode provides debug and release configuration. Let’s start step by step the process:</p>
 
-<h5 id="step-1--add-a-new-configuration-beta-configuration"><span class="me-2">Step 1  Add a new configuration (Beta configuration)</span><a href="#step-1--add-a-new-configuration-beta-configuration" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+<p>⚡ <strong>Add a new configuration (Beta configuration)</strong></p>
 
-<p>i) Navigate to the project setting</p>
+<p>         i) Navigate to the project setting
+<a href="/assets/img/iOS/betaconfig/betaConfigStart.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/betaConfigStart.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><a href="/assets/img/iOS/betaconfig/betaConfigStart.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/betaConfigStart.png" class="lazyload" data-proofer-ignore></a></p>
-
-<p><br /></p>
-
-<p>ii) Tap on the “+” button in the configuration section and duplicate the debug configuration(you can choose duplicate of release based on requirement).</p>
-
-<p><br />
+<p>         ii) Tap on the “+” button in the configuration section and duplicate the debug configuration(you can choose duplicate of release based on requirement). 
 <a href="/assets/img/iOS/betaconfig/duplicateDebugConfig.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/duplicateDebugConfig.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
-
-<p>iii) Enter the name of the configuration (BetaDebug). 
-<br />
+<p>         iii) Enter the name of the configuration (BetaDebug). 
 <a href="/assets/img/iOS/betaconfig/nameBetaDebug.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/nameBetaDebug.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
+<p><br />
+⚡ <strong>Change product bundleid for BetaDebug</strong></p>
 
-<h5 id="step-2-change-product-bundleid-for-betadebug"><span class="me-2">Step 2 Change product bundleid for BetaDebug</span><a href="#step-2-change-product-bundleid-for-betadebug" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+<p>         (i) Move to Target-&gt; Build Setting-&gt; Search(Product Bundle Identifier)
+<a href="/assets/img/iOS/betaconfig/productBundleIdentifier.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/productBundleIdentifier.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p>i) Move to Target-&gt; Build Setting-&gt; Search(Product Bundle Identifier)</p>
-
-<p><a href="/assets/img/iOS/betaconfig/productBundleIdentifier.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/productBundleIdentifier.png" class="lazyload" data-proofer-ignore></a></p>
+<p>         (ii) Set the bundle identifier as per your requirement. 
+<a href="/assets/img/iOS/betaconfig/renameProductBundleId.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/renameProductBundleId.png" class="lazyload" data-proofer-ignore></a></p>
 
 <p><br />
-ii) Set the bundle identifier as per your requirement.</p>
+⚡ <strong>Set a separate application icon for BetaDebug</strong></p>
 
-<p><a href="/assets/img/iOS/betaconfig/renameProductBundleId.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/renameProductBundleId.png" class="lazyload" data-proofer-ignore></a></p>
-
-<p><br /></p>
-<h5 id="step-3-set-separate-application-icon-for-betadebug"><span class="me-2">Step 3 Set separate application icon for BetaDebug</span><a href="#step-3-set-separate-application-icon-for-betadebug" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
-
-<p>i) Add a new AppIcon asset in Assets with a specific name(AppIconBeta).
-<br />
+<p>         i) Add a new AppIcon asset in Assets with a specific name(AppIconBeta).
 <a href="/assets/img/iOS/betaconfig/betaAppIcon.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/betaAppIcon.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
-
-<p>ii) Add AppIconBeta in the BetaDebug configuration.
+<p>         ii) Add AppIconBeta in the BetaDebug configuration.
 <a href="/assets/img/iOS/betaconfig/configBetaDebug.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/configBetaDebug.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
-
-<p>iii) Finally!, a separate application icon is set for BetaDebug.
+<p>         iii) Finally!, a separate application icon is set for BetaDebug.
 <a href="/assets/img/iOS/betaconfig/appIconBetaConfigured.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/appIconBetaConfigured.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
-<h5 id="step-4-set-separate-launch-screen-for-betadebug"><span class="me-2">Step 4 Set separate Launch screen for BetaDebug</span><a href="#step-4-set-separate-launch-screen-for-betadebug" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
-<p><br /></p>
+<p><br />
+⚡ <strong>Set separate Launch screen for BetaDebug</strong></p>
 
-<p>i) Add a new launch screen for Beta config. 
-<br />
+<p>         i) Add a new launch screen for Beta config. 
 <a href="/assets/img/iOS/betaconfig/betaLaunchOption.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/betaLaunchOption.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
-
-<p>ii) Edit launch screen configuration for BetaDebug.
+<p>         ii) Edit launch screen configuration for BetaDebug.
 <a href="/assets/img/iOS/betaconfig/configBetaLaunchDebug.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/configBetaLaunchDebug.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
-
-<p>iii) Finally!, a separate Launch screen is set for BetaDebug.
+<p>         iii) Finally!, a separate Launch screen is set for BetaDebug.
 <a href="/assets/img/iOS/betaconfig/launchSetupConfigDebug.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/launchSetupConfigDebug.png" class="lazyload" data-proofer-ignore></a></p>
 
 <p><br /></p>
 
-<h5 id="step-5-add-a-user-setting-for-the-backend-url"><span class="me-2">Step 5 Add a user setting for the backend URL</span><a href="#step-5-add-a-user-setting-for-the-backend-url" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+<p>⚡ <strong>Add a user setting for the backend URL</strong></p>
 
-<p>i) <span style="color:#232B2B;">Word up</span>  Add a new user-defined setting in the target setting. 
-<br />
+<p>         (i) Add a new user-defined setting in the target setting. 
 <a href="/assets/img/iOS/betaconfig/addUserDefined.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/addUserDefined.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br />
-ii) Name the configuration “Backend_URL”(choose your own name) and change the URL string for BetaConfig.
+<p>         ii) Name the configuration “Backend_URL”(choose your own name) and change the URL string for BetaConfig.
 <a href="/assets/img/iOS/betaconfig/updateForBetaConfig.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/updateForBetaConfig.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
-
-<p>iii) Add the entry in <strong>info.plist</strong> for the backend URL.
+<p>         iii) Add the entry in <strong>info.plist</strong> for the backend URL.
 <a href="/assets/img/iOS/betaconfig/editInfoPlist.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/editInfoPlist.png" class="lazyload" data-proofer-ignore></a></p>
 
-<p><br /></p>
-
-<p>iv) Fetch the user-defined setting in the code.</p>
+<p>         iv) Fetch the user-defined setting in the code.</p>
 
 <figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="k">let</span> <span class="nv">urlString</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">object</span><span class="p">(</span><span class="nv">forInfoDictionaryKey</span><span class="p">:</span> <span class="s">"Backend URL"</span><span class="p">)</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">urlString</span><span class="p">)</span>
