@@ -55,7 +55,7 @@
 <meta name="twitter:creator" content="@Saurav Nagpal" />
 <meta name="google-site-verification" content="_7CbT2oLxEbzhBcpoyPoHWtOLgC2fJY_oGmcFFv48bM" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-07-02T17:01:10+05:30","datePublished":"2023-07-02T17:01:10+05:30","description":"🌑 Outline","headline":"Distribute iOS Beta Build (Scheme &amp; Configurations)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/ios/ios%20beta%20build/iOS-Custom-Build-Scheme/"},"url":"http://localhost:4000/posts/ios/ios%20beta%20build/iOS-Custom-Build-Scheme/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saurav Nagpal"},"dateModified":"2023-09-29T21:37:37+05:30","datePublished":"2023-07-02T17:01:10+05:30","description":"🌑 Outline","headline":"Distribute iOS Beta Build (Scheme &amp; Configurations)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/ios/ios%20beta%20build/iOS-Custom-Build-Scheme/"},"url":"http://localhost:4000/posts/ios/ios%20beta%20build/iOS-Custom-Build-Scheme/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -1401,6 +1401,30 @@
 
     <!-- lastmod date -->
     
+    <span>
+      Updated
+      <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em
+  class=""
+  data-ts="1696003657"
+  data-df="ll"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  Sep 29, 2023
+</em>
+
+    </span>
+    
 
   
 
@@ -1430,7 +1454,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="485 words"
+  title="488 words"
 >
   <em>2 min</em> read</span>
 
@@ -1521,10 +1545,15 @@
 <a href="/assets/img/iOS/betaconfig/editInfoPlist.png" class="popup img-link "><img data-src="/assets/img/iOS/betaconfig/editInfoPlist.png" class="lazyload" data-proofer-ignore></a></p>
 
 <p>         iv) Fetch the user-defined setting in the code.</p>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="k">let</span> <span class="nv">urlString</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">object</span><span class="p">(</span><span class="nv">forInfoDictionaryKey</span><span class="p">:</span> <span class="s">"Backend URL"</span><span class="p">)</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="code-header">
+        <span data-label-text="Swift"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">if</span> <span class="k">let</span> <span class="nv">urlString</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">object</span><span class="p">(</span><span class="nv">forInfoDictionaryKey</span><span class="p">:</span> <span class="s">"Backend URL"</span><span class="p">)</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">urlString</span><span class="p">)</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="-where-to-use"><span class="me-2">🌕 Where to use</span><a href="#-where-to-use" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
@@ -1685,6 +1714,27 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/design%20pattern/clean%20code/decoratorpattern/">Simplify Decorator Pattern (Structure Pattern)</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/ios/ios%20beta%20build/iOS-Custom-Build-Scheme/">Distribute iOS Beta Build (Scheme & Configurations)</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/apps/apps-games-SaveTrees/">Game - Save Trees</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/crossplatform/flutter/crossplatform-Flutter-on-Apple-Silicon-Mac/">Flutter on Apple Silicon Mac: Cocoa-pods Issue</a>
         </li>
       
@@ -1693,13 +1743,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/design%20pattern/clean%20code/Facadepattern/">Design Pattern Series: Facade Pattern (Structure Pattern)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/design%20pattern/clean%20code/decoratorpattern/">Design Pattern: Decorator Pattern (Structure Pattern)</a>
         </li>
       
     </ul>
@@ -2427,7 +2470,7 @@ Optional is one of the fundamental safety features provided in Swift. It is a co
       class="btn btn-outline-primary"
       prompt="Older"
     >
-      <p>Design Pattern: Decorator Pattern (Structure Pattern)</p>
+      <p>Simplify Decorator Pattern (Structure Pattern)</p>
     </a>
   
 
