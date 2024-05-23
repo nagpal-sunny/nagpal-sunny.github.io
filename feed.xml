@@ -1,1 +1,244 @@
-<feed xmlns="http://www.w3.org/2005/Atom"> <id>http://codeworld.blog/</id><title>Code World 🌐</title><subtitle>Blog about iOS, Swift, Mobile Development and Design Pattern.</subtitle> <updated>2024-04-27T16:18:39+05:30</updated> <author> <name>Saurav Nagpal</name> <uri>http://codeworld.blog/</uri> </author><link rel="self" type="application/atom+xml" href="http://codeworld.blog/feed.xml"/><link rel="alternate" type="text/html" hreflang="en" href="http://codeworld.blog/"/> <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator> <rights> © 2024 Saurav Nagpal </rights> <icon>/assets/img/favicons/favicon.ico</icon> <logo>/assets/img/favicons/favicon-96x96.png</logo> <entry><title>SwiftUI - Fixed vs Dynamic Size Spacer</title><link href="http://codeworld.blog/posts/ios/swiftui/swift/Fixed_Size_Spacer/" rel="alternate" type="text/html" title="SwiftUI - Fixed vs Dynamic Size Spacer" /><published>2024-04-23T11:22:00+05:30</published> <updated>2024-04-23T11:22:00+05:30</updated> <id>http://codeworld.blog/posts/ios/swiftui/swift/Fixed_Size_Spacer/</id> <content src="http://codeworld.blog/posts/ios/swiftui/swift/Fixed_Size_Spacer/" /> <author> <name>saurav_nagpal</name> </author> <category term="iOS" /> <category term="SwiftUI" /> <category term="Swift" /> <summary> A spacer is an element that adds space between two components. If it is inside a stack layout then it expands along the stack axis else expands in both directions. Fixed Size Spacer Spacer is also a SwiftUI component and behaves similarly, So apply a frame modifier to set the height or width of Spacer. VStack { Text("Before Spacer") Spacer().frame(height: 20) Text("After Spacer") } ... </summary> </entry> <entry><title>Namaste Swift Server</title><link href="http://codeworld.blog/posts/ios/swift/vapor/NamasteSwiftServer/" rel="alternate" type="text/html" title="Namaste Swift Server" /><published>2024-04-15T11:30:00+05:30</published> <updated>2024-04-15T11:30:00+05:30</updated> <id>http://codeworld.blog/posts/ios/swift/vapor/NamasteSwiftServer/</id> <content src="http://codeworld.blog/posts/ios/swift/vapor/NamasteSwiftServer/" /> <author> <name>saurav_nagpal</name> </author> <category term="iOS" /> <category term="Swift" /> <category term="Vapor" /> <summary> 🌑 Outline Swift has gained significant traction since its launch in 2014. Currently, it’s ranked as the 8th most in-demand language to learn. While many associate Swift with iOS and Mac development, its open-sourcing in 2015 unlocked new possibilities. One exciting area is server-side development, which we’ll immersed in today. We will use the Vapor Web framework to implement the HTTP web ser... </summary> </entry> <entry><title>Case 001 - AnyView kills Performance</title><link href="http://codeworld.blog/posts/ios/swift/anyview_impact-_performance/" rel="alternate" type="text/html" title="Case 001 - AnyView kills Performance" /><published>2024-03-01T18:22:00+05:30</published> <updated>2024-03-01T18:22:00+05:30</updated> <id>http://codeworld.blog/posts/ios/swift/anyview_impact-_performance/</id> <content src="http://codeworld.blog/posts/ios/swift/anyview_impact-_performance/" /> <author> <name>Saurav Nagpal</name> </author> <category term="iOS" /> <category term="Swift" /> <summary> 📋 Case Detail Recently, I was working on an application and looking for a solution to dynamically return a view from a method. The scenario was that TabBar children could be returned dynamically from a method. func viewForTabItem(_ coordinator: any ASTabItemView, isSelected: Bool) -&amp;gt; AnyView Observe that the method takes attributes for tab items (image, text) and returns respective view... </summary> </entry> <entry><title>What's System Design</title><link href="http://codeworld.blog/posts/system%20design/architecture/What's-System-Design/" rel="alternate" type="text/html" title="What's System Design" /><published>2024-01-01T09:22:00+05:30</published> <updated>2024-04-26T13:23:21+05:30</updated> <id>http://codeworld.blog/posts/system%20design/architecture/What's-System-Design/</id> <content src="http://codeworld.blog/posts/system%20design/architecture/What's-System-Design/" /> <author> <name>saurav_nagpal</name> </author> <category term="System Design" /> <category term="Architecture" /> <summary> 🌑 Outline A common discussion in any team before starting any mobile application is which architecture should be followed. The discussion starts with the latest architecture trends and slowly reaches to what is the best architecture for mobile applications. Before discussing best architecture let’s discuss “what is architecture?” 🌥️ What is an Application Architecture The architecture word w... </summary> </entry> <entry><title>SwiftUI - Create Expandable List (Section Approach)</title><link href="http://codeworld.blog/posts/ios/swift/swiftui/Expandable-list/" rel="alternate" type="text/html" title="SwiftUI - Create Expandable List (Section Approach)" /><published>2023-09-26T11:22:00+05:30</published> <updated>2023-09-26T11:22:00+05:30</updated> <id>http://codeworld.blog/posts/ios/swift/swiftui/Expandable-list/</id> <content src="http://codeworld.blog/posts/ios/swift/swiftui/Expandable-list/" /> <author> <name>Saurav Nagpal</name> </author> <category term="iOS" /> <category term="Swift" /> <category term="SwiftUI" /> <summary> 🌑 Outline List View in Swift UI has the capability to support expandable lists without writing any extra logic for expansion or collapse. The section in a list can serve as the main cell and the cell can serve as the expended cell. Unlike UIKit, SwiftUI List View adjusts automatically based on the data source. No need to reload or delete cells just provide the expected format data and it will... </summary> </entry> </feed>
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Code World 🌐</title>
+  <subtitle>Blog about iOS, Swift, Mobile Development and Design Pattern.</subtitle>
+  <updated>2024-05-23T10:34:24+05:30</updated>
+  <author>
+    <name>Saurav Nagpal</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
+  <rights> © 2024 Saurav Nagpal </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>John's Interview - Loader Design</title>
+    <link href="http://localhost:4000/posts/system%20design/architecture/Design-Mobile-App-Loader/" rel="alternate" type="text/html" title="John's Interview - Loader Design" />
+    <published>2024-04-30T09:22:00+05:30</published>
+  
+    <updated>2024-05-22T23:17:05+05:30</updated>
+  
+    <id>http://localhost:4000/posts/system%20design/architecture/Design-Mobile-App-Loader/</id>
+    <content src="http://localhost:4000/posts/system%20design/architecture/Design-Mobile-App-Loader/" />
+    <author>
+      <name>saurav_nagpal</name>
+    </author>
+
+  
+    
+    <category term="System Design" />
+    
+    <category term="Architecture" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      🌑 Outline
+
+John went for an iOS Interview at TechForGood Organization, which has a system design round. Let’s go through the transcript of the discussion. 
+
+Interviewer: Steve
+Candidate: John
+
+Steve: Design a loader for a mobile application. It can be accessed anywhere within the application.
+
+Let’s check whether John clarifies all the requirements or jumps to the solution
+
+🌥️ Clear Out Require...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>SwiftUI - Fixed vs Dynamic Size Spacer</title>
+    <link href="http://localhost:4000/posts/ios/swiftui/Fixed_Size_Spacer/" rel="alternate" type="text/html" title="SwiftUI - Fixed vs Dynamic Size Spacer" />
+    <published>2024-04-23T11:22:00+05:30</published>
+  
+    <updated>2024-04-23T11:22:00+05:30</updated>
+  
+    <id>http://localhost:4000/posts/ios/swiftui/Fixed_Size_Spacer/</id>
+    <content src="http://localhost:4000/posts/ios/swiftui/Fixed_Size_Spacer/" />
+    <author>
+      <name>saurav_nagpal</name>
+    </author>
+
+  
+    
+    <category term="iOS" />
+    
+    <category term="SwiftUI" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      A spacer is an element that adds space between two components. If it is inside a stack layout then it expands along the stack axis else expands in both directions.
+
+Fixed Size Spacer
+Spacer is also a SwiftUI component and behaves similarly, So apply a frame modifier to set the height or width of Spacer.
+
+VStack {
+	Text("Before Spacer")
+    Spacer().frame(height: 20)
+    Text("After Spacer")
+}
+
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Namaste Swift Server</title>
+    <link href="http://localhost:4000/posts/swift/vapor/NamasteSwiftServer/" rel="alternate" type="text/html" title="Namaste Swift Server" />
+    <published>2024-04-15T11:30:00+05:30</published>
+  
+    <updated>2024-05-21T09:52:28+05:30</updated>
+  
+    <id>http://localhost:4000/posts/swift/vapor/NamasteSwiftServer/</id>
+    <content src="http://localhost:4000/posts/swift/vapor/NamasteSwiftServer/" />
+    <author>
+      <name>saurav_nagpal</name>
+    </author>
+
+  
+    
+    <category term="Swift" />
+    
+    <category term="Vapor" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      🌑 Outline
+
+Swift has gained significant traction since its launch in 2014. Currently, it’s ranked as the 8th most in-demand language to learn. While many associate Swift with iOS and Mac development, its open-sourcing in 2015 unlocked new possibilities. One exciting area is server-side development, which we’ll immersed in today.
+
+We will use the Vapor Web framework to implement the HTTP web ser...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Case 001 - AnyView kills Performance</title>
+    <link href="http://localhost:4000/posts/ios/swiftui/anyview_impact-_performance/" rel="alternate" type="text/html" title="Case 001 - AnyView kills Performance" />
+    <published>2024-03-01T18:22:00+05:30</published>
+  
+    <updated>2024-03-01T18:22:00+05:30</updated>
+  
+    <id>http://localhost:4000/posts/ios/swiftui/anyview_impact-_performance/</id>
+    <content src="http://localhost:4000/posts/ios/swiftui/anyview_impact-_performance/" />
+    <author>
+      <name>Saurav Nagpal</name>
+    </author>
+
+  
+    
+    <category term="iOS" />
+    
+    <category term="SwiftUI" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      📋 Case Detail
+
+Recently, I was working on an application and looking for a solution to dynamically return a view from a method.
+
+The scenario was that TabBar children could be returned dynamically from a method.
+
+func viewForTabItem(_ coordinator: any ASTabItemView, isSelected: Bool) -&amp;gt; AnyView
+
+
+Observe that the method takes attributes for tab items (image, text) and returns respective view...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>What's System Design</title>
+    <link href="http://localhost:4000/posts/system%20design/architecture/What's-System-Design/" rel="alternate" type="text/html" title="What's System Design" />
+    <published>2024-01-01T09:22:00+05:30</published>
+  
+    <updated>2024-05-07T21:48:15+05:30</updated>
+  
+    <id>http://localhost:4000/posts/system%20design/architecture/What's-System-Design/</id>
+    <content src="http://localhost:4000/posts/system%20design/architecture/What's-System-Design/" />
+    <author>
+      <name>saurav_nagpal</name>
+    </author>
+
+  
+    
+    <category term="System Design" />
+    
+    <category term="Architecture" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      🌑 Outline
+
+A common discussion in any team before starting any mobile application is which architecture should be followed. The discussion starts with the latest architecture trends and slowly reaches to what is the best architecture for mobile applications. Before discussing best architecture let’s discuss “what is architecture?”
+
+🌥️ What is an Application Architecture
+
+The architecture word w...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
